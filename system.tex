@@ -1,0 +1,582 @@
+\documentclass[landscape]{article}
+\usepackage{fullpage,multicol,amssymb}
+\usepackage[normalem]{ulem}
+%\pagestyle{empty}
+\textheight=7in
+
+\makeatletter
+\def\uuwave{\bgroup \markoverwith{\lower2.5\p@\hbox{\sixly
+  \kern-.21\p@ 
+  \setbox\z@=\hbox{\lower1.5\p@\hbox{\char58}}\wd\z@=0\p@\ht\z@=0\p@\dp\z@=0\p@
+  \vbox{\box\z@}
+  \box\z@
+  \char58%
+  \kern-.21\p@}}\ULon}
+\def\udots{\bgroup \markoverwith{\lower2.5\p@\hbox{\kern-0.7\p@
+  .\kern0\p@}}\ULon}
+\makeatother
+
+\newcommand{\optionalmath}[1]{\ifmmode#1\else$#1$\fi}
+\let\mathge\ge
+\let\mathle\le
+\let\mathto\to
+\let\mathapprox\approx
+\let\mathsim\sim
+\let\mathne\ne
+\let\mathltsim\lesssim
+\let\mathgtsim\gtrsim
+\def\ge{\optionalmath\mathge}
+\def\gt{\optionalmath>}
+\def\le{\optionalmath\mathle}
+\def\lt{\optionalmath<}
+\def\ne{\optionalmath\mathne}
+\def\to{\optionalmath\mathto}
+\def\ltsim{\optionalmath\mathltsim}
+\def\gtsim{\optionalmath\mathgtsim}
+\def\approx{\optionalmath\mathapprox}
+\def\sim{\optionalmath\mathsim}
+\def\+{\optionalmath{^+}}
+\def\C{\optionalmath\clubsuit}
+\def\D{\optionalmath\diamondsuit}
+\def\H{\optionalmath\heartsuit}
+\def\S{\optionalmath\spadesuit}
+\def\NT{\ifmmode\mathsc{nt}\else\textsc{nt}\fi}
+\def\HCP{\textsc{hcp}}
+\def\DP{\textsc{dp}}
+\def\P{\textsc{pass}}
+\def\DBL{\textsc{dbl}}
+\def\RDBL{\textsc{rdbl}}
+\def\f{\optionalmath\star}
+%\def\gf{\optionalmath\copyright}
+\def\s{\textsc{s}}
+\def\x{\optionalmath x}
+\def\y{\optionalmath y}
+\def\z{\optionalmath z}
+\def\w{\optionalmath w}
+\def\n{\optionalmath n}
+\def\ks{\kern2pt\s\kern2pt}
+\def\kx{\kern1.5pt\optionalmath x\kern1pt}
+\def\ky{\kern1.5pt\optionalmath y\kern1pt}
+\def\kz{\kern1.5pt\optionalmath z\kern1pt}
+\def\kw{\kern1.5pt\optionalmath w\kern1pt}
+\def\li{\indent\phantom{li}}
+\def\cuebid{\textsc{cuebid}}
+\def\force{!}
+\def\inv{?}
+\def\si{>}
+\def\so{\optionalmath\times}
+\def\gf{\%}
+\def\nojump{\optionalmath\downarrow}
+\def\jump{\optionalmath\uparrow}
+\def\bmin{\textbf{min}}
+\def\binv{\textbf{inv}}
+\def\bgame{\textbf{game}}
+\def\bmax{\textbf{max}}
+
+\newcommand{\crunch}[1][.6]{\vspace*{-#1pc}}
+\renewcommand{\bullet}[1]{\begin{itemize}\item#1\end{itemize}}
+
+\setlength{\ULdepth}{2pt}
+\def\unbid#1{\uline{#1}}
+%\def\raise#1{\ifmmode\overline{#1}\else$\overline{\mathrm{#1}}$\fi}
+\def\raise#1{\uwave{#1}}
+\def\rebid#1{\udots{#1}}
+%\def\cue#1{\setbox0=\hbox{\fbox{\setbox0=\vbox to 8pt{#1}\wd0=4pt\box0}}\ht0=0pt\dp0=0pt\box0}
+
+\def\cue#1{\begingroup\setbox0=\hbox{#1}\dimen0=\wd0\dimen1=\ht0\dimen2=\dp0%
+\setbox1=\hbox{\fbox{\setbox2=\hbox{}%
+\advance\dimen0 by -4pt \advance\dimen1 by -1pt \advance\dimen2 by -1pt%
+\wd2=\dimen0\ht2=\dimen1\dp2=\dimen2\box2}}%
+\wd1=0pt\ht1=0pt\dp1=0pt\box1\hskip1pt\box0\hskip3pt\endgroup}
+
+\def\cue#1{\uuline{#1}}
+
+\def\M{\textsc{m}}
+\def\m{m}
+
+\newenvironment{column}[1][0.33]{\begin{minipage}[t]{#1\columnwidth}}{\end{minipage}}
+\renewcommand{\rule}[1][.0025]{\hskip #1\columnwidth\vrule\hskip #1\columnwidth}
+\newenvironment{mylist}[1][.5]{\begin{itemize}\itemsep=-#1\baselineskip}{\end{itemize}}
+\begin{document}
+\title{Standard American Summary}
+\author{Stephen Hicks}
+{\center\noindent 
+\jump3\S=jump bid, \nojump3\S=nonjump,
+3\raise{\S}=raise p's suit, 3\rebid{\S}=raise own suit,
+3\unbid{\S}=unbid suit, 3\cue{\S}=enemy suit, 
+\s=any suit, \x/\y/\z/\w=\emph{different\/} suits}\vspace*{-9pt}
+{\center3\S\force=forcing 1 round, 3\S\force\force=forcing 2 rounds,
+3\S\inv=game invite, 3\S\gf=game forcing, 
+3\S\si=slam invite, 3\S\so=sign off
+}\vspace*{4pt}\hrule\vspace*{4pt}
+\begin{column}
+\section{Main Strategy}
+\begin{mylist}[.2]
+\item Open 5-card majors, Strong 1\NT\ (15--17p)
+\item Stayman Convention and Jacobi Transfers
+\item Honors points (4--3--2--1)
+\item Long suit points (1 ea. cd. after 4)
+\item Short suit points (3--2--1 only after fit)
+\item Balanced = 4-3-3-3, 4-4-3-2, or 5-3-3-2
+\item Semibalanced may have two doubletons
+\end{mylist}
+\hrule\crunch
+\section{Openings}
+\begin{tabular}{ll}
+  1\C\D & 13--22p, 3+\\
+  1\H\S & 13--22p, 5+\\
+\end{tabular}
+\crunch
+\begin{mylist}[.2]%[.3]
+\item if only one 5-cd suit, bid it (unless 4 strong \D's
+  and 5 weak \C's and \le16p, then bid \D)
+\item if 5/5, bid higher ranking suit (unless \C/\D and
+  \le14p, then bid \C)
+\item if 5/6, bid long suit unless shorter suit ranks
+  higher and \le16p (unless 6 \C's and 5 \S's, then always
+  bid \C\ first)
+\item if only 4-cd suits, bid longest minor
+  (\D\ for 4/4 minors, \C\ for 3/3)
+\end{mylist}
+\crunch
+\begin{tabular}{ll}
+  1\NT & 15--17p, balanced, 3 suits stopped\\
+  2\C\force & \ge23p strong\\
+  2\D\H\S & 5--11p, 6-cd suit\\
+  2\NT & 20--22p, balanced, all suits stopped\\
+  3\s & 0--8p, 7-cd suit\\
+  3\NT & Acol, 16--21p, solid minor (7-cd)\\
+       & 2 side suits stopped,\\
+       & no voids or worthless singletons
+\end{tabular}
+\subsection{3rd and 4th seat}
+\begin{mylist}[.4]
+\item 3rd: rule of 20 (open if \HCP+2 suits\ge20)
+\item 4th: rule of 15 (open if \HCP+\S's\ge15)
+\end{mylist}
+
+
+\end{column}
+\rule[.01]
+\begin{column}[.29]
+
+\section{Responses to NT}
+\subsection{To 1NT}
+%\begin{mylist}\item Responder is captain.\end{mylist}
+\li Responder is captain.\\
+\begin{tabular}{ll}
+  \P & \le 8p\\
+  2\C\force & Stayman, \ge 8p, 4-cd major\\
+  2\D\H\force & Jacoby, 5-cd major\\
+  2\NT\inv & 9--10p, semibalanced, invite\\
+  3\C\D\so & bust, long minor, sign off\\
+  3\NT & 11-15p semi-balanced\\
+  4\NT\si & \ge16p, slam invite\\
+\end{tabular}
+
+\subsection{To 2NT}
+\begin{tabular}{ll}
+  \P & \le4p\\
+  3\C\force & Stayman, \ge4p, 4-cd major\\
+  3\D\H\force & Jacoby, 5-cd major\\
+\end{tabular}\\
+\li other bids natural
+
+\subsection{After enemy DBL}
+\li Stayman and Jacoby are OFF\\
+\li Only strong response is \RDBL\\
+\begin{tabular}{ll}
+  \P & \le8p, balanced\\
+  2\s & \le8p, 5-cd suit\\
+  \RDBL & \gt8p
+\end{tabular}
+
+\subsection{After enemy overcall}
+\li Stayman and Jacoby are OFF\\
+\begin{tabular}{ll}
+  2\s & 6--9p, 5-cd suit\\
+  3\s & 6--9p, 6-cd suit if not a jump\\
+  jump & 10--11p, 5-cd suit\\
+  \DBL & \ge8p, \ge4 trump\\
+  \cuebid & Stayman at 3-level if 3\D\ or 3\H,\\
+  (3\cue{\D\H}) & must have \ge9p, opener bids 3\NT\\
+          & to deny biddable 4-cd major\\
+\end{tabular}
+\end{column}
+\rule[.02]
+\begin{column}
+\section{Stayman 1NT-2\C\force}
+\li non-forcing (weak 4\D/4\H/4\S\ okay) \to\ \P\\
+\li otherwise, responder has \ge8p and 4-cd major\\
+\li also 2\NT-3\C\force\ or 2\C-2\D-2\NT-3\C\force\\
+\li \to4\C\D\ strong (NOT Gerber), 3\H\S\ w/ less pts
+\subsection{Opener's rebid}
+\begin{tabular}{ll}
+  2\D & No 4-cd major\\
+  2\H & 4 \H's, maybe 4 \S's\\
+  2\S & 4 \S's, \le 3 \H's\\
+\end{tabular}
+
+\subsection{Responder's rebid}
+\begin{tabular}{ll}
+  2\unbid{\S}\inv & 5/4 majors (5 in new), 8--9p, invite\\
+  2\NT & 8--9p, wrong major (has \S\ if rejected \H)\\
+  3\C\D\inv & 5-cd minor, \ge10p, maybe no 4-cd major\\
+        & \to 3\NT\ discourages slam\\
+        & \to any other response is slam try\\
+  3\unbid{\H\S}\si & 5/4 majors (5 in new), \ge10p\\
+        & \to game bid discourages slam\\
+        & \to cuebid ace or other bid for slam try\\
+  3\NT & no fit (\to 4\S\ if 4/4 majors)\\
+  4\C\force\si & Gerber, slam try asking for aces\\
+  4\H\S\so & sign off in long unfitted major\\
+  4\NT\si & quantitative raise (no fit), slam try\\
+\end{tabular}
+
+\subsection{Interference after 2\C\force}
+\begin{tabular}{lll}
+  \DBL & \P & 4 \C's\\
+       & \RDBL & 5 \C's\\
+       & 2\D & rescue \\
+       & \multicolumn{2}{l}{normal responses on too}\\
+  o/c  & 2\H\S & still on if available\\
+       & \DBL  & for penality with 4 trump\\
+       & \P    & \to partner may \DBL\ w/ 4 trump,\\
+       &       & \to or bid \NT\ w/ other suit\\
+\end{tabular}
+
+\end{column}
+
+\eject
+
+\begin{column}[.32]
+\section{Jacoby 1NT-2\D\H\force}
+\begin{mylist}[.2]
+\item sometimes 2\S\ is transfer to \C
+\item shows 5-cd major, any strength
+\item opener MUST \textbf{complete} transfer by bidding next
+possible suit bid, and MAY opt to \textbf{bypass} directly
+to the 3-level with 4-cd support and maximum 
+1\NT\ opening
+\end{mylist}
+
+\subsection{Responder's rebid}
+After normal completion (2\H\S):\\
+\begin{tabular}{ll}
+  \P & bust, sign off\\
+  2\unbid{\S}\inv & 5/5 majors, invite\\
+  2\NT\inv & \to \P (2\NT), 3\raise{\H\S}, 3\NT, or 4\raise{\H\S}\\
+  3\C\D\gf & 4-cd suit (slam?)\\
+  3\unbid{\H}\gf & after 2\S, 5/5 (slam?)\\
+  3\raise{\H\S}\inv & 6-cd suit\\
+  3\NT\gf & \to \P (3\NT) or 4\raise{\H\S}\\
+  4\raise{\H\S}\so & 6-cd suit, sign off\\
+  4\NT\si & slam invite (NOT Blackwood)\\
+       & \to to deny: \P\ or 5\raise{\H\S}
+\end{tabular}
+After bypass (3\H\S):\\
+\begin{tabular}{ll}
+  \P & game still hopeless\\
+  game & sign off\\
+  \cuebid\force & slam try, shows control\\
+  4\NT! & Blackwood\\
+\end{tabular}
+
+\subsection{Over 2NT (or 2\C-2\D-2NT)}
+\crunch[.2]
+\bullet{note that 3\S\ and 4\H\ are \emph{reversed}!}
+\crunch[.4]
+\begin{tabular}{ll}
+  3\unbid{\S}\si & after 3\H, shows 5/5 with slam interest\\
+  3\NT\gf & choice of game (3\NT\ or 4\raise{\H\S})\\
+  4\unbid{\H}\gf & after 3\S, shows 5/5, \uline{no slam interest}\\
+  4\C\D\si & 4-cd suit, slam interest\\
+  4\NT\si & quantitative raise
+\end{tabular}\\
+
+\end{column}
+\rule[.01]
+\begin{column}
+\subsection{Interference}
+interference after transfer request:\\
+\begin{tabular}{lll}
+  \DBL\ & \P & routine\\
+        & \RDBL & strong/penalty\\
+        & 2\H\S & 3-cd fit (\& lead pref.)\\
+        & \multicolumn2l{after \P\ or \RDBL, responder}\\
+        & \multicolumn2l{may \RDBL\ or \P\ to play, or}\\
+        & \multicolumn2l{a normal rebid, or 2 of own}\\
+        & \multicolumn2l{suit to sign off}\\
+  o/c   & bypass & with \emph{good} support\\
+        & \DBL & penalty\\
+        & \P & routine: partner may\\
+        & \multicolumn2l{\phantom{mmm}rebid normally, \DBL\ w/}\\
+        & \multicolumn2l{\phantom{mmm}general strength, or \P}\\
+\end{tabular}\\\\
+\hrule
+\end{column}
+
+
+
+
+
+
+\eject
+
+\begin{column}
+\section{Responses to 1 of a suit}
+\subsection{Weak: 6--10p}
+\begin{tabular}{ll}
+  2\raise{\C\D} & \textbf{raise}: 4-cd supp, denies 4-cd major\\
+  2\raise{\H\S} & \textbf{raise}: 3-cd supp, denies higher major\\
+              & \hskip-2,4pc (very weak: (6--7p, 3-cd) prefer 1\NT)\\
+  1\NT        & no fit, no 4-cd major @1-lvl\\
+  1\unbid{\D\H\S}\force & \textbf{1/1}: 4-cd suit (6\+p)\\
+\end{tabular}
+
+\subsection{Invitational: 11-12p}
+\begin{tabular}{ll}
+  1\unbid{\D\H\S}\force & \textbf{1/1}: 4-cd suit (6\+p)\\
+  \nojump2\unbid{\C\D}\force\force & \textbf{2/1}: 4-cd suit, force 2 rounds (10\+p)\\
+  \nojump2\unbid{\H}\force\force & \textbf{2/1}: 5 \H's, force 2 rounds (10\+p)\\
+\end{tabular}\\
+with fit: shift, then support suit to show values\\
+with bal. hand: shift, then support or bid \NT
+
+\subsection{Strong: 13+p}
+\begin{tabular}{ll}
+  1\unbid{\D\H\S}\force & \textbf{1/1}: 4-cd suit (6\+p)\\
+  \nojump2\unbid{\C\D}\force\force & \textbf{2/1}: 4-cd suit (10\+p), force 2 rounds\\
+  \nojump2\unbid{\H}\force\force & \textbf{2/1}: 5 \H's (10\+p), force 2 rounds\\[8pt]
+  \jump2\NT\gf & 13--15\HCP, bal, unbids stopped\\
+               & no 4-cd majors @1-lvl\\
+  \jump3\raise{\C\D}\gf & 13--16p, 4 trump, no 4-cd major\\
+  \jump3\raise{\H\S}\gf & 13--16p, 4 trump\\
+  \jump3\NT & 16--18\HCP, bal, stops, unwise\\
+  \jump\unbid{\s}\si & 17--19p, know which \s/\NT\ to play,\\
+                     & \hskip-2pc otherwise bid 1/1 or 2/1 and go fish\\
+                     & \hskip-2pc shows support, 7+ trump, or bal+stop\\
+\end{tabular}
+
+\subsection{Slam: 20+p}
+\li bid 1/1 or 2/1, using only forcing responses
+
+\end{column}
+\rule[.01]
+\begin{column}
+
+\subsection{Suit choice}
+\begin{mylist}[.5]
+\item longest allowed suit
+\item 5/5 or 6/6: higher ranking first
+\item 4/4 or 4/4/4: bid up the line
+\item skip 5 \D's\ in favor of 4 \H\S's in weak hand
+\end{mylist}
+
+\subsection{Preemptive responses}
+\begin{tabular}{ll}
+  double jump raise & 5 trump, distribution, 4--6p\\
+  double jump shift & 7 trump w/ honors, 4--6p\\
+\end{tabular}
+\li \to partner will \P\ or raise if confident
+
+\subsection{From a passed hand}
+\li weak/invitational bids the same\\
+\begin{tabular}{ll}
+  2\NT & 12\HCP\ (11 w/ body)\\
+  2/1  & requires \textbf{5-cd suit}\\
+  \jump\raise{\ks} & jump raise 11--13p, 4-cd support\\
+  \jump\unbid\s\force & 13--15p (increased) w/ \emph{good} fit\\
+                      & bid long outside suit, slam try?
+\end{tabular}\\
+\li \P\ nonforce responses w/ submin opening
+
+\crunch[-.6]\hrule\crunch
+
+\section{Raise (1\x-2\x, 6--10p)}
+\bmin\ (13--16p): \P\\
+\binv\ (17--19p):\\
+\begin{tabular}{ll}
+  3\x\inv  & invites 4\x\\
+  \nojump\y\force\inv & new suit shows stopper, forcing\\
+  2\NT\inv & balanced, unbid stoppers (esp if \y=\C\D)\\
+\end{tabular}
+\bgame\ (20--22p): game (if known) or forcing \nojump\y\force
+
+\subsection{Rebids}
+\bmin=6--7p, \bmax=9--10p\\[6pt]
+\textbf{to reraise (3\x)}: \bmin\to\P, \bmax\to4\x\\
+\textbf{to new suit}: \bmin\to2\NT/3\x, \bmax\to\nojump\z/3\NT/4\x\\
+\textbf{to 2NT}: \bmin\to\P/3\x, \bmax\to3\NT/4\x\\
+
+\end{column}
+\rule[.01]
+\begin{column}
+\section{2/1 (1\x-2\y\force\force, 11\+p)}
+2/1 is forcing two rounds (promises to bid again)\\
+(in other words, \emph{all bids are forcing!})\\
+
+\begin{tabular}{ll}
+  2\z        & 4-cd suit, prefer non-reverse with 13--14p\\
+  2\NT       & 13--16p, \HCP, unbid stoppers, not barren\\
+  \nojump3\z & 15\+p, 4-cd suit\\
+  3\y        & \approx4-cd minor support or 3 \H's (use care)\\
+  3\NT       & 17--19p, balanced, unbid stoppers\\
+  2\x        & raise own suit as last resort (\ltsim16p)\\
+  \jump      & may jump with 17\+p
+\end{tabular}
+
+\subsection{Rebids}
+\bullet{rebid is required: discourage w/ 11--12p}
+
+\textbf{1\x-2\y-3\y\ (\y=\C\D)}:\\
+\li new suits=stoppers (try for 3\NT) and are forcing\\
+
+\textbf{1\x-2\y-2\x\ or 1\x-2\y-\n\z}:\\
+\begin{tabular}{ll}
+  \nojump\y\inv & 11--12p, decent 6-cd suit\\
+  \nojump\x\inv & 11--12p, 2-cd support if necessary\\
+  \nojump\z\inv & 11--12p, 4-cd support\\
+  2\NT\inv      & 11--12p, unbid suits stopped\\
+  3\NT          & 13\+p (unless \z=2\NT), bal, stoppers\\
+  \jump\,\gf    & 13\+p jump, game forcing\\
+\end{tabular}
+
+\crunch[-.6]\hrule\crunch
+
+\section{Jump (13\+p, game force)}
+\bullet{if \jump\jump, then preempt\to\P\ w/ no support}
+
+\textbf{jump raise} (13--16p):\\
+bid game/slam if obvious, else bid \emph{below game}\\
+new suit shows control\\
+\to\ from minor, often try for 3\NT\ over 5\C\D\\
+
+\textbf{2NT} (13--15p): shows balanced hand, stoppers\\
+\li\to\ show more suits to determine contract\\
+
+\textbf{jump shift} (17\+p): show features; next bid will\\
+\li reveal more about responder's suit
+\end{column}
+\eject
+\begin{column}
+\section{1/1 or 1NT (1\x-1\y, 6\+p)}
+opener: 13--16=\bmin, 17--19=\binv, 20--22=\bgame\\
+responder: 6--10=\bmin, 11--12=\binv, 13\+=\bgame\crunch
+\bullet{if suits 6/4, give priority to majors}\crunch[.7]
+\subsection{Minimum 13--16p}
+\bullet{pass 1\NT\ response w/ minimum}
+%\hrule
+\begin{tabular}{ll}
+  1\z  & 4-cd suit (13--19p)\\
+  1\NT & balanced, 13--14p, no biddable 4-cd major\\
+  2\y  & 4 trump support (or strong 3)\\
+  2\x  & 6 trump (or nothing else reasonable)\\
+  \nojump2\z  & \textbf{not reverse} (\z\lt\x): 4-cd (13--19p)\\
+\end{tabular}
+
+\subsection{Invitational 17--19p}
+\begin{tabular}{ll}
+  1\z  & 4-cd suit (13--19p)\\
+  \nojump2\z  & not reverse (\z\lt\x): 4-cd (13--19p)\\
+  \nojump2\z\force  & \textbf{reverse} (\z\gt\x): 17\+p, forcing 1 round\\
+       & 4\+-cd suit, 1st suit is \textbf{longer} (\ne)\\
+  2\NT & balanced, unbids stopped\\
+       & (may be semibalanced after 1\NT)\\
+  \jump3\y & 4 trump support\\
+  \jump3\x & 6\+ \textbf{good} trump\\
+\end{tabular}
+
+\subsection{Game 20--22p}
+\begin{tabular}{ll}
+  \nojump2\z\force & reverse (\z\gt\x), see above\\
+  \jump3\z\gf      & jump shift, 4-cd (maybe 3)\\
+\end{tabular}
+
+\subsection{After raise (1\x-1\y-2\y, 13--16p)}
+\bmin: \P\\
+\binv: (11--12p)\\
+\begin{tabular}{ll}
+  2\NT\inv & 4 trump (\to\P, 3\y, 3\NT, or 4\y)\\
+  3\x\inv & only 4-cd \y, but good fit to \x\\
+  \nojump\z\force & \to2\NT/3\y=reject, others=\gf\\
+  3\y\inv & 5 trump fit\\
+\end{tabular}
+\bgame: bid game/slam or force to investigate (\jump?)
+
+\end{column}
+\rule[.01]
+\begin{column}
+
+\subsection{After 1NT (1\x-1\y-1N, 13--14p)}
+\bmin: find safe partscore (any non-rev, non-jump)\\
+\binv: 2\NT, or over/under-bid\\
+\bgame: reverse=\gf\ or jump=\gf\ (1st suit longer)
+
+\subsection{After rebid (1\x-1\y-2\x, 13--16p)}
+\bmin: \P\ unless 0--1 trump and 6-cd suit (\to 2\y)\\
+\binv: (11--12p)\\
+\begin{tabular}{ll}
+  \z\force & new suit forcing one round\\
+  2\NT & unbid suits stopped\\
+  3\x  & adequate support (3 \C\D's, 2 \H\S's)\\
+\end{tabular}
+\bgame: bid game if known, forcing new suit if not
+
+\subsection{After shift (1\x-1\y-\n\z, 13--19p)}
+(if $n$=2 then \z\lt\x)\\
+\bmin: 7--10p, usually bid again (\P\ w/ 6)\\
+\begin{tabular}{ll}
+  1\NT & balanced, no fit yet\\
+  \nojump2\x & fit but not shown, or preferred doubleton\\
+  \nojump2\z & 4\+-cd support\\
+\end{tabular}
+these three only apply after 1\NT\ response (\y=\NT):\\
+\begin{tabular}{ll}
+  \nojump3\z & 4\+-cd support\\
+  2\w & \approx6-cd suit\\
+  3\w & \approx7-cd suit
+\end{tabular}\\
+
+\binv: 11--12p, often no good rebid\\
+\begin{tabular}{ll}
+  2\NT & (if $n$=2) last stopper\\
+  \nojump\w\force & forcing if \y\ne\NT\\
+  \nojump3\z & 4\+-cd support\\
+  \jump & any jump bid from a \emph{passed} hand\\
+\end{tabular}\\
+
+\bgame: 13\+p, any jump bid
+
+\subsection{After reverse (1\x-1\y-2\z\force, 17\+p)}
+\bullet{\z\gt\x, this bid is forcing}
+
+\textbf{weak} (6--8p): 2\NT\ w/ last stopper, \nojump3\x, or \nojump\y\\
+\textbf{game-forcing} (9\+p): \nojump\w, \nojump3\z, \jump3\NT, or \jump4\x\\
+\li do not raise second suit (\z) without 4 trump
+
+\end{column}
+\rule[.01]
+\begin{column}
+
+\subsection{After jump (17\+p)}
+1\x-1\y-(3\x/3\y) (17--19p):\\
+\to\P\ w/ \ltsim7p, bid suit/\NT\ game w/ \gtsim8p\\
+
+1\x-1\y-2\NT\ (17--19p):\\
+\to\P\ w/ \ltsim7p, bid \NT\ game or suit w/ \gtsim8p\\
+(after \y=\NT, probably 18--19p)\\
+
+1\x-1\y-\jump\z\gf\ jump shift, game forcing (20--22)
+
+\crunch[-.6]\hrule\crunch
+\end{column}
+
+\rule
+
+
+
+%  3\NT & 17--19p, balanced, semibalanced
+
+
+\end{document}

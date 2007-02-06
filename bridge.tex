@@ -1,0 +1,271 @@
+\documentclass[landscape]{article}
+\usepackage{fullpage}
+\pagestyle{empty}
+
+\newcommand{\optionalmath}[1]{\ifmmode#1\else$#1$\fi}
+\let\mathge\ge
+\let\mathle\le
+\def\ge{\optionalmath\mathge}
+\def\gt{\optionalmath>}
+\def\le{\optionalmath\mathle}
+\def\lt{\optionalmath<}
+\def\C{\optionalmath\clubsuit}
+\def\D{\optionalmath\diamondsuit}
+\def\H{\optionalmath\heartsuit}
+\def\S{\optionalmath\spadesuit}
+\def\NT{\ifmmode\mathsc{nt}\else\textsc{nt}\fi}
+\def\HCP{\textsc{hcp}}
+\def\DP{\textsc{dp}}
+\def\f{\optionalmath\star}
+\def\gf{\optionalmath\copyright}
+\def\s{\textsc{s}}
+
+\begin{document}
+
+\title{Bridge from the ground up}
+\author{Stephen Hicks}
+
+\begin{minipage}[t]{0.33\columnwidth}
+\section{Scoring (Rubber Bridge)}
+\subsection{contracts}
+only points bid go below the line\\
+\C \D -- 20 per trick (``minors'')\\
+\H \S -- 30 per trick (``majors'')\\
+\NT\kern3.5pt -- 40 for first, 30 thereafter
+
+\subsection{slam bonus}
+small slam (12 tricks): 500/750 if vulnerable\\
+grand slam (13 tricks): 1000/1500
+
+\subsection{overtricks}
+normally worth 20/30 depending on suit.\\
+if doubled, redoubled, or vulnerable, each\\
+\phantom{m}trick is worth 100/200/400, regardless of suit.
+
+\subsection{undertricks}
+not doubled -- 50/100 if vulnerable\\
+doubled -- 100, 200, 200, 300, \ldots $\quad$ if not vul.,\\
+\phantom{doubled -- }200, 300, \ldots\phantom{,100, 200} $\quad$ if vulnerable\\
+redoubled -- 2x doubled
+
+\subsection{rubbers}
+game = 100 points below line\\
+two games = rubber\\
+bonus -- 700 if 2--0,\\
+\phantom{bonus -- }500 if 2--1\\
+vulnerable after winning a game
+
+\end{minipage}
+\vrule\hskip .005\columnwidth
+\begin{minipage}[t]{0.33\columnwidth}
+\section{The Auction}
+
+dealer begins with first bid.  bidding proceeds clockwise
+around table.  possible bids are a number followed by a suit
+(\C,\D,\H,\S,\NT), double, redouble, or pass.  bidding on
+the number of tricks past six (``book'') for the partnership
+to take with their chosen trump suit.
+
+\subsection{suit order}
+1\C, 1\D, 1\H, 1\S, 1\NT,\\
+2\C, 2\D, 2\H, 2\S, 2\NT,\\
+\phantom{mmnnnl}\kern1pt\ldots,\\
+7\C, 7\D, 7\H, 7\S, 7\NT
+
+\subsection{game bids}
+the bids 5\C, 5\D, 4\H, 4\S, and 3\NT\ are known as
+game bids because they are worth at least 100 points.  lower
+bids are known as part-scores.  game bids are to be desired
+if at all possible.
+
+\subsection{high card points (HCP)}
+A--4, K--3, Q--2, J--1\\
+all aces -- +1 bonus\\
+no aces -- -1 penalty\\
+
+distribution points (\DP):\\
+if opening, void--2, singleton--1, doubleton--0\\
+if responding \textbf{w/ fit}, void--5, singl.--3, doubl.--1\\
+only 3-card fit -- -1 penalty (at minimum)\\
+no \DP\ for \NT\ contracts.
+
+\end{minipage}
+\vrule\hskip .005\columnwidth
+\begin{minipage}[t]{0.33\columnwidth}
+\section{Gameplay}
+member of partnership who first opens a suit is known as the
+declarer.  player left of declarer leads first (any card is
+allowed, including trump).  after first lead, declarer's partner
+turns up his hand as dummy for declarer to play from.
+
+\section{Basic Bidding}
+13\HCP\ to open, 7\HCP\ to respond\\
+
+partner who knows more about other hand is captain and ultimately
+decides where to play (by asking for more information).\\
+
+forcing bids (denoted \f) require a response from partner unless
+opponents interfere.\\
+%game-forcing bids (denoted \gf) require a contract at least at the game level.\\
+
+games in major or \NT\ typically require 26\HCP.\\
+games in a minor suit typically require 29\HCP.\\
+small slams typically require 33\HCP.\\
+grand slams typically require 37\HCP.\\
+
+open with longest suit or \NT\ if balanced.\\
+strong 2-level opening with 23\HCP\\
+
+respond with fit, suggested new suit (need \ge10\HCP\ for 2 level),
+or 1\NT \f\ if no other possible response (\lt10\HCP).\\
+jump-raise (game-forcing) for fit with 13\HCP.\\
+captain may invite game (one less than game bid) to ask partner
+for 2--3 more points than previously shown.
+\end{minipage}
+
+\vskip 1pc
+This document is available online at 
+\verb!http://www.physics.cornell.edu/~shicks/bridge.pdf!
+
+\eject
+
+\begin{minipage}[t]{0.33\columnwidth}
+\section{Goren Standard Bidding}
+\subsection{opening}
+5-card majors required to open.\\
+\begin{tabular}{rl}
+  1\C\D & 13--22\HCP, \ge3 cards\\
+  1\H\S & 13--22\HCP, \ge5 cards\\
+  1\NT & 16--18\HCP, balanced\\
+  \f\ 2\C & \ge23\HCP, any shape, forcing\\
+  2\D\H\S & 6--12\HCP, \ge6 cards, no voids\\
+  2\NT & 21--22\HCP, balanced\\
+  3\C\D\H\S & \lt 10\HCP, \ge7 cards\\
+\end{tabular}
+\subsection{responses}
+to a suit, if fit is discovered:\\
+\begin{tabular}{rl}
+  jump 1 level & 7--10\HCP\\
+  jump 2 levels & 13--16\HCP\\
+  jump to 4-level & \le9\HCP, 5-card support\\
+  jump shift & \ge19\HCP\\
+\end{tabular}\\
+
+to a suit, with no fit:\\
+\begin{tabular}{rl}
+  new suit at 1-level & \ge6\HCP\\
+  new suit at 2-level & \ge10\HCP\\
+  1\NT & 6--10\HCP\\
+  2\NT & 13--15\HCP, balanced\\
+  3\NT & 16--18\HCP, balanced\\
+\end{tabular}\\
+
+to 1\NT:\\
+\begin{tabular}{rl}
+  2\NT & 7--9\HCP, balanced?\\
+  3\NT & 10--14\HCP, balanced\\
+  4\NT & \ge 15\HCP (slam?)\\
+  \f\ 2\C & Stayman (4-card major)\\
+  \f\ 2\D\H & Jacoby Transfer to \H\S (\ge 5 cards)\\
+  3\C\D\H\S & 10\HCP, long suit\\
+  4\H\S & \le 10\HCP, long suit\\
+\end{tabular}\\
+
+to 2\NT:\\
+\begin{tabular}{rl}
+  3\NT & 4--8\HCP\\
+  4\NT & \ge 9\HCP\ (slam?)\\
+\end{tabular}\\
+or similar Stayman/Jacoby at 3-level.
+\end{minipage}
+\begin{minipage}[t]{.33\columnwidth}
+\subsection{strong 2\C}
+response:\\
+\begin{tabular}{rl}
+  2\D & weak, \le4\HCP\\
+  2\H\S,3\C\D & \ge5\HCP, \ge5 card suit\\
+  3\NT & 5--8\HCP, no long suit\\
+  2\NT & \ge9\HCP, balanced, slam?\\
+\end{tabular}
+
+opener's rebids after 2\C:\\
+\begin{tabular}{rl}
+  raise to game & found fit, minimal hand\\
+  raise below game & found fit, slam?\\  
+\end{tabular}\\
+
+may want to arrange for transfer, rather than direct suit
+bid.
+
+\subsection{Stayman 2\C}
+2\C\ after 1\NT\ is Stayman, asking for 4-card major\\
+\begin{tabular}{rl}
+  2\D & no 4-card major\\
+  2\H & 4-card \H\ suit\\
+  2\S & 4-card \S\ suit, \lt 4 \H's\\
+\end{tabular}
+
+\subsection{Jacoby transfer 2\D\H}
+2\D\ or 2\H\ after 1\NT\ is Jacoby transfer, so that\\
+stronger hand is declarer.\\
+\begin{tabular}{rl}
+  2\D & bid 2\H\\
+  2\H & bid 2\S\\
+\end{tabular}\\
+responder will continue with normal responses afterwards.
+
+\subsection{competitive bidding}
+takeout double\f\ if just enough to open after opponent bids.
+partner names longest and strongest suit or 1\NT\ if balanced.
+partner may only pass if confident in penalty double.\\
+
+overcall only if good, long, strong suit (\ge 10\HCP\ at
+1-level, \ge 13\HCP at 2-level).\\
+
+%redouble after T/O shows strong hand, but a suit bid is more descriptive.
+
+\end{minipage}\hskip .01\columnwidth
+\begin{minipage}[t]{.33\columnwidth}
+
+\subsection{penalty doubles}
+count tricks.  only double if can set by two.\\
+\begin{tabular}{cc}
+opening & defensive tricks\\
+1\C\D\H\S & 3\\
+1\NT & 4\\
+takeout dbl & 3\\
+overcall & 1\\
+raise of opener & 1\\
+preempt & 0\\
+\end{tabular}\\
+beware of doubling slam bids
+
+\subsection{cuebids}
+after suit agreed upon, bids in other suits show
+control (void, ace) and slam interest.
+
+\subsection{blackwood/gerber}
+4\NT\ (or 4\C) asks for aces in a suit (\NT) contract.
+responses follow:\\
+\begin{tabular}{rl}
+  5\C (4\D) & 0 or 4 aces\\
+  5\D (4\H) & 1 ace\\
+  5\H (4\S) & 2 aces\\
+  5\S (4\NT) & 3 aces\\
+\end{tabular}\\
+asker may then bid 5\NT (5\C) to ask for kings. any other
+bid is terminal.
+
+\subsection{Michael's cuebid}
+indicates a two-suited (at least 5-5) hand by bidding same
+suit immediately after opponent.  cuebid of minor indicates
+both majors.  cuebid of major indicates other major and
+unspecified minor (responder may bid 2\NT\ to ask for minor).\\
+
+only use Michael's cuebid with \le 9\HCP\ or \ge 16\HCP.
+prefer overcall with 10--16\HCP.
+
+\end{minipage}
+
+\end{document}
+
