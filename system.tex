@@ -2,6 +2,8 @@
 \usepackage{fullpage,multicol,amssymb}
 \usepackage[normalem]{ulem}
 %\pagestyle{empty}
+\topmargin=-0.25in
+\oddsidemargin=-0.25in
 \textheight=7in
 
 \makeatletter
@@ -14,6 +16,8 @@
   \kern-.21\p@}}\ULon}
 \def\udots{\bgroup \markoverwith{\lower2.5\p@\hbox{\kern-0.7\p@
   .\kern0\p@}}\ULon}
+\def\ucross{\bgroup \markoverwith{\lower2.5\p@\hbox{\kern-1.5\p@
+  {\tiny$\times$}\kern-1.6\p@}}\ULon}
 \makeatother
 
 \newcommand{\optionalmath}[1]{\ifmmode#1\else$#1$\fi}
@@ -72,6 +76,8 @@
 \def\binv{\textbf{inv}}
 \def\bgame{\textbf{game}}
 \def\bmax{\textbf{max}}
+
+\def\setcc#1#2{\def\cc{\crunch[#1]}\def\cca{\crunch[#2]}}
 
 \newcommand{\crunch}[1][.6]{\vspace*{-#1pc}}
 \renewcommand{\bullet}[1]{\begin{itemize}\item#1\end{itemize}}
@@ -245,8 +251,11 @@
        &       & \to or bid \NT\ w/ other suit\\
 \end{tabular}
 
-\end{column}
+\end{column}\\[1pc]
 
+this document is maintained at 
+\verb|http://www.physics.cornell.edu/~shicks/system.pdf| or 
+\verb|darcs get http://.../~shicks/bridge/|
 \eject
 
 \begin{column}[.32]
@@ -323,62 +332,59 @@ interference after transfer request:\\
 
 \eject
 
-\begin{column}
+\begin{column}\setcc{.5}{.2}
 \section{Responses to 1 of a suit}
-\subsection{Weak: 6--10p}
+\crunch\bullet{this version is traditional: no limit raises}\crunch[1.7]
+\subsection{Unlimited responses}\cca
+\begin{tabular}{ll}
+  1\unbid{\D\H\S}\force & \textbf{1/1}: 4-cd suit (6\+p)\\
+  \nojump2\unbid{\C\D}\force\force & \textbf{2/1}: 4-cd suit, force 2 rounds (10\+p)\\
+  \nojump2\unbid{\H}\force\force & \textbf{2/1}: 5 \H's, force 2 rounds (10\+p)\\
+\end{tabular}
+
+\cc\subsection{Weak: 6--10p}\cca
 \begin{tabular}{ll}
   2\raise{\C\D} & \textbf{raise}: 4-cd supp, denies 4-cd major\\
   2\raise{\H\S} & \textbf{raise}: 3-cd supp, denies higher major\\
               & \hskip-2,4pc (very weak: (6--7p, 3-cd) prefer 1\NT)\\
   1\NT        & no fit, no 4-cd major @1-lvl\\
-  1\unbid{\D\H\S}\force & \textbf{1/1}: 4-cd suit (6\+p)\\
 \end{tabular}
 
-\subsection{Invitational: 11-12p}
-\begin{tabular}{ll}
-  1\unbid{\D\H\S}\force & \textbf{1/1}: 4-cd suit (6\+p)\\
-  \nojump2\unbid{\C\D}\force\force & \textbf{2/1}: 4-cd suit, force 2 rounds (10\+p)\\
-  \nojump2\unbid{\H}\force\force & \textbf{2/1}: 5 \H's, force 2 rounds (10\+p)\\
-\end{tabular}\\
-with fit: shift, then support suit to show values\\
-with bal. hand: shift, then support or bid \NT
+\cc\subsection{Invitational: 11-12p}\cca
+\li with fit: shift, then support suit to show values\\
+\li with bal. hand: shift, then support or bid \NT
 
-\subsection{Strong: 13+p}
+\cc\subsection{Strong: 13+p}\cca
 \begin{tabular}{ll}
-  1\unbid{\D\H\S}\force & \textbf{1/1}: 4-cd suit (6\+p)\\
-  \nojump2\unbid{\C\D}\force\force & \textbf{2/1}: 4-cd suit (10\+p), force 2 rounds\\
-  \nojump2\unbid{\H}\force\force & \textbf{2/1}: 5 \H's (10\+p), force 2 rounds\\[8pt]
   \jump2\NT\gf & 13--15\HCP, bal, unbids stopped\\
                & no 4-cd majors @1-lvl\\
   \jump3\raise{\C\D}\gf & 13--16p, 4 trump, no 4-cd major\\
   \jump3\raise{\H\S}\gf & 13--16p, 4 trump\\
   \jump3\NT & 16--18\HCP, bal, stops, unwise\\
-  \jump\unbid{\s}\si & 17--19p, know which \s/\NT\ to play,\\
+  \jump\unbid{\s}\si & 17--19p, 7\+ trump or balanced+stops\\
+                     & \hskip-2pc only \textbf{jump shift} if know where to play,\\
                      & \hskip-2pc otherwise bid 1/1 or 2/1 and go fish\\
-                     & \hskip-2pc shows support, 7+ trump, or bal+stop\\
 \end{tabular}
+\li with 20\+p, bid 1/1 or 2/1 wth forcing responses
 
-\subsection{Slam: 20+p}
-\li bid 1/1 or 2/1, using only forcing responses
-
-\end{column}
-\rule[.01]
-\begin{column}
-
-\subsection{Suit choice}
+\cc\subsection{Suit choice}\cca
 \begin{mylist}[.5]
 \item longest allowed suit
 \item 5/5 or 6/6: higher ranking first
 \item 4/4 or 4/4/4: bid up the line
 \item skip 5 \D's\ in favor of 4 \H\S's in weak hand
-\end{mylist}
+\end{mylist}\crunch
 
-\subsection{Preemptive responses}
+\cc\subsection{Preemptive responses}\cca
 \begin{tabular}{ll}
   double jump raise & 5 trump, distribution, 4--6p\\
   double jump shift & 7 trump w/ honors, 4--6p\\
 \end{tabular}
 \li \to partner will \P\ or raise if confident
+
+\end{column}
+\rule[.01]
+\begin{column}
 
 \subsection{From a passed hand}
 \li weak/invitational bids the same\\
@@ -403,11 +409,27 @@ with bal. hand: shift, then support or bid \NT
 \end{tabular}
 \bgame\ (20--22p): game (if known) or forcing \nojump\y\force
 
-\subsection{Rebids}
+\crunch[.4]\subsection{Rebids}\crunch[.3]
 \bmin=6--7p, \bmax=9--10p\\[6pt]
 \textbf{to reraise (3\x)}: \bmin\to\P, \bmax\to4\x\\
 \textbf{to new suit}: \bmin\to2\NT/3\x, \bmax\to\nojump\z/3\NT/4\x\\
 \textbf{to 2NT}: \bmin\to\P/3\x, \bmax\to3\NT/4\x\\
+
+\crunch[-.6]\hrule\crunch
+
+\section{Jump (13\+p, game force)}
+\bullet{if \jump\jump, then preempt\to\P\ w/ no support}
+
+\textbf{jump raise} (13--16p):\\
+bid game/slam if obvious, else bid \emph{below game}\\
+new suit shows control\\
+\to\ from minor, often try for 3\NT\ over 5\C\D\\
+
+\textbf{2NT} (13--15p): shows balanced hand, stoppers\\
+\li\to\ show more suits to determine contract\\
+
+\textbf{jump shift} (17\+p): show features; next bid will\\
+\li reveal more about responder's suit
 
 \end{column}
 \rule[.01]
@@ -444,19 +466,6 @@ with bal. hand: shift, then support or bid \NT
 
 \crunch[-.6]\hrule\crunch
 
-\section{Jump (13\+p, game force)}
-\bullet{if \jump\jump, then preempt\to\P\ w/ no support}
-
-\textbf{jump raise} (13--16p):\\
-bid game/slam if obvious, else bid \emph{below game}\\
-new suit shows control\\
-\to\ from minor, often try for 3\NT\ over 5\C\D\\
-
-\textbf{2NT} (13--15p): shows balanced hand, stoppers\\
-\li\to\ show more suits to determine contract\\
-
-\textbf{jump shift} (17\+p): show features; next bid will\\
-\li reveal more about responder's suit
 \end{column}
 \eject
 \begin{column}
@@ -524,7 +533,7 @@ responder: 6--10=\bmin, 11--12=\binv, 13\+=\bgame\crunch
 \bgame: bid game if known, forcing new suit if not
 
 \subsection{After shift (1\x-1\y-\n\z, 13--19p)}
-(if $n$=2 then \z\lt\x)\\
+(non-reverse: if $n$=2 then \z\lt\x)\\
 \bmin: 7--10p, usually bid again (\P\ w/ 6)\\
 \begin{tabular}{ll}
   1\NT & balanced, no fit yet\\
