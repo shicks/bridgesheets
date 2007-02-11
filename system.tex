@@ -53,6 +53,7 @@
 \def\f{\optionalmath\star}
 %\def\gf{\optionalmath\copyright}
 \def\s{\textsc{s}}
+\def\game{\textsc{g}}
 \def\x{\optionalmath x}
 \def\y{\optionalmath y}
 \def\z{\optionalmath z}
@@ -77,10 +78,10 @@
 \def\bgame{\textbf{game}}
 \def\bmax{\textbf{max}}
 
-\def\setcc#1#2{\def\cc{\crunch[#1]}\def\cca{\crunch[#2]}}
-
 \newcommand{\crunch}[1][.6]{\vspace*{-#1pc}}
 \renewcommand{\bullet}[1]{\begin{itemize}\item#1\end{itemize}}
+\newcommand{\centerheading}[1]{\multicolumn2c{\textbf{#1}}}
+\newcommand{\tablenote}[1]{\multicolumn2l{#1}}
 
 \setlength{\ULdepth}{2pt}
 \def\unbid#1{\uline{#1}}
@@ -113,7 +114,7 @@
 \s=any suit, \x/\y/\z/\w=\emph{different\/} suits}\vspace*{-9pt}
 {\center3\S\force=forcing 1 round, 3\S\force\force=forcing 2 rounds,
 3\S\inv=game invite, 3\S\gf=game forcing, 
-3\S\si=slam invite, 3\S\so=sign off
+3\S\si=slam invite, 3\S\so=sign off, \game\S=game bid
 }\vspace*{4pt}\hrule\vspace*{4pt}
 \begin{column}
 \section{Main Strategy}
@@ -147,10 +148,10 @@
 \crunch
 \begin{tabular}{ll}
   1\NT & 15--17p, balanced, 3 suits stopped\\
-  2\C\force & \ge23p strong\\
-  2\D\H\S & 5--11p, 6-cd suit\\
+  2\C\force & \ge23p \textbf{strong}\\
+  2\D\H\S & 5--11p, 6-cd suit, \textbf{weak}\\
   2\NT & 20--22p, balanced, all suits stopped\\
-  3\s & 0--8p, 7-cd suit\\
+  \ge3\s & 0--8p, 7-cd suit, \textbf{preempt}\\
   3\NT & Acol, 16--21p, solid minor (7-cd)\\
        & 2 side suits stopped,\\
        & no voids or worthless singletons
@@ -321,8 +322,95 @@ interference after transfer request:\\
         & \P & routine: partner may\\
         & \multicolumn2l{\phantom{mmm}rebid normally, \DBL\ w/}\\
         & \multicolumn2l{\phantom{mmm}general strength, or \P}\\
-\end{tabular}\\\\
-\hrule
+\end{tabular}
+
+\crunch[-.6]\hrule\crunch
+
+\section{Preemptive Openings \ge3\x}
+\begin{mylist}[.6]
+\item unfavorable vulnerability: overbid 2 tricks
+\item equal vulnerability: overbid 3 tricks
+\item favorable vulnerability: overbid 3--5 tricks
+\item consider trump honors w/ vulnerability
+\item don't preempt in 4th seat w/o good reason
+\item don't shift suits without amazing hand
+\end{mylist}
+Responding: count tricks, not points:\crunch[.8]
+\begin{mylist}[.5]
+\item trump honors (K, Q each full tricks)
+\item side quick tricks (A,A-K,A-Q,K-Q,K-X)
+\item voids or singletons count
+\item Q-X-X or worse is worthless
+\end{mylist}
+\textbf{Responses}:\\
+\begin{tabular}{ll}
+  \nojump\x & a trump or two and a few tricks\\
+  3\NT  & good hand, stops, 2--3 cd fit in minor\\
+  4\NT  & Blackwood\\
+  \nojump\y\force & great hand, hope for game, \approx6-cd strong\\
+    & \to raise w/ K-X or three small trump\\
+    & \to rebid own suit otherwise\\
+    & \to\P\ if at game level (\textbf{required})\\
+\end{tabular}
+
+\end{column}
+\rule[.01]
+\begin{column}
+\section{Weak Two Bids 2\D\H\S}\crunch
+\begin{mylist}[.6]
+\item no side 4-cd major (maybe 3rd/4th seat)
+\item caution with unfavorable vulnerability
+\item weak two bid is stronger from 4th seat
+\end{mylist}\crunch
+\textbf{Responses} (to 2\x):\\
+\begin{tabular}{ll}
+  \P & if nothing constructive\\
+  2\NT\force & strong hand, any distribution, forcing\\
+  \nojump\y & 7--13p, \approx6-cd strong suit, not forcing\\
+  3\x\so & trump support (3\+), no defense\\
+  \game\so  & strong hand, know where to play
+\end{tabular}
+competition: all meanings same (also may \DBL)\\[-.5pc]
+%opener \textbf{must pass} any raise or game bid\\  
+%if best bid unavail then \P, \DBL, or bid sth else\\
+
+\textbf{Rebids}:\crunch[.8]
+\begin{mylist}
+\item \textbf{PASS after any raise, game, or slam!}
+\item \P\ new suit, or raise w/ 3\+\ trump
+\end{mylist}\crunch[.8]
+responses to 2\NT:\\
+\begin{tabular}{ll}
+  3\x & minimum (5--7p)\\
+  3\y & A, K, or Q in side suit \y\ (9--11p)\\
+  3\NT & original suit headed by A-K-Q\\
+\end{tabular}
+
+\crunch[-.6]\hrule\crunch
+
+\section{Strong Artificial 2\C}\crunch
+need 2--3 fewer points with great length\\
+all rebids game-forcing except 2\NT\ or self-raise\\
+\textbf{Responses}:\\
+\begin{tabular}{ll}
+  2\D & 0--7p, first negative\\
+  2\H\S/3\C\D & 8\+p, best suit\\
+  2\NT & 8\+p, balanced hand\\
+\end{tabular}\\
+\textbf{Rebids}:\\
+\begin{tabular}{ll}
+  2\NT\inv & 23--24p, balanced (cf. 2\NT\ opening)\\
+           & \to\ Stayman/Jacoby are ON\\
+  3\NT & 25--27p, balanced\\
+  4\NT\si & 28--30p, balanced (NOT Blackwood)\\
+  \nojump\s\force & longest suit (higher ranking if =)
+\end{tabular}
+\textbf{Second negative} (after 2\D):\\
+\li rebid cheapest minor/3\NT\ w/ 0--4p, no ace\\
+\textbf{Other rebids after 2\D} (5--7p):\\
+\li raise suit, new suit w/ 5\+cds, 2\NT\ balanced\\
+\textbf{Rebids after positive response} (8\+p):\\
+\li game w/ minimum, else look for slam
 \end{column}
 
 
@@ -583,6 +671,58 @@ these three only apply after 1\NT\ response (\y=\NT):\\
 
 \rule
 
+\eject
+\begin{column}
+\section{Defensive Bidding}
+
+\subsection{After RHO bids suit 1\x}
+\begin{tabular}{ll}
+\P & with length in enemy suit\\
+\centerheading{Direct overcalls}\\
+1\y & 9--17p, strong 5\+-cd suit (vuln, lead)\\
+1\NT & 15--17p, balnced hand, enemy stopper\\
+     & \to responses same as to opening 1\NT\\
+\nojump2\y & 9--17p, strong 6\+-cd suit (or distribution)\\
+\tablenote{need a few more points for 3-level overcall}\\
+\tablenote{overcalling after 1\NT\ requires stronger hand}\\
+\centerheading{Weak jump overcalls}\\
+\tablenote{STRONG after 1\NT, RHO's \P, or preempt}\\
+\jump\y,\fake{\jump\jump\y} & 
+              \hskip2ex0--10p, overbid 2/3/3--5, cf. openings\\
+\centerheading{Direct cue-bids (Michaels)}\\
+\tablenote{must have \le12p or \ge 17p for Michaels cuebid}\\
+1\cue{\C\D}\fake\force & at least 5-5 majors\\
+1\cue{\H}\force   & at least 5 \S's and 5 of unspecified minor\\
+1\cue{\S}\force   & at least 5 \H's and 5 of unspecified minor\\
+\centerheading{Unusual 2NT}\\
+\tablenote{must have \le12p or \ge 17p for unusual 2\NT}\\
+\tablenote{unusual after 1\NT\ or strong 2 (artif. 2\C\to\C\D)}\\
+\tablenote{note: OFF after weak 2: shows 16--19p, balanced}\\
+2\NT\force & shows \gtsim5-5 in lower two unbid suits\\
+     & \C\to\D\H, \D\to\C\H, \H\to\C\D, \S\to\C\D\\
+3\NT\fake\so & natural, long solid minor, enemy stopper\\
+     & AKQJxxx at minimum: count tricks\\
+4\NT\force & unusual, \gtsim6-6 \to respond w/ best minor\\
+\centerheading{Takeout Doubles}\\
+1\s-\fake{\DBL\force} & \hskip2ex 13\+p, 3\+-cd in all unbid suits\\
+              & need fewer points w/ 4-4-4-1, 5-4-4-0\\
+\DBL\force & may show 18\+p, any shape\\
+\end{tabular}\\
+
+\subsection{Astro over 1NT}
+\li only overcall with two-suited hands:
+\begin{tabular}{ll}
+2\C & 9--14p, 5-4 \H's(=\y) and a minor\\
+2\D & 9--14p, 5-4 \S's(=\y) and any other suit\\
+\centerheading{Responses:}\\
+&LATER
+\end{tabular}
+
+
+
+
+\end{column}
+\rule[.01]
 
 
 %  3\NT & 17--19p, balanced, semibalanced
