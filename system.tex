@@ -78,6 +78,9 @@
 \def\bgame{\textbf{game}}
 \def\bmax{\textbf{max}}
 
+\def\setcc#1#2{\def\cc{\crunch[#1]}\def\cca{\crunch[#2]}}
+
+\newcommand{\fake}[1]{\setbox0=\hbox{#1}\wd0=0pt\ht0=0pt\dp0=0pt\box0}
 \newcommand{\crunch}[1][.6]{\vspace*{-#1pc}}
 \renewcommand{\bullet}[1]{\begin{itemize}\item#1\end{itemize}}
 \newcommand{\centerheading}[1]{\multicolumn2c{\textbf{#1}}}
