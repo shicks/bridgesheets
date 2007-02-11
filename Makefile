@@ -1,4 +1,4 @@
-all:system.pdf
+all:system.pdf basic.pdf
 
 %.dvi:%.tex
 	latex $<
