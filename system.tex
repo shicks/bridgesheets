@@ -58,7 +58,7 @@
 \def\y{\optionalmath y}
 \def\z{\optionalmath z}
 \def\w{\optionalmath w}
-\def\n{\optionalmath n}
+\def\n{\#}
 \def\ks{\kern2pt\s\kern2pt}
 \def\kx{\kern1.5pt\optionalmath x\kern1pt}
 \def\ky{\kern1.5pt\optionalmath y\kern1pt}
@@ -624,7 +624,7 @@ responder: 6--10=\bmin, 11--12=\binv, 13\+=\bgame\crunch
 \bgame: bid game if known, forcing new suit if not
 
 \subsection{After shift (1\x-1\y-\n\z, 13--19p)}
-(non-reverse: if $n$=2 then \z\lt\x)\\
+(non-reverse: if \n=2 then \z\lt\x)\\
 \bmin: 7--10p, usually bid again (\P\ w/ 6)\\
 \begin{tabular}{ll}
   1\NT & balanced, no fit yet\\
@@ -640,7 +640,7 @@ these three only apply after 1\NT\ response (\y=\NT):\\
 
 \binv: 11--12p, often no good rebid\\
 \begin{tabular}{ll}
-  2\NT & (if $n$=2) last stopper\\
+  2\NT & (if \n=2) last stopper\\
   \nojump\w\force & forcing if \y\ne\NT\\
   \nojump3\z & 4\+-cd support\\
   \jump & any jump bid from a \emph{passed} hand\\
@@ -678,6 +678,7 @@ these three only apply after 1\NT\ response (\y=\NT):\\
 \begin{column}
 \section{Defensive Bidding}
 
+\bullet{This does not apply to 1\NT openings}
 \subsection{After RHO bids suit 1\x}
 \begin{tabular}{ll}
 \P & with length in enemy suit\\
@@ -712,13 +713,62 @@ these three only apply after 1\NT\ response (\y=\NT):\\
 \DBL\force & may show 18\+p, any shape\\
 \end{tabular}\\
 
-\subsection{Astro over 1NT}
-\li only overcall with two-suited hands:
+%\subsection{Astro over 1NT}
+%\li only overcall with two-suited hands:
+%\begin{tabular}{ll}
+%2\C & 9--14p, 5-4 \H's(=\y) and a minor\\
+%2\D & 9--14p, 5-4 \S's(=\y) and any other suit\\
+%\centerheading{Responses:}\\
+%&LATER
+%\end{tabular}
+
+\subsection{Responses to unusual 2NT}
+bid one of partner's two suits.\\
+jump with good distribution and a couple honors.\\
+may pass only after a \DBL\ with no suit preference.
+
+
+
+\end{column}
+\rule[.01]
+\begin{column}
+
+\subsection{Responses to direct o/c}
+\bullet{No direct overcalls are forcing}
 \begin{tabular}{ll}
-2\C & 9--14p, 5-4 \H's(=\y) and a minor\\
-2\D & 9--14p, 5-4 \S's(=\y) and any other suit\\
-\centerheading{Responses:}\\
-&LATER
+\centerheading{Raise partner's suit}\\
+\tablenote{need 3-cd support after 1\x, 2-cd after 2\x}\\
+2\raise\x & 7--11p\\
+3\raise\x & 12--14p after 1\x; 7--11p after 2\x\\
+4\raise\x & 15\+p after 1\x; 12\+p after 2\x\ \small{(or preempt)}\\
+\centerheading{New suit after any overcall}\\
+1\unbid\z & 8--13p, 5-cd suit\\
+\nojump2\unbid\z & 8--13p, \approx6-cd suit\\
+\nojump3\unbid\z & 8--13p, strong 6-cd suit\\
+\jump\unbid\z & 12--14p, strong 6-cd suit, non-forcing\\
+\jump\jump\unbid\z & preempt (or strong game directly)\\
+\centerheading{Notrump response}\\
+\tablenote{\NT\ response suggests bal/semibal, unbid stops}\\
+\tablenote{at least one enemy stopper is \emph{required}}\\
+1\fake\NT & 8--11p\\
+2\fake\NT & 12--14p after 1\x; 9--11p after 2\x\\
+3\fake\NT & 15\+p after 1\x; 12\+p after 2\x\\
+\centerheading{Cuebid response}\\
+\tablenote{cuebid is only possible forcing response}\\
+\tablenote{expresses game interest, but need more info}\\
+2\fake{\cue\y\force} & 15\+p after 1\x; 12\+p after 2\x\\
+\end{tabular}
+
+\subsection{Responses to weak jump o/c}
+\bullet{Almost always \textbf{pass} a weak jump overcall!}
+\begin{tabular}{ll}
+  \tablenote{Assume bidding was (LHO)1\y-(P)2\x}\\
+  \raise\x\so & raise with trump support\\
+  \nojump\unbid\z & bid own \emph{long, strong} suit if better\\
+  \NT & very strong hand, stoppers in other 3 suits\\
+  \nojump\cue\y\force & cuebid if unsure whether to bid game\\
+                      & \to\nojump\rebid\x\ with minimal\\
+  \tablenote{if RHO o/c's, maybe fight for partscore in \x}
 \end{tabular}
 
 
@@ -726,6 +776,7 @@ these three only apply after 1\NT\ response (\y=\NT):\\
 
 \end{column}
 \rule[.01]
+
 
 
 %  3\NT & 17--19p, balanced, semibalanced
