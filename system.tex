@@ -107,10 +107,8 @@
 \newenvironment{column}[1][0.33]{\begin{minipage}[t]{#1\columnwidth}}{\end{minipage}}
 \renewcommand{\rule}[1][.0025]{\hskip #1\columnwidth\vrule\hskip #1\columnwidth}
 \newenvironment{mylist}[1][.5]{\begin{itemize}\itemsep=-#1\baselineskip}{\end{itemize}}
-\begin{document}
-\title{Standard American Summary}
-\author{Stephen Hicks}
-{\center\noindent 
+
+\newcommand{\legend}{{\center\noindent 
 \jump3\S=jump bid, \nojump3\S=nonjump,
 3\raise{\S}=raise p's suit, 3\rebid{\S}=raise own suit,
 3\unbid{\S}=unbid suit, 3\cue{\S}=enemy suit, 
@@ -118,7 +116,13 @@
 {\center3\S\force=forcing 1 round, 3\S\force\force=forcing 2 rounds,
 3\S\inv=game invite, 3\S\gf=game forcing, 
 3\S\si=slam invite, 3\S\so=sign off, \game\S=game bid
-}\vspace*{4pt}\hrule\vspace*{4pt}
+}\vspace*{4pt}\hrule\vspace*{4pt}}
+
+\begin{document}
+\title{Standard American Summary}
+\author{Stephen Hicks}
+
+\legend
 \begin{column}
 \section{Main Strategy}
 \begin{mylist}[.2]
@@ -262,6 +266,7 @@ this document is maintained at
 \verb|darcs get http://.../~shicks/bridge/|
 \eject
 
+\legend
 \begin{column}[.32]
 \section{Jacoby 1NT-2\D\H\force}
 \begin{mylist}[.2]
@@ -423,7 +428,8 @@ all rebids game-forcing except 2\NT\ or self-raise\\
 
 \eject
 
-\begin{column}\setcc{.5}{.2}
+\legend
+\begin{column}\setcc{.6}{.4}
 \section{Responses to 1 of a suit}
 \crunch\bullet{this version is traditional: no limit raises}\crunch[1.7]
 \subsection{Unlimited responses}\cca
@@ -475,9 +481,9 @@ all rebids game-forcing except 2\NT\ or self-raise\\
 
 \end{column}
 \rule[.01]
-\begin{column}
+\begin{column}\setcc{.5}{.2}
 
-\subsection{From a passed hand}
+\subsection{From a passed hand}\cca
 \li weak/invitational bids the same\\
 \begin{tabular}{ll}
   2\NT & 12\HCP\ (11 w/ body)\\
@@ -488,9 +494,9 @@ all rebids game-forcing except 2\NT\ or self-raise\\
 \end{tabular}\\
 \li \P\ nonforce responses w/ submin opening
 
-\crunch[-.6]\hrule\crunch
+\crunch[-.8]\hrule
 
-\section{Raise (1\x-2\x, 6--10p)}
+\cc\section{Raise (1\x-2\x, 6--10p)}\cca
 \bmin\ (13--16p): \P\\
 \binv\ (17--19p):\\
 \begin{tabular}{ll}
@@ -500,26 +506,26 @@ all rebids game-forcing except 2\NT\ or self-raise\\
 \end{tabular}
 \bgame\ (20--22p): game (if known) or forcing \nojump\y\force
 
-\crunch[.4]\subsection{Rebids}\crunch[.3]
+\cc\subsection{Rebids}\cca
 \bmin=6--7p, \bmax=9--10p\\[6pt]
 \textbf{to reraise (3\x)}: \bmin\to\P, \bmax\to4\x\\
 \textbf{to new suit}: \bmin\to2\NT/3\x, \bmax\to\nojump\z/3\NT/4\x\\
 \textbf{to 2NT}: \bmin\to\P/3\x, \bmax\to3\NT/4\x\\
 
-\crunch[-.6]\hrule\crunch
+\crunch[-.8]\hrule
 
-\section{Jump (13\+p, game force)}
+\cc\section{Jump (13\+p, game force)}\cca
 \bullet{if \jump\jump, then preempt\to\P\ w/ no support}
 
-\textbf{jump raise} (13--16p):\\
+\cca\textbf{jump raise} (13--16p):\\
 bid game/slam if obvious, else bid \emph{below game}\\
 new suit shows control\\
 \to\ from minor, often try for 3\NT\ over 5\C\D\\
 
-\textbf{2NT} (13--15p): shows balanced hand, stoppers\\
+\cca\textbf{2NT} (13--15p): shows balanced hand, stoppers\\
 \li\to\ show more suits to determine contract\\
 
-\textbf{jump shift} (17\+p): show features; next bid will\\
+\cca\textbf{jump shift} (17\+p): show features; next bid will\\
 \li reveal more about responder's suit
 
 \end{column}
@@ -559,6 +565,7 @@ new suit shows control\\
 
 \end{column}
 \eject
+\legend
 \begin{column}
 \section{1/1 or 1NT (1\x-1\y, 6\+p)}
 opener: 13--16=\bmin, 17--19=\binv, 20--22=\bgame\\
@@ -671,10 +678,8 @@ these three only apply after 1\NT\ response (\y=\NT):\\
 
 \crunch[-.6]\hrule\crunch
 \end{column}
-
-\rule
-
 \eject
+\legend
 \begin{column}
 \section{Defensive Bidding}
 
@@ -722,12 +727,11 @@ these three only apply after 1\NT\ response (\y=\NT):\\
 %&LATER
 %\end{tabular}
 
+\crunch
 \subsection{Responses to unusual 2NT}
 bid one of partner's two suits.\\
 jump with good distribution and a couple honors.\\
 may pass only after a \DBL\ with no suit preference.
-
-
 
 \end{column}
 \rule[.01]
