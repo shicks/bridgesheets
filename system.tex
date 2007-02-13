@@ -14,7 +14,7 @@
   \box\z@
   \char58%
   \kern-.21\p@}}\ULon}
-\def\udots{\bgroup \markoverwith{\lower2.5\p@\hbox{\kern-0.7\p@
+\def\udots{\bgroup \markoverwith{\lower3.2\p@\hbox{\kern-0.7\p@
   .\kern0\p@}}\ULon}
 \def\ucross{\bgroup \markoverwith{\lower2.5\p@\hbox{\kern-1.5\p@
   {\tiny$\times$}\kern-1.6\p@}}\ULon}
@@ -617,9 +617,9 @@ responder: 6--10=\bmin, 11--12=\binv, 13\+=\bgame\crunch
 \bmin: \P\ unless 0--1 trump and 6-cd suit (\to 2\y)\\
 \binv: (11--12p)\\
 \begin{tabular}{ll}
-  \z\force & new suit forcing one round\\
+  \unbid\z\force & new suit forcing one round\\
   2\NT & unbid suits stopped\\
-  3\x  & adequate support (3 \C\D's, 2 \H\S's)\\
+  \raise{3\x}  & adequate support (3 \C\D's, 2 \H\S's)\\
 \end{tabular}
 \bgame: bid game if known, forcing new suit if not
 
@@ -628,31 +628,31 @@ responder: 6--10=\bmin, 11--12=\binv, 13\+=\bgame\crunch
 \bmin: 7--10p, usually bid again (\P\ w/ 6)\\
 \begin{tabular}{ll}
   1\NT & balanced, no fit yet\\
-  \nojump2\x & fit but not shown, or preferred doubleton\\
-  \nojump2\z & 4\+-cd support\\
+  \raise{\nojump2\x} & fit but not shown, or preferred doubleton\\
+  \raise{\nojump2\z} & 4\+-cd support\\
 \end{tabular}
 these three only apply after 1\NT\ response (\y=\NT):\\
 \begin{tabular}{ll}
-  \nojump3\z & 4\+-cd support\\
-  2\w & \approx6-cd suit\\
-  3\w & \approx7-cd suit
+  \raise{\nojump3\z} & 4\+-cd support\\
+  \unbid{2\w} & \approx6-cd suit\\
+  \unbid{3\w} & \approx7-cd suit
 \end{tabular}\\
 
 \binv: 11--12p, often no good rebid\\
 \begin{tabular}{ll}
-  2\NT & (if \n=2) last stopper\\
-  \nojump\w\force & forcing if \y\ne\NT\\
-  \nojump3\z & 4\+-cd support\\
-  \jump & any jump bid from a \emph{passed} hand\\
+  2\NT\inv & (if \n=2) last stopper\\
+  \unbid{\nojump\w}\force & forcing if \y\ne\NT\\
+  \raise{\nojump3\z}\inv & 4\+-cd support\\
+  \jump\inv & any jump bid from a \emph{passed} hand\\
 \end{tabular}\\
 
-\bgame: 13\+p, any jump bid
+\bgame: 13\+p, any jump bid (\gf)
 
 \subsection{After reverse (1\x-1\y-2\z\force, 17\+p)}
 \bullet{\z\gt\x, this bid is forcing}
 
-\textbf{weak} (6--8p): 2\NT\ w/ last stopper, \nojump3\x, or \nojump\y\\
-\textbf{game-forcing} (9\+p): \nojump\w, \nojump3\z, \jump3\NT, or \jump4\x\\
+\textbf{weak} (6--8p): 2\NT\ w/ last stopper, \raise{\nojump3\x}, or \rebid{\nojump\y}\\
+\textbf{game-forcing} (9\+p): \unbid{\nojump\w}, \raise{\nojump3\z}, \jump3\NT, or \raise{\jump4\x}\\
 \li do not raise second suit (\z) without 4 trump
 
 \end{column}
@@ -660,14 +660,14 @@ these three only apply after 1\NT\ response (\y=\NT):\\
 \begin{column}
 
 \subsection{After jump (17\+p)}
-1\x-1\y-(3\x/3\y) (17--19p):\\
+1\x-1\y-(\rebid{3\x}/\raise{3\y}) (17--19p):\\
 \to\P\ w/ \ltsim7p, bid suit/\NT\ game w/ \gtsim8p\\
 
 1\x-1\y-2\NT\ (17--19p):\\
 \to\P\ w/ \ltsim7p, bid \NT\ game or suit w/ \gtsim8p\\
 (after \y=\NT, probably 18--19p)\\
 
-1\x-1\y-\jump\z\gf\ jump shift, game forcing (20--22)
+1\x-1\y-\unbid{\jump\z}\gf\ jump shift, game forcing (20--22)
 
 \crunch[-.6]\hrule\crunch
 \end{column}
@@ -683,15 +683,15 @@ these three only apply after 1\NT\ response (\y=\NT):\\
 \begin{tabular}{ll}
 \P & with length in enemy suit\\
 \centerheading{Direct overcalls}\\
-1\y & 9--17p, strong 5\+-cd suit (vuln, lead)\\
+1\unbid\y & 9--17p, strong 5\+-cd suit (vuln, lead)\\
 1\NT & 15--17p, balnced hand, enemy stopper\\
      & \to responses same as to opening 1\NT\\
-\nojump2\y & 9--17p, strong 6\+-cd suit (or distribution)\\
+\nojump2\unbid\y & 9--17p, strong 6\+-cd suit (or distribution)\\
 \tablenote{need a few more points for 3-level overcall}\\
 \tablenote{overcalling after 1\NT\ requires stronger hand}\\
 \centerheading{Weak jump overcalls}\\
 \tablenote{STRONG after 1\NT, RHO's \P, or preempt}\\
-\jump\y,\fake{\jump\jump\y} & 
+\jump\unbid\y,\fake{\jump\jump\unbid\y} & 
               \hskip2ex0--10p, overbid 2/3/3--5, cf. openings\\
 \centerheading{Direct cue-bids (Michaels)}\\
 \tablenote{must have \le12p or \ge 17p for Michaels cuebid}\\
