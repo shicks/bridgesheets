@@ -1,5 +1,7 @@
 \documentclass[11pt]{article}
 
+%\advance\textheight by 1pc
+
 \title{Basics of Standard American Bidding}
 \author{Stephen Hicks}
 
@@ -20,6 +22,16 @@ As such, there are a few important numbers to keep in mind:\\
 26 & number of points needed for 3\NT, 4\H, 4\S\\\hline
 29 & number of points needed for 5\C, 5\D\\\hline
 \end{tabular}\\
+
+These points are based on a simple point-counting scheme, as follows.
+Aces are worth 4 points, Kings worth 3, Queens 2, and Jacks 1.  Long
+suits with more than four cards get 1 point for each card past the
+fourth.  Finally, if a trump fit (8 trump total) is found between a
+partnership, each partner may count (non-trump) doubletons as 1 point,
+singletons as 2 points, and voids as 3 points.  Modifications may also
+be made, such as adding a point for all aces or several high spots (9s
+and 10s), subtracting one for no aces, a weak fit, or unprotected
+honors in short suits.
 
 In order to ensure that a possible game is not missed due to
 lack of either partner opening, any hand with 13 or more points
@@ -82,14 +94,20 @@ following bidding structure is based on this premise, as well as the
 (so far understated aspect of finding a fit in the first place).
 
 \subsection{Forcing bids}
-In general, new suits and single jumps are forcing.  Single jumps are
-often forcing to game.  2/1 is twice forcing, promising a second bid
-if the opener rebids below game.
+Forcing bids are an important enough aspect of an auction that I
+feel I am not jumping the gun to mention them already.  It is
+critical to know when a bid is forcing, so that (a) you don't end
+up in a contract from an artificial bid with no strength in that
+suit, and (b) you don't bypass a possible game or slam.
 
-Preemptive bids and game bids are usually sign-offs and should generally
-be passed unless (a) you have a better preempt (assuming no
-help from partner who is probably singleton or void), or (b) you have
-unrevealed strength.
+In general, new suits and single jumps are almost always forcing.  
+Single jumps are often forcing to game.  2/1 is twice forcing, promising
+a second bid if the opener rebids below game.
+
+Preemptive bids (double jumps) and game bids are usually sign-offs and
+should generally be passed unless (a) you have a better preempt
+(assuming no help from partner who is probably singleton or void), or
+(b) you have unrevealed strength.
 
 \subsection{Opening bids}
 There are several options for the opening bidder.  He may bid one of a
@@ -133,25 +151,6 @@ be bid at the 1-level after either non-fitting suit response from partner).
 With a 5-5 split, the higher ranking suit should \emph{always} be bid first,
 since a reverse implies a \emph{longer} first suit (except with a \emph{very}
 weak \C/\D\ opening).
-
-\subsection{3rd and 4th seat openings}
-When the first two seats pass, the dynamics change slightly.  The
-third seat may open with a slightly weaker hand than he otherwise
-would.  The typical rule for third seat openings is the ``rule of 20''
-in which the player adds his high card points to his two longest
-suits, and if it adds up to 20, he opens.  In fourth seat, the ``rule
-of 15'' says that if the high card points plus the number of spades is
-15 or more, he should open (since spades are favored in competitive
-auctions, which are likely to ensue).  But since passing in fourth
-seat leads to a redeal, he shouldn't open any hands he wouldn't want
-to play.
-
-When responding from a passed hand, the meanings change, since (a) there
-is already an upper limit on the responder's point count (although it
-may be more than 13 due to short-suit points if a fit is found), and
-(b) the opener may or may not have full opening values.  Thus, responses
-which show strong hands get new meanings.  And if the opener opened
-with subminimum values, he should almost always pass the next bid.
 
 \subsection{Responses to one of a suit}
 There are a number of variations which may be implemented at this
@@ -310,6 +309,33 @@ suit if no fit has been found, or will investigate slam possibilities with
 more then a minimal positive response (10 points or more).  Exciting times.
 
 
+\section{Passed Hands}
+When the first two seats pass, the dynamics change slightly.  The
+third seat may open with a slightly weaker hand than he otherwise
+would.  The typical rule for third seat openings is the ``rule of 20''
+in which the player adds his high card points to his two longest
+suits, and if it adds up to 20, he opens.  In fourth seat, the ``rule
+of 15'' says that if the high card points plus the number of spades is
+15 or more, he should open (since spades are favored in competitive
+auctions, which are likely to ensue).  But since passing in fourth
+seat leads to a redeal, he shouldn't open any hands he wouldn't want
+to play.
+
+When responding from a passed hand, the meanings change, for two reasons:
+
+First, there is already a known upper limit on the responder's point count
+(although it may be more than 13 due to short-suit points if a fit is 
+found).  The upshot is that any bid which would show the passed hand to be
+strong (except possibly raising a fitted suit) has a new meaning, typically
+showing invitational strength.  (This, in turn, pushes the weaker responses
+down slightly).
+
+Second, the opener may or may not have full opening values.  If the
+opener opened with subminimum values, he should almost always pass the
+next bid.  Any encouraging bid (other than possibly a desperate
+correcting rebid of his own suit) then shows that he did indeed have
+full values.
+
 \section{Limit Raises, Jacoby 2NT, and Splinters}
 
 A conventional improvement on the system described above involves
@@ -373,6 +399,14 @@ suits (noting that an artificial opening of 2\C\ does not count as bidding
 it, so 2\C-2\NT\ shows \C\ and \D).  This may also be used after a strong 
 1\NT\ opening, or a strong 2-bid, though it is no longer unusual after a
 weak 2-bid.
+
+Both of these two-suited overcalls are peculiar in that they work
+best when played from a weak or a strong hand, but not an intermediate
+hand.  Since they give almost complete information about the overcaller's
+suits, he rarely needs to rebid after responder chooses a suit.  Thus,
+a pass shows a weak hand, while bidding again shows a strong (typically
+game-forcing) hand.  Intermediate two-suiters must therefore be shown
+with a simple overcall of one suit, followed by a rebid of the other.
 
 \subsection{Takeout doubles}
 
