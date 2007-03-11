@@ -1,0 +1,290 @@
+\documentclass[10pt]{article}
+\usepackage{amssymb}
+
+%\advance\textheight by 1pc
+
+\title{Defensive Bidding}
+\author{Stephen Hicks}
+
+\def\C{$\clubsuit$}
+\def\D{$\diamondsuit$}
+\def\H{$\heartsuit$}
+\def\S{$\spadesuit$}
+\def\NT{\textsc{nt}}
+\let\TeXto\to
+\let\TeXge\ge
+\let\TeXle\le
+\def\to{$\TeXto$}
+\def\lt{$<$}
+\def\gt{$>$}
+\def\le{$\TeXle$}
+\def\ge{$\TeXge$}
+\def\ltsim{$\lesssim$}
+\def\gtsim{$\gtrsim$}
+
+%\font\eightrm=cmr8
+\font\exceptparfont=cmr10% at 9pt
+\font\exceptfont=cmr10 at 8.2pt
+%\def\small{\ninerm}
+
+\def\except#1{\paragraph{\exceptparfont\bf Exceptions:}{\exceptfont #1}}
+\renewcommand{\bullet}[1]{\begin{itemize}\item#1\end{itemize}\vspace*{-0.5pc}}
+\newcommand{\crunch}[1][1]{\vspace*{-#1pc}}
+\newenvironment{mylist}[1][.5]{\begin{itemize}\itemsep=-#1\baselineskip}{\end{itemize}}
+
+\begin{document}
+\maketitle%\vspace*{-2pc}
+%\vspace*{-3pc}
+%{\hfill{\huge Competitive Auctions}\hfill}
+%\vskip 6pt{\hfill{\Large Stephen Hicks}\hfill}
+%\vskip 6pt{\hfill{\large\today}\hfill}
+
+
+\section{Overcalls}
+Reasons to overcall: make a contract, a sacrifice, push opponents
+too high, suggest an opening lead, hassle opponents.  But only overcall
+when hand qualifies.  Qualifications are very broad, but depend heavily
+on factors such as level of bidding and vulnerability.
+
+\subsection{Direct overcalls}
+When your right-hand opponent (RHO) opens the bidding, one way to enter
+the bidding is by making an overcall.  Such an overcall is known as 
+\emph{direct}.  Situations also arise when your partner has passed and
+both opponents have bid once.  None of the overcalls are forcing.
+
+\subsubsection{... at the one-level}
+\bullet{9--17 points, good 5-card suit}
+With 18+ points, a takeout double is more appropriate.\crunch
+\except{A worthless 5-card suit or an amazing 4-card suit is OK with an 
+otherwise strong hand.  With as many as 19 points and a two-suited (5-5 or
+more) hand, a suit overcall is more appropriate due to bad rebids after
+a takeout double.  After a 1\NT\ opening, a much stronger hand is required
+(13--17 points and an amazing suit or exciting distribution).}
+
+\subsubsection{... at the two-level}
+\bullet{9--17 points, good 5-card suit}
+A better hand is required for two-level overcalls.  With minimal points,
+a substantial (6-cards and honors) suit is required, especially with 
+unfavorable vulnerability.\crunch
+\except{Beware of overcalling with a doubtful hand and moderate length in
+enemy suit.  At the three level, a few more points \emph{and} a better and
+longer suit is required.}
+
+
+\subsection{Invitational cue-bid response to direct overcalls}
+\begin{mylist}[.3]
+\item 11+ points and support for overcaller's suit, or 13+ points in new suit.
+\item Weaker hands must use other responses.
+\item[!!] Jump cue-bid resp. is mini-splinter: 13+ points, 4 trump fit, singl./void.
+\end{mylist}
+
+\subsubsection{Rebids by overcaller}
+Rebids should all be natural, subject to the following constraints:
+\begin{mylist}[.3]
+\item Pass only if RHO overcalls cue-bid and nothing constructive to say.
+\item Rebid original suit w/ minimum o/c, not forcing (don't need \gt5 cards).
+\item Rebid \textbf{below} original suit w/ minimum or maximum o/c, forcing.
+\item Rebid \textbf{above} orig. suit w/ good or maximum o/c, forcing if below game.
+\end{mylist}
+\subsubsection{Rebids by cue-bidder}
+\begin{mylist}[.3]
+\item Rebid overcaller's first suit w/ 11--12 points, not forcing.
+\item Raise overcaller's second suit (below game) w/ 13--14, invites game.
+\item New suit w/ 13+ points, 5-card suit, forcing one round.
+\item 2\NT\ shows 13--14 points after 1-level o/c, 11--12 after 2-level, invites game.
+\item[!] Repeat original cue-bid to show a natural suit, invitational if below game.
+\item Game bid is natural sign-off attempt.
+\end{mylist}
+
+\subsubsection{In competition}
+If RHO bids after partner overcalls or doubles, invitational cue-bid is still 
+on and typically shows fit in partner's suit and 11--12 points.  If RHO
+bids a new suit, cue-bid \emph{stronger} of the two choices (showing stoppers
+and helping partner reevaluate his honors).
+
+\subsubsection{From a passed hand}
+Shows 11--12 points and fit.  May be otherwise if pass was after opponent
+opened bidding.  If opponents have shown two suits, second is invitational
+cue-bid and first suit is natural long suit.
+
+\subsubsection{Other applications}
+Invitational cue-bids are on after weak jump raises, Michaels cuebids,
+and unusual \NT.
+
+\subsection{Limited responses to direct overcalls}
+After partner overcalls and next opponent passes, you have the option to
+respond.  The only strong/forcing response is the invitational cue-bid.
+Every other response  (including jumps) is weak and non-forcing.
+
+\subsubsection{Raising partner's suit}
+\begin{mylist}[.3]
+\item Single raise: 6--10 points, 3 trump fit.
+\item Jump raise (any level): preemptive, 5--8 points if below game, 4+ trump.
+\end{mylist}%\crunch[1.5]
+
+\subsubsection{Responding in a new suit}
+\begin{mylist}[.3]
+\item Nonjump: 8--13 points.  (@1---5 cards; @2---strong 5; @3---6 cards)
+\item Jump: 11--13 points, strong 6-card or longer suit, invites game.
+\end{mylist}
+
+\subsubsection{Responding in notrump}
+\begin{mylist}[.3]
+\item Stopper in opponent's suit required
+\item 1\NT: 8--11 points
+\item 2\NT: 12--14 points after 1-level overcall, 9--11 after 2-level overcall
+\item 3\NT: Better than 2\NT\ (or expectation for 9 tricks)
+\end{mylist}
+Suggests balanced or semibalanced hand and stoppers in unbid suits, but
+not required.
+
+\subsection{1NT overcall}
+\bullet{15--17 high card points, balanced hand.}
+All responses to this (including Stayman, Jacoby, and minor suit busts) are
+on, just as if partner had opened the bidding himself.
+
+\subsection{Weak jump overcalls}
+\bullet{Long strong suit, up to 10 points}
+With a weak hand, overcall preemptively, overbidding by two tricks with
+unfavorable vulnerability, three tricks with equal vulnerability, or 
+three to five tricks with favorable vulnerability.
+
+\subsubsection{Responses}
+\begin{mylist}[0.5]
+\item Pass with most hands (even with poor support).
+\item Raise partner's suit with mediocre hand and (3+) trump support.
+\item Bid own long strong suit if better (independently) than partner's.
+\item \NT\ with very strong hand, stoppers in other 3 suits, and good (3+) fit.
+\item cue-bid opponent's suit with powerful hand but uncertain of which game.
+\end{mylist}
+If opponents continue after partner's overcall, may still bid for part
+score battle or sacrifice.  Consider how many tricks partner overbid by when
+deciding course.\crunch
+\except{Jump overcalls after a 1\NT\ opening, after an opening preemptive
+bid, or in the balancing seat (without opponent part score) are \emph{strong},
+overbidding by at most one trick.}
+
+\eject
+\subsection{Unusual 2NT overcall over one of a suit}
+\begin{mylist}[.3]
+\item Weak or strong: \le12 points or \ge19 points; two-suited (5-5).
+\item Shows lowest two unbid suits (over 1\C\to\D\H, 1\D\to\C\H, 1\H\to\C\D, 1\S\to\C\D).
+\end{mylist}\crunch[.4]
+Consider vulnerability for weak overcalls, and note approximate point ranges.
+\subsubsection{Responses}
+\begin{mylist}[.3]
+\item Takeout to one of partner's suits shows preference, no game interest.
+\item Jump takeout to partner's suit shows good support, preemptive or game.
+\item Cue-bid enemy suit is game or slam try, forcing.
+\item {\small New suit is independent, not forcing; 3\NT\ is to play, 4\NT\ is Blackwood}
+\end{mylist}
+\subsubsection{Rebids by unusual NT bidder}
+\begin{mylist}[.3]
+\item Bid or raise one of own suits with extreme shape, natural and not forcing.
+\item Strange action (cue-bid, \NT, fourth suit, double) is strong (17+ points).
+\item After strange rebid, may sign-off in part-score or game, or encourage.
+\end{mylist}
+\subsubsection{Other applications}
+\begin{mylist}[.3]
+\item Over strong two-bid, 2\NT\ is weak two-suiter (note artificial suits unbid).
+\item Over 1\NT\ (opening or response), 2\NT\ shows any strength two-suiter.
+\item Over any forcing response, 2\NT\ shows any strength two-suiter.
+\item Over single major raise, 2\NT\ shows any strength two-suiter.
+\item In balancing position (-P-P-2\NT), 2\NT\ is unusual only by a passed hand.
+\item[!!] 2\NT\ is \textbf{natural} in balancing position by an unpassed hand.
+\item[!!] 1\NT\ in direct position is \textbf{unusual} only by a passed hand.
+\item[!!] 3\NT\ is natural unless overcalling 2\NT, or by a passed hand.
+\end{mylist}
+\subsubsection{Unusual 4NT overcall}
+Over a preemptive bid, from an unpassed hand, shows intermediate or better
+two-suiter.  Otherwise, implies a weak hand.  All these assume partner has not
+bid or doubled, and you have not bid.
+\begin{mylist}[.3]\small
+\item Over 4\S, shows all unbid suits, or just \H\D\ (clarify later), 13+ points.
+\item Over 4\H, shows minor suits, intermediate strength (13+ points).
+\item[!!] {\normalsize Over 4\C\D, is \textbf{Blackwood}.}
+\item Over lower bid (below 4-level), shows two lower unbid suits.
+\end{mylist}
+\except{If you have already bid or doubled, and enemy bids 4-of-a-major,
+4\NT\ is unusual.  4\S-4\NT\ shows all unbid suits (with strong
+preference for bid suit, if applicable).  4\H-4\NT\ shows both minors.}
+
+\subsection{Michaels cue-bid}
+\begin{mylist}[.3]
+\item Weak or strong: \ltsim12 points or \gtsim19 points; two-suited (5-5).
+\item 2\C\D\to both majors, 2\H\S\to other major and an unspecified minor.
+\end{mylist}
+Michaels cue-bid is a direct cue-bid after a natural opening bid of a suit.
+Simplified versions exist (colorful cue-bid shows both opposite-color suits,
+higher-suits cue-bid shows the two highest remaining suits).  Cue-bid weaker
+hands (\lt 10 points) only with equal or favorable vulnerability.  Note
+\emph{approximate} ranges.
+\crunch
+\except{Over a minor, may show a good 4-card major (3 honors).}
+
+\subsubsection{Responses}
+\begin{mylist}[.3]
+\item Bid a known suit with preference (3 trumps), no game interest.
+\item 2\NT\ after a major asks partner to bid minor.\crunch[.8]
+\bullet{also 4\C\ (not forcing) or 4\NT\ (forcing), but 3\NT\ always natural.}
+\item Jump in a known suit with good trump support, preemptive (or game).
+\item Cue-bid is game or slam try, forcing.
+\item {\small New suit is independent, not forcing; 3\NT\ to play; 
+2\NT\ after minor invites game.}
+\end{mylist}
+Always assume cue-bid is weak when responding.  Invite with 9--13 points.\crunch
+\except{Commonly (but not standard) 3\D\ after 1\S-2\S\ invites game in hearts.}
+
+\subsubsection{Cue-bidder's rebids}
+\begin{mylist}[.3]
+\item Bid or raise one of own suits with extreme shape, natural and not forcing.
+\item Strange action (cue-bid, \NT, unrevealed 3rd suit (w/ 5530), or X) is strong.
+\item {\small After strange rebid, may sign off in suit/\NT, or 4\C (correctable).  Asking for minor w/ 4\NT\ (not Blackwood if minor unknown), or any other bid, is encouraging.}
+\end{mylist}
+
+\subsubsection{Other applications}
+These assume enemy opened, partner never bid or doubled, cue-bid suit was 
+natural, and this is your first opportunity to bid.
+\begin{mylist}[.3]
+\small
+\item Over 1\NT\ response (1\D-P-1\NT-2\D), Michaels is any strength.
+\item Over new suit resp. (1\C-P-1\S-2\C), Michaels in \emph{opener's suit} is any strength.
+\item[!!] Over new suit response (1\C-P-1\S-2\S), \emph{responder's suit} is \textbf{natural}, strong suit.
+\item After Jacoby transfer (1\NT-P-2\D-2\H), Michaels in real suit is any strength.
+\item After two passes (1\S-P-P-2\S), Michaels is invitational or better (13+ points).
+\item Over preemptive bid (2\S-3\S), Michaels is invitational or better (13+ points).
+\item Over a 2-level \emph{non-preempt} (1\H-P-2\H-3\H), Michaels is usually weak (\ltsim12 points).
+\item From a passed hand (P-1\C-P-1\NT-2\C), Michaels is always weak (\le 12 points).
+\end{mylist}
+
+
+
+
+\section{Takeout Doubles}
+
+
+
+
+
+
+%\begin{minipage}[t]{0.5\columnwidth}
+%For the opener,\\
+%\begin{tabular}{|l|l|}\hline
+%13--16 & minimum opening\\\hline
+%17--19 & invitational\\\hline
+%20--22 & game strength\\\hline
+%23+    & slam strength\\\hline
+%\end{tabular}
+%\end{minipage}
+%\begin{minipage}[t]{0.5\columnwidth}
+%For the responder,\\
+%\begin{tabular}{|l|l|}\hline
+%6--10  & minimum response\\\hline
+%11--12 & invitational\\\hline
+%13--19 & game strength \\\hline
+%20+    & slam strength\\\hline
+%\end{tabular}
+%\end{minipage}
+
+
+\end{document}
