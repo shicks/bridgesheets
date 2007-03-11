@@ -1,0 +1,40 @@
+\documentclass{article}
+\usepackage{colortbl}
+
+\def\cellcol#1#2{\multicolumn{1}{>{\columncolor{#1}}c}{#2}}
+\let\mc\multicolumn
+
+\def\cellcol#1#2{\multicolumn{1}{>{\columncolor{#1}}c}{#2}}
+\def\mc#1#2{\multicolumn{#1}{c}{#2}}
+\def\mcc#1#2#3{\multicolumn{#1}{>{\columncolor{#2}}c}{#3}}
+
+\definecolor{lblue}{rgb}{.8,.8,1}
+\definecolor{lred}{rgb}{1,.8,.8}
+\definecolor{lgreen}{rgb}{.8,1,.8}
+\definecolor{lorange}{rgb}{1,.9,.7}
+\definecolor{lpurple}{rgb}{.9,.7,1}
+
+\newcommand{\cb}[2]{\mcc#1{lblue}{#2}}
+\newcommand{\cp}[2]{\mcc#1{lred}{#2}}
+\newcommand{\cg}[2]{\mcc#1{lgreen}{#2}}
+\newcommand{\co}[2]{\mcc#1{lorange}{#2}}
+\newcommand{\cv}[2]{\mcc#1{lpurple}{#2}}
+
+\begin{document}
+
+\begin{tabular}{rcccccccccc}
+\hline
+\cellcol{black}{} & \co1{0--6} & \cb1{6--8} & \cg2{8--10} & \cp1{10--12} & \cv1{13--14} & \cp1{15--16} & \cg1{17--19} & \cb1{20--22} & \co1{23+}\\\hline\hline
+Opening && \co4{Weak 2} & \cb2{Min} & \cg1{Inv} & \cp1{Max} & \cv1{Strong 2}\\\hline
+Response && \cb3{Weak} & \cg1{Inv} & \cp5{Strong}\\\hline\hline
+
+Direct o/c &&&\phantom{r}& \cg7{Overcall}\\\hline
+Takeout Dbl &&&&&&&& \cp3{Strong}\\\hline
+
+Invit'l cuebid &&&&\phantom{r}& \cb1{Raise} & \cp5{Raise or Shift}\\\hline
+Michaels && \co4{Weak} &&& \cp3{Strong}\\\hline
+Unusual NT && \co4{Weak} &&& \cp3{Strong}\\\hline
+\hline
+\end{tabular}
+
+\end{document}
