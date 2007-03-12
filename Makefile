@@ -1,4 +1,4 @@
-all:system.pdf basic.pdf competitive.pdf
+all:system.pdf basic.pdf competitive.pdf points.pdf
 
 %.dvi:%.tex
 	latex $<
