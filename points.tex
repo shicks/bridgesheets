@@ -1,5 +1,13 @@
 \documentclass{article}
-\usepackage{colortbl,footnote,fullpage}
+\usepackage{colortbl,footnote,fullpage}%,pointtables}
+\usepackage[perpage,symbol*]{footmisc}
+
+% We need to do stuff like this to pull things out of the aux file safely.
+\ifx\test\undef
+  \def\test{placeholder}
+\fi
+
+\let\xa\expandafter
 
 \def\cellcol#1#2{\multicolumn{1}{>{\columncolor{#1}}c}{#2}}
 \let\mc\multicolumn
@@ -8,12 +16,23 @@
 \def\mc#1#2{\multicolumn{#1}{c}{#2}}
 \def\mcc#1#2#3{\multicolumn{#1}{>{\columncolor{#2}}c}{#3}}
 
-\definecolor{lblue}{rgb}{.8,.8,1}
+\definecolor{lblue}{rgb}{.75,.8,1}
 \definecolor{lred}{rgb}{1,.8,.8}
 \definecolor{lgreen}{rgb}{.8,1,.8}
 \definecolor{lorange}{rgb}{1,.9,.7}
-\definecolor{lpurple}{rgb}{.9,.7,1}
+\definecolor{lpurple}{rgb}{.95,.7,1}
 \definecolor{lyellow}{rgb}{1,1,.6}
+\definecolor{laqua}{rgb}{.65,.95,1}
+
+% See if we can't get better colors (both values and names and meanings)
+% Forcing
+% Game Forcing
+% Invitational
+% Slam asking?
+% Asking/telling?
+% Captain?
+% - Striped background for responses which are off after interference
+%   (various kinds for off after double and/or overcall??)
 
 \newcommand{\cb}[2]{\mcc#1{lblue}{#2}}
 \newcommand{\cp}[2]{\mcc#1{lred}{#2}}
@@ -21,8 +40,6 @@
 \newcommand{\co}[2]{\mcc#1{lorange}{#2}}
 \newcommand{\cv}[2]{\mcc#1{lpurple}{#2}}
 \newcommand{\cy}[2]{\mcc#1{lyellow}{#2}}
-
-
 
 \def\C{$\clubsuit$}
 \def\D{$\diamondsuit$}
@@ -44,7 +61,13 @@
 
 \begin{document}
 
-\begin{tabular}{rcccccccccc}
+\test
+
+\newcolumntype{C}{>{\phantom{m}}c<{\phantom{m}}}
+\newcolumntype{W}{c<{\phantom{m}}>{\phantom{m}}c}
+\newcolumntype{R}{c<{\phantom{m}}>{\phantom{n}}c<{\phantom{n}}>{\phantom{m}}c}
+
+\begin{tabular}{lcccccccccc}
 \hline
 \cellcol{black}{} & \co1{0--6} & \cb1{6--8} & \cg2{8--10} & \cp1{10--12} & \cv1{13--14} & \cp1{15--16} & \cg1{17--19} & \cb1{20--22} & \co1{23+}\\\hline\hline
 Opening && \co4{Weak 2} & \cb2{Min} & \cg1{Inv} & \cp1{Max} & \cv1{Strong 2}\\\hline
@@ -59,37 +82,227 @@ Unusual NT && \co4{Weak} &&& \cp3{Strong}\\\hline
 \hline
 \end{tabular}
 
+
+\colorbox{lblue}{\vbox to 2 in{\hbox to 2in{Testing 12 13 14 15}\hbox to 2in{a b c d ef\hss}}}
+% Could make i.e. \row[height=2pc]\cell[4]{...}\cell[3]{...}
+% in terms of units set at the top..  But how to scale properly?
+% Would like to make it as narrow as possible, to accomodate everything.
+% We could accumulate box widths and then divide to keep a running total
+% of the minimum length of the unit.
+
+%\beginbidtable abc\endbidtable
+
 \eject
 
-\section{Openings}
-\begin{tabular}{lcccp{2em}p{2em}cccc}
-%\hline\cellcol{black}{}
-&\mc1{0--5}&\mc2{6--12}&\mc2{13--16}&\mc2{17--19}&\mc1{20--22}&\mc1{23+}\\\hline\hline
-balanced &&&&\cg1{}&\cb2{1NT}&\cg1{}&\cp1{2NT}&\cv1{2\C}\\\hline
-openable suit &&&& \cg5{1\C\D\H\S} & \cv1{2\C}\\\hline
-6 card suit && \cy2{2\D\H\S} & \cg5{1\C\D\H\S} & \cv1{2\C}\\\hline
-7 card suit & \co2{3--4} & \cy1{2} & \cg5{1\C\D\H\S} & \cv1{2\C}\\\hline
-\hline\end{tabular}
+\makeatletter
+\let\xa\expandafter
+\newcount\c@a\newcount\c@b\newcount\c@c
+\newif\ifplus
+\def\@gobble@null\@null{}
+\def\@maybe@next{\ifx\@foo\@null\let\@next\@gobble@null\fi\@next}
+\def\@headings#1|{\doheading#1-.-\@end\let\@next\@headings\futurelet\@foo\@maybe@next}
+\def\headings#1{\global\c@c\z@\@headings#1|\@null\\\hline\hline}
+\def\stripplus#1+#2\@null{\ifx+#2\relax\plustrue\else\plusfalse\fi\c@a#1\relax}
+\def\setupper#1#2\@null{\ifx.#1\relax\number\c@a\relax\c@b\c@a\relax\else\c@b#1#2\relax\number\c@a--\number\c@b\fi\ifplus+\fi}
+\def\doheading#1-#2-#3\@end{%
+  &%  \ifnum\c@c>\z@&\fi
+  \stripplus#1+\@null % sets \ifplus and \c@a
+  \setupper#2\@null   % sets \c@b and prints stuff
+  \xa\xdef\csname a@\romannumeral\c@a\endcsname{\number\c@c}%
+  \xa\xdef\csname b@\romannumeral\c@b\endcsname{\number\c@c}%
+  \global\advance\c@c\@ne % next column...
+}
 
-\section{Responses to 1 of a suit}
-\begin{tabular}{lccccccccc}
-%\hline\cellcol{black}{}
-&\mc1{4--6}&\mc1{6--10}&\mc1{11--12}&\mc1{13--16}&\mc1{17--19}&\mc1{20+}\\\hline\hline
-fit (3 major, 4 minor)&\co1{preempt\footnote{double jump raise requires 5 trump}}&\cb1{single raise}&&\cp1{jump raise}&\cv1{jump shift}&\cg1{1/1, 2/1}\\\hline
-four-card suit%\footnote{2\H requires 5 cards}
-&&\cg5{1/1}\\
-(5 to bid 2\H)&\co1{preempt\footnote{double jump shift requires 7-card suit}}&\cy1{1NT}&\cg4{2/1}\\\hline
-\hline
-\end{tabular}\\
-Other responses: jump shift for any 17--19 point hand only if trump suit
-is known or fit is gauranteed.  2NT with 13--15 points, 3NT with 16--18.
+
+\def\test{&1&2&3}
+
+\def\getleft{\xa\c@a\csname a@\romannumeral\c@a\endcsname}
+\def\getright{\xa\c@b\csname b@\romannumeral\c@b\endcsname}
+
+\def\row{\c@c\z@}
+\def\@@lign{%
+  \t@b%  % This should work now...
+  \let\@next\@@lign
+  \ifnum\c@c<\c@a
+    \global\advance\c@c\@ne
+  \else
+    \let\@next\relax
+  \fi\@next}
+
+\newcount\@left
+\newcount\@cur
+
+\def\t@b{&}
+\def\@lign{%
+  \global\@left\c@a % copy this value
+  \global\advance\@left-\@cur % find out how many more we need to go.
+  \ifnum\@left>\z@  % SOMEHOW, this counter is getting changed on me!!!
+    \t@b\xa\multicolumn\xa{\number\@left}{c}{}\t@b%
+  \else\t@b\fi
+}
+
+\def\@bid#1#2#3#4{%
+\c@a#1\relax\getleft % \c@c stores the current position in the row...
+\c@b#2\relax\getright\advance\c@b\@ne
+\global\@cur\c@c\relax\global\c@c\c@b\relax % make sure to update it...
+\global\advance\c@b-\c@a\relax
+\@lign\mcc{\number\c@b}{#3}{#4}%
+}
+\def\resolverange#1-#2-#3\@null{{#1}{#2}}
+\def\@@bid#1#2#3{% #1 is a range
+\xa\@bid\resolverange#1-#1-\@null{#2}{#3}}
+
+\newif\if@star
+\newif\if@usingstar
+\global\@usingstartrue
+\def\bid{\futurelet\@foo\check@star}
+\def\check@star{\let\@next\@nsbid
+  \ifx\@foo*\relax
+    \if@usingstar\global\@startrue\fi
+%    \global\let\if@star\if@usingstar % bad syntax...
+    \let\@next\@sbid
+  \else
+    \global\@starfalse
+  \fi\@next}
+\def\@sbid*{\@nsbid}
+\def\@nsbid(#1,#2)#3{\@@bid{#1}{#2}{\if@star\else#3\fi}}
+
+\def\clear@ranges{\count@40\let\@next\@clr@ranges\@next}
+\def\@clr@ranges{\ifnum\count@<\z@\let\@next\relax\else
+  \xa\global\xa\let\csname a@\romannumeral\count@\endcsname\undef
+  \xa\global\xa\let\csname b@\romannumeral\count@\endcsname\undef
+  \global\advance\count@\m@ne
+\fi\@next}
+
+\def\b@ptable{\begin{tabular}{lccccccccccccccccccccc}} % should be enough...
+\def\e@ptable{\hline\end{tabular}\clear@ranges}
+
+\newenvironment{ptable}{\b@ptable}{\e@ptable}
+
+\def\ob#1#2{\@@bid{#1}{lorange}{#2}}
+\def\yb#1#2{\@@bid{#1}{lyellow}{#2}}
+\def\gb#1#2{\@@bid{#1}{lgreen}{#2}}
+\def\bb#1#2{\@@bid{#1}{lblue}{#2}}
+\def\pb#1#2{\@@bid{#1}{lred}{#2}}
+\def\vb#1#2{\@@bid{#1}{lpurple}{#2}}
+\def\ab#1#2{\@@bid{#1}{laqua}{#2}}
+
+% There MUST be better ways to do this...
+\def\oc#1#2{\@@bid{#1}{lorange}{}}
+\def\yc#1#2{\@@bid{#1}{lyellow}{}}
+\def\gc#1#2{\@@bid{#1}{lgreen}{}}
+\def\bc#1#2{\@@bid{#1}{lblue}{}}
+\def\pc#1#2{\@@bid{#1}{lred}{}}
+\def\vc#1#2{\@@bid{#1}{lpurple}{}}
+\def\ac#1#2{\@@bid{#1}{laqua}{}}
+
+\def\ic{\futurelet\@foo\@ic}
+\def\@ic{\let\@next\g@ic\ifx\@foo\egroup\let\@next\relax\fi\@next}
+\def\g@ic#1{\futurelet\@foo\@ic}
+
+\def\ditto#1{\raise 0.18pc\hbox to #1{\leaders\hrule\hfill\lower 0.4pc\hbox{\kern1ex''\kern0.6ex}\leaders\hrule\hfill}}
+
+\def\savenote#1#2{\begingroup\count@\value{footnote}\advance\count@\@ne\xdef#1{\the\count@}\endgroup\footnote{#2}}
+%\def\savenote#1#2{\footnote{#2}\xdef#1{\value{footnote}}}
+
+\section{Openings}
+
+\begin{ptable}\headings{0-5|6-8|9-12|13-14|15-16|17|18-19|20-22|23+}
+\row{balanced}
+%  \[13-14,G]{...}
+  \bid(13-14,lgreen){}
+%  \bid(15-17,lblue){\vbox{\hbox{\vsize=.5pc\tiny 1NT}\hbox{\vsize=.5pc\colorbox{lgreen}{\tiny1/1,2/1}}}} % UGLY...
+  \bid(15-17,lblue){1NT}
+  \bid(18-19,lgreen){}
+  \bid(20-22,lred){2NT}
+  \bid*(23,lpurple){2\C}\\%\hline
+\row{openable suit\footnote{Opening a suit requires 5 of a major or 4 of a minor}}
+  \bid*(13-22,lgreen){1\C\D\H\S}
+  \bid(23,lpurple){2\C\footnote{Strong, artificial}}\\%\hline
+\row{6 card suit}
+  \bid(6-12,lyellow){2\D\H\S}
+  \bid(13-22,lgreen){1\C\D\H\S}
+  \bid*(23,lpurple){2\C}\\%\hline
+\row{7 card suit}
+  \bid(0-8,lorange){\ge3\C\D\H\S}
+  \bid*(9-12,lyellow){2\D\H\S}
+  \bid*(13-22,lgreen){1\C\D\H\S}
+  \bid*(23,lpurple){2\C}\\
+\end{ptable}
+
+\section{Responses to 1 of a major}
+Includes \textbf{Limit Major Raises}, \textbf{Jacoby 2NT},
+\textbf{Splinter Bids} and \textbf{Weak Jump Shifts}.\\
+
+\noindent\begin{ptable}\headings{2-6|6-10|11-12|13+}
+\row{fit (3 trump)}
+  \bid(6-10,lblue){single raise (2M)}
+  \bid(11-12,lyellow){limit raise (3M)}
+  \bid(13,lpurple){Jacoby 2NT\savenote{\reqfour}{Jacoby 2NT and splinter bids require
+4-card trump support}}\\
+\row{\ldots\ + 1$^{\underline{\mathrm{tn}}}$/void}
+  \bid(6-12,white){\ditto{2in}}
+  \bid(13,lred){Splinter bid\footnote{Splinter bid is a double-jump (non-game)
+bid in new suit, showing a singleton.}}\\
+%\row{5 trump fit}
+%  \bid(7-10){preempt to game (4M)}
+\row{four-card suit\footnote{Bidding 2\H\ as 2/1 requires a five-card suit}}
+  \bid(6-10,lblue){1NT\savenote{\ntresp}{1NT response/rebid denies a biddable 1-level major}}
+  \bid(11-13,lgreen){2/1}\\
+\row{\phantom{m}(denies fit)}
+  \bid(6-13,laqua){1/1}\\
+\row{six-card suit}
+  \bid(2-6,lorange){jump shift\savenote{\weakshift}{Weak jump shifts 
+      at the three level \emph{must} have a slightly longer suit, 
+      and \emph{may} show an extra point or two}}
+  \bid(6-13,white){\ditto{3in}}\\
+%four-card suit%\footnote{2\H requires 5 cards}
+%(5 to bid 2\H)&\co1{preempt\footnote{double jump shift requires 7-card suit}}&\cy1{1NT}&\cg4{2/1}\\
+\end{ptable}
+
+\section{Responses to 1 of a minor}
+Includes \textbf{Inverted Minor Raises}.\\
+
+\noindent\begin{ptable}\headings{2-6|6-10|11+}
+\row{fit (4 trump)}
+  \bid(6-10,lyellow){3m\footnote{Prefer 1NT with a bare 10-point raise}}
+  \bid(11,lred){2m}\\
+\row{four-card suit\footnote{After a minor suit opening, bid any 4-card
+majors at the one level up the line, rather than showing fit}}
+  \bid(6-10,lblue){1NT\footnotemark[\ntresp]}
+  \bid(11,lgreen){2/1}\\
+\row{}
+  \bid(6-11,laqua){1/1}\\
+\row{six-card suit}
+  \bid(2-6,lorange){jump shift\footnotemark[\weakshift]}
+  \bid(6-11,white){\ditto{1in}}\\
+\end{ptable}
+
+\section{Responses to 1NT}
+\noindent\begin{ptable}\headings{0-7|8|9-10|11-15|16+}
+\row{(semi)balanced}
+  \bid(9-10,lblue){2NT}
+  \bid(11-15,lred){3NT}
+  \bid(16,lpurple){4NT}\\
+\row{five-card major}
+  \bid(0-16,lgreen){Jacoby transfer 2\D\H}\\
+\row{four-card major}
+  \bid(8-16,lyellow){Stayman 2\C}\\
+\row{5 or 6-card minor}
+  \bid(0-7,lorange){3\C\D (w/ 6+ cards)}
+  \bid(11-16,lyellow){(rebid minor)}\\
+\row{444 in \D\H\S}
+  \bid(0-7,lyellow){Stayman 2\C, then Pass}
+  \bid(8-16,white){\ditto{1.7in}}\\
+\end{ptable}
+
 
 \section{Opener's rebids after 1/1}
 \begin{tabular}{lcccc}
 &\mc2{13--16}&\mc1{17--19}&\mc1{20--22}\\\hline\hline
 fit (4 trump)&\cb2{single raise}&\cg1{jump raise}&\cv1{reverse, jump shift}\\\hline
-balanced & \cy1{1NT\footnote{1NT response after 1/1 gaurantees no 4-card major
-at 1-level}}&&\cp1{2NT (w/stops)}&\\\hline
+balanced & \cy1{1NT\footnotemark[\ntresp]%{1NT response after 1/1 gaurantees no 4-card major at 1-level}%
+}&&\cp1{2NT (w/stops)}&\\\hline
 4-card unbid suit &\cg3{non-reverse}&\cv1{jump shift}\\
                 &&&\cp2{reverse}\\\hline
 6-card original suit &\cy2{rebid suit}&\cb1{jump rebid}\\\hline
@@ -141,13 +354,11 @@ Bid naturally to show strength.  Game is required.
 \begin{tabular}{lcccc}
 &\mc1{13--14}&\mc1{15--16}&\mc1{17--19}&\mc1{20+}\\\hline\hline
 fit (4 trump)&\cb2{single raise}&\cg1{jump raise}&\cv1{reverse, jump shift}\\\hline
-balanced & \cy1{1NT\footnote{1NT response after 1/1 gaurantees no 4-card major
-at 1-level}}&&\cp1{2NT (w/stops)}&\\\hline
+balanced & \cy1{1NT}&&\cp1{2NT (w/stops)}&\\\hline
 4-card unbid suit &\cg3{non-reverse}&\cv1{jump shift}\\
                 &&&\cp2{reverse}\\\hline
 6-card original suit &\cy2{rebid suit}&\cb1{jump rebid}\\\hline
 \end{tabular}
-
 
 \section{Responses to 1 of a suit with LIMIT RAISES}
 \begin{tabular}{lccccccccc}
@@ -159,6 +370,13 @@ four-card suit%\footnote{2\H requires 5 cards}
 \hline
 \end{tabular}\\
 
-
+\makeatletter
+%\protected@write\@auxout{\string\def\expandafer\string\test{testing}}{
+%\def\@@@{4}
+%\protected@write\@auxout{}{\string\def\expandafter\string\csname test\@@@\endcsname{testing}}
+\protected@write\@auxout{}{\string\gdef\expandafter\string\csname test\endcsname{testing}}
+%\makeatother
+% The point - use a counter to count the tables, then use the aux file
+% to store the correct widths for all of them in a counted command.
 
 \end{document}

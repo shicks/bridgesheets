@@ -2,6 +2,7 @@ all:system.pdf basic.pdf competitive.pdf points.pdf
 
 %.dvi:%.tex
 	latex $<
+	latex $<
 system.ps:system.dvi
 	dvips -o $@ -t letter -t landscape $<
 %.ps:%.dvi
