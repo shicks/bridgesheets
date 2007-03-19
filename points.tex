@@ -1,9 +1,48 @@
-\documentclass{article}
+\documentclass[oneside]{memoir}
 \usepackage{colortbl,footnote,fullpage}%,pointtables}
 \usepackage[perpage,hang,symbol*]{footmisc}
+\usepackage{calc,graphicx}
 \renewcommand{\hangfootparskip}{0pt}
 
 \makeatletter
+
+\newif\ifNoChapNumber
+\makechapterstyle{VZ34}{
+  \renewcommand\chapternamenum{}
+  \renewcommand\printchaptername{}
+  \renewcommand\printchapternum{}
+  \renewcommand\chapnumfont{\Huge\bfseries}
+  \renewcommand\chaptitlefont{\Huge\bfseries\raggedright}
+%  \renewcommand\afterchapternum{\vspace*{-5pc}}
+%  \renewcommand\insertchapterspace{\vspace*{-5pc}}
+  \renewcommand\printchaptertitle[1]{%
+    \begin{tabular}{@{}p{1cm}|!{\quad}p{\textwidth-1cm-2em-4\tabcolsep }}
+      \ifNoChapNumber\relax\else\chapnumfont \thechapter\fi
+      & \chaptitlefont ##1
+    \end{tabular}
+    \NoChapNumberfalse
+  }
+  \renewcommand\printchapternonum{\NoChapNumbertrue}
+}
+\makechapterstyle{AndersLyhne}{% doesn't seem to work?!
+  \newlength{\chapterlineskipx}
+  \setlength{\chapterlineskipx}{0.2cm}
+  \setlength{\beforechapskip}{1.5cm}
+  \setlength{\afterchapskip}{1cm}
+  \setlength{\midchapskip}{2cm}
+  \renewcommand\chapnamefont{\normalfont\normalsize\scshape\raggedleft}
+  \renewcommand\chaptitlefont{\normalfont\normalsize\bfseries\sffamily\raggedleft}
+  \renewcommand\chapternamenum{}
+  \renewcommand\printchapternum{\makebox[0pt][1]{\hspace{0.2em}%
+      \resizebox{!}{2ex}{\chapnamefont\bfseries\sffamily\thechapter}}}
+  \renewcommand\afterchapternum{\par\hspace{1.5cm}\hrule\vspace{0.2cm}}
+  \renewcommand\printchapternonum{\par}
+  \renewcommand\printchaptertitle{\vskip\chapterlineskipx
+    \hrule\vskip\afterchapskip}
+}  
+
+\chapterstyle{VZ34}
+  
 
 % We need to do stuff like this to pull things out of the aux file safely.
 \ifx\test\undef
@@ -59,10 +98,49 @@
 \def\ge{$\TeXge$}
 \def\ltsim{$\lesssim$}
 \def\gtsim{$\gtrsim$}
+\def\nodepth#1{\setbox\z@\hbox{#1}\dp\z@=0\p@\box\z@}
+\def\killvert#1{\setbox\z@\hbox{#1}\dp\z@=0\p@\ht\z@=0\p@\box\z@}
+
+% Defines command #1 which calls #2 with color in #3
+\def\colorcommand#1#2#3{%
+  \newcommand{#1}[2][*]{\ifx##1*\relax\def#3{{##2}}\else
+    \def#3{[##1]{##2}}\fi#2}}
+
+\newcommand{\@highlight}[2][2pt]{\begingroup
+  % Make a colorbox to get padding
+  \def\@cb{\expandafter\colorbox\@hl@col}%
+  \def\x{\dimen\z@}\def\y{\dimen\@ne}\def\z{\dimen\tw@}\def\p{\dimen\thr@@}%
+  \def\w{\wd\z@}\def\h{\ht\z@}\def\d{\dp\z@}%
+  \setbox\z@\hbox{\@cb{}}%
+  \p#1\relax\multiply\p\tw@ % twice the padding
+  % \dimen0 is the highlighting width, \dimen1 is the height+depth
+  \x-\w \y-\h \advance\y-\d
+  \advance\x\p \advance\y\p
+  % \dimen2 is just the depth
+  \z-\d \advance\z#1\relax
+  % Now set the text to get its dimensions
+  \setbox\z@\hbox{#2}%
+  \advance\x\w \advance\z\d
+  \advance\y\h \advance\y\d
+  % Set the actual colorbox
+  \setbox\z@\hbox{\hskip-#1\@cb{\hbox to \x{\vbox to \y{}}}}%
+  % Clear out its dimens and draw it (lowered)
+  \w=0\p@\h=0\p@\d=0\p@\lower\z\box\z@\endgroup\hbox{#2}}
+\colorcommand\highlight\@highlight\@hl@col
 
 \makesavenoteenv{tabular}
 
 \begin{document}
+
+\def\singleton{1$^{\underline{\mathrm{tn}}}$}
+
+\newif\ifcolorbids
+\colorbidstrue
+
+%\newcommand{\textbid}[2][white]{\ifcolorbids\colorbox{#1}{\killvert{\textbf{#2}}}\else\textbf{#2}\fi}
+\newcommand{\textbid}[2][white]{\ifcolorbids\leavevmode\highlight{#1}[2pt]{\textbf{#2}}\else\textbf{#2}\fi}
+\newcommand{\textresp}[2][white]{\emph{#2}}
+
 % Dimensions: bw=remaining width; bh,bd=box height and depth
 %             corr=correction for colorbox padding
 \newdimen\scb@bw\newdimen\scb@bh\newdimen\scb@bd\newdimen\scb@corr
@@ -247,18 +325,36 @@ Unusual NT && \co4{Weak} &&& \cp3{Strong}\\\hline
 
 % Want some way to signify various properties - forcing, overcalls, etc...
 \def\w#1{\def\@top{}\def\@bot{}\@w#1\@go}
+\let\ww\w
 \def\@w#1{\let\@next\@w\ifx#1\@go\relax\let\@next\@go\else
   \ifx#1o\relax\edef\@top{\@top o}\fi
   \ifx#1d\relax\edef\@top{\@top d}\fi
+  \ifx#1a\relax\edef\@bot{\@bot a}\fi
   \ifx#1i\relax\edef\@bot{\@bot i}\fi
   \ifx#1s\relax\edef\@bot{\@bot s}\fi
   \ifx#1f\relax\edef\@bot{\@bot f}\fi
   \ifx#1g\relax\edef\@bot{\@bot g}\fi
 \fi\@next}
-\def\@go{ ${}^{\mathrm{\tiny\@top\@bot}}$}%_{\mathrm{\tiny\@top}}$}
+\def\@go{ \nodepth{${}^{\mathrm{\tiny\@bot}}_{\mathrm{\tiny\@top}}$}}
 
-\section{Openings}
+%\title{Bridge Bidding}
+%\author{Arranged by Stephen Hicks}
 
+%\maketitle
+
+\section*{Bridge Bidding\hfill Arranged by Stephen Hicks}
+
+%{\textbf{Bridge Bidding}\hfill Arranged by Stephen Hicks}
+%\vskip 2pc
+
+%\chapter{Openings}
+
+%\begin{abstract}
+
+% Maybe move this to a page with the conventions on it, and expand
+% the ToC to full page
+
+\subsection*{Openings}
 \begin{ptable}\headings{0-5|6-8|9-12|13|14|15|16|17|18|19|20|21|22|23+}
 \row{balanced}
 %  \[13-14,G]{...}
@@ -274,15 +370,23 @@ Unusual NT && \co4{Weak} &&& \cp3{Strong}\\\hline
 \row{6 card suit}
   \bid(6-12,lblue){2\D\H\S}
   \bid(13-22,lgreen){1\C\D\H\S}
-  \bid(23,lpurple){\cdrop[-.45pc]{2\C\w{f}}}\\%\hline
+  \bid(23,lpurple){\cdrop[-.45pc]{2\C\w{a}}}\\%\hline
 \row{7 card suit}
   \bid(0-8,lorange){\ge3\C\D\H\S}
   \bid*(9-12,lblue){2\D\H\S}
   \bid*(13-22,lgreen){1\C\D\H\S}
   \bid*(23,lpurple){2\C}\\
 \spanrow{5}{solid minor, 2 outside stoppers\footnote{7-card minor (sometimes 6), usually all 3 outside suits stopped, never a singleton or void}}
-  \bid(16-21,lyellow){Acol 3NT\w{f}}\\
+  \bid(16-21,laqua){Acol 3NT\w{a}}\\
 \end{ptable}
+
+\subsection*{3rd and 4th seat}
+Open one of a suit with fewer points.  Bid weak two with shorter suit
+or more points.
+%\end{abstract}
+
+\vspace*{-1.5pc}
+\tableofcontents*
 
 %% Hack of colortbl:
 %\def\@lf{\hbox{\vrule\hbox to 1pt{}}}
@@ -300,17 +404,19 @@ Unusual NT && \co4{Weak} &&& \cp3{Strong}\\\hline
 %        \kern-\@tempdimc
 %        \hskip-\wd\z@ \@plus -1fill }
 
+\chapter{Suit openings}
+
 \section{Responses to 1 of a suit}
-\textbf{Limit Major Raises}, \textbf{Jacoby 2NT},
-\textbf{Splinter Bids}, \textbf{Weak Jump Shifts}, and \textbf{Inverted
-Minor Raises}\\
+%\textbf{Limit Major Raises}, \textbf{Jacoby 2NT},
+%\textbf{Splinter Bids}, \textbf{Weak Jump Shifts}, and \textbf{Inverted
+%Minor Raises}\\
 
 %\begin{tabular}{cc}
 %  abcdefg&hijklmnop\\
 %  {\color{green}\leaders\hbox{/\hskip-3pt}\hfill}\hskip 0pt\@plus-1fill test\\
 %\end{tabular}
 
-\noindent\begin{ptable}\headings{2-6|6-10|11-12|13+}
+\begin{ptable}\headings{2-6|6-10|11-12|13+}
 \row{three-card major suit fit}
   \bid*(6-10,lblue){single raise (2M)}
   \bid*(11-12,lgreen){limit raise (3M)}
@@ -319,13 +425,13 @@ Minor Raises}\\
   \bid(6-10,lblue){single raise (2M)}
   \bid(11-12,lgreen){limit raise (3M)}
 %  \bid(6-12,white){\ditto{2in}}
-  \bid(13,lpurple){Jacoby 2NT\w{go}}\\
+  \bid(13,lpurple){Jacoby 2NT\w{ago}}\\
 %\row{\ldots\ + 1$^{\underline{\mathrm{tn}}}$/void}
 \row{\ldots\ + singleton/void}
   \bid*(6-10,lblue){single raise (2M)}
   \bid*(11-12,lgreen){limit raise (3M)}
 %  \bid(6-12,white){\ditto{2in}}
-  \bid(13,lyellow){splinter bid\footnote{Splinter bid is a double-jump (non-game) bid in new suit, showing a singleton.}\w{g}}\\\\[-.6pc]
+  \bid(13,lyellow){splinter bid\footnote{Splinter bid is a double-jump (non-game) bid in new suit, showing a singleton.}\w{ag}}\\\\[-.6pc]
 %\row{5 trump fit}
 %  \bid(7-10){preempt to game (4M)}
 \row{four-card minor suit fit}
@@ -350,6 +456,17 @@ require roughly 6 cards at the 2-level and 7 at the 3-level.}}}
 %(5 to bid 2\H)&\co1{preempt\footnote{double jump shift requires 7-card suit}}&\cy1{1NT}&\cg4{2/1}\\
 \end{ptable}
 
+\section{Major suit fits}
+
+
+\section{Minor suit fits}
+
+
+\section{New suits}
+
+
+\chapter{Notrump openings}
+
 \section{Responses to 1NT}
 \begin{ptable}\headings{0-8|8-10|11-12|13-15|16-17|18+}
 \row{(semi)balanced}
@@ -372,6 +489,9 @@ require roughly 6 cards at the 2-level and 7 at the 3-level.}}}
   \bid(0-8,lorange){3\C\D\footnote{minor suit bust requires 6 cards}}
   \bid(11-18,lyellow){\cdrop[-.45pc]{Stayman 2\C}}\\
 \end{ptable}
+%\hskip 1pc
+%\parbox[t]{1.8in}{
+%  2\C-?-3m = no 4-card major}
 
 \section{Responses to 2NT}
 \begin{ptable}\headings{0-3|4|5-7|8-10|11+}
@@ -387,31 +507,233 @@ require roughly 6 cards at the 2-level and 7 at the 3-level.}}}
   \bid*(8-11,lyellow){Stayman 3\C}\\
 \end{ptable}
 
-\section{Responses to Strong 2\C}
+\section{Stayman}
+
+\section{Jacoby}
+
+
+\chapter{Artificial openings}
+
+\section{Strong 2\C}
+
+Opener should open 2\C\ with 23 high card points and a balanced hand.
+With an unbalanced hand, 21 high card points is sufficient.  With a
+one-suited hand, opener must have within one trick of game and at least
+17 high card points.  This bid is artificial and absolutely forcing,
+asking for at least two responses from partner (unless bidding
+reaches game).
+
+\subsection{Responses}
 \begin{ptable}\headings{0-7|8+}
-\row{long suit}\bid*(0-7,lorange){2\D}\bid(8,lpurple){2M, 3m}\\
+\row{good 5-card suit}\bid*(0-7,lorange){2\D\w{a}}\bid(8,lpurple){2M, 3m}\\
 \row{balanced}\bid(0-7,lorange){\cdrop[-.45pc]{2\D}}\bid(8,lred){2NT}\\
 \end{ptable}
+\hskip 1pc\vrule\hskip 1pc
+\parbox[t]{4in}{\vskip -1.4pc %Solid suit headed by two of top three honors:\\
+%\phantom.\hskip 1pc 6-card major: \colorbox{lblue}{3M}\hskip 1.9pc
+%7-card minor: \colorbox{lgreen}{4m}\\
+%Undisclosed solid suit headed by A-K-Q: \colorbox{lyellow}{3NT}
+\textbf{Special responses}: with a 6+ card major or 7+ card minor headed by two
+of the top three honors, bid \textbid[lblue]{3M} or
+\textbid[lgreen]{4m}.  With an undisclosed solid suit headed by A-K-Q,
+bid \textbid[lyellow]{3NT}.  }
 
-\subsection{Rebids after Negative 2\D}
+\subsection{Opener's rebids (all forcing)}
 \begin{ptable}\headings{23-24|25-27|28-30|31-32|33+}
 \row{5-card suit\footnote{strong 4-card suit if 4441}}\bid(23-33,lyellow){2M, 3m}\\
-\row{balanced}\bid(23-24,lblue){2NT}
+\row{balanced}\bid(23-24,lblue){2NT}\bid(25-27,laqua){3NT}
+\bid(28-30,lgreen){4NT}\bid(31-32,lred){5NT}\bid(33,lpurple){6NT}\\
+\end{ptable}
+\hskip .5pc\vrule\hskip .5pc
+\parbox[t]{2.9in}{\vskip -2pc
+\textbf{After a positive} 2NT response, \textbid[lyellow]{Stayman 3\C} is on.
+After a positive suit response, \textbid[lblue]{shift} with a new 5-card
+suit, \textbid[lgreen]{raise} with support, or bid \textbid[laqua]{NT}
+with a balanced hand.}
+%\parbox[t]{3in}{\vskip -2pc
+%After 2NT resp. w/ 4-card major: \colorbox{lyellow}{Stayman 3\C}\\[0.6pc]
+%After positive suit response:\\
+%\phantom.\hskip 1pc
+%  5 cards:\colorbox{lblue}{shift}
+%  support:\colorbox{lgreen}{raise}
+%  balanced:\colorbox{lred}{NT}
+%}
 
+\subsection{Responder's rebids}
+\begin{ptable}\headings{0-3|4+}
+\row{after first negative}\bid(0-3,lorange){cheaper minor\w{a} or 3NT\w{a} after 3\D}
+\bid(4,lred){natural}\\
 \end{ptable}
 
+\subsection{Opener's rebids after second negative}
+Opener may \textbid[lorange]{raise first suit\ww{s}} as only non-game-forcing
+rebid.  All else is natural and game-forcing.
 
-\section{Responses to Weak 2}
-\begin{ptable}\headings{0-4|5+}
-\row{Support}\bid(0-5,lgreen){raise}\\
+\subsection{After interference}
+\iffalse % Table format
+\begin{ptable}\headings{0-4|5-7|8+}
+\multicolumn4c{After double (other responses on)}\\
+\row{4 clubs}\bid(0-8,lblue){pass}\\
+\row{5 clubs (4 good clubs)}\bid(0-8,lyellow){redouble}\\
+\multicolumn4c{After overcall beyond 4\D}\\
+\row{good 6-card or longer suit}\bid(0-7,lorange){double}
+  \bid(8,lyellow){bid suit}\\
+\row{want to hear opener's suit}\bid*(0-4,lorange){double}
+  \bid(5-8,lred){pass}\\
+\end{ptable}\hfill
+\begin{ptable}\headings{0-4|5-7|8+}
+\multicolumn4c{After overcall through 4\D}\\
+\row{5-card suit}\bid*(0-4,lorange){pass}\bid(5-8,lgreen){bid suit}\\
+\row{long enemy suit}\bid*(0-4,lorange){pass}\bid(5-8,laqua){penalty double}\\
+\row{balanced + 1 stopper}\bid*(0-7,lorange){pass}\bid(8,lred){NT}\\
+\row{\singleton/void in enemy suit}\bid(0-7,lorange){\cdrop[-.45pc]{pass}}
+  \bid(8,lpurple){cue-bid}\\
 \end{ptable}
+\fi
+
+% Text format
+\noindent \textbf{If 2\C is \emph{doubled}}, \textbid[lblue]{pass}
+with 4 clubs, \textbid[lyellow]{redouble} with 5 clubs (or 4 good
+clubs), \textbid[laqua]{normal responses} on.
+\vskip0.25pc\hrule\vskip0.25pc
+\noindent \textbf{If 2\C is \emph{overcalled through 4\D}}, responder may bid a
+\textbid[laqua]{five-card suit} with 5+ HCP, bid \textbid[lgreen]{NT}
+with a balanced 8 points and a stopper, \textbid[lred]{cue-bid\ww{a}}
+with 8 points and a singleton/void in enemy suit, \textbid[lyellow]{double}
+for penalty, or \textbid[lorange]{pass} otherwise (negative response).
+\vskip0.25pc\hrule\vskip0.25pc
+\noindent \textbf{If 2\C is \emph{overvalled beyond 4\D}}, responder may
+\textbid[lorange]{double\ww{a}} with a \emph{minimum} hand to warn against any
+rebidding, \textbid[lpurple]{pass\ww{a}} to encourage opener to bid his suit,
+or \textbid[lblue]{bid a good 6-card suit}.
+\vskip0.25pc\hrule\vskip0.25pc
+\noindent \textbf{For interference after response},
+\textbid[laqua]{normal rebids} are on, \textbid[lyellow]{double} or
+\textbid[lyellow]{redouble} for penalty, \textbid[lred]{cue-bid} to show
+other three suits, or \textbid[lpurple]{pass\ww{f}} to force responder
+to act.
+
+\section{Weak two-bids}
+
+2\D, 2\H, and 2\S\ are weak preemptive bids requiring at least a six-card
+suit and 5--12 high card points.  Responder should generally pass unless
+he has something constructive to add, and should absolutely not attempt
+to rescue.  Another suit should only be bid as a better
+preempt with no help from opener.
+
+\subsection{Responses}
+Any \textbid[lblue]{raise} (2\D---3\D) or
+\textbid[laqua]{game bid} (2\C---3NT, 2\H---4\S) is a further preempt
+and \textresp{must be passed}.  A \textbid[lyellow]{nonjump shift}
+(2\C---2\S, 2\H---3\D) shows 6 cards, no fit, and presumes a better
+preempt.  A \textbid[lgreen]{jump shift} (2\D---3\H) is natural and
+invitational, showing an independent suit one trick short of actual
+bid.  After either shift, opener should \textresp{usually pass} but
+\textresp{may raise}.  \textbid[lred]{2NT\ww{a}} is the only forcing
+response, showing 14+ points.
+
+\subsection{Weak 2-bidder's rebids after a 2NT response}
+\begin{ptable}\headings{5-8|8-12}
+  \row{A-K-J or better in long suit}
+    \bid*(5-8,lorange){rebid original suit}
+    \bid(8-12,lblue){3NT\w{a}}\\
+  \row{A, K, or Q in side suit}
+    \bid(5-8,lorange){rebid original suit}
+    \bid(8-12,lyellow){3 of side suit\w{f}}\\
+  \row{5-card\footnote{or a good 4-card minor headed by at least Q} minor side suit}
+    \bid*(5-8,lorange){rebid original suit}
+    \bid(8-12,lgreen){4m\w{f}}\\
+\end{ptable}
+
+\subsection{2NT responder's rebids}
+Responder should know enough to place final contract.  Responder may
+\textbid[lorange]{pass} a weak rebid, or 3NT with stoppers.  A
+\textbid[lblue]{rebid of the opened suit} is a sign-off, but mildly
+invitational if below game.  Any \textbid[laqua]{game bid\ww{s}} is a
+natural sign off.  Any other \textbid[lgreen]{new suit bid\ww{f}} shows
+a 5-card suit and is forcing (opener should \textresp{raise} with three
+card support or a doubleton honor, or otherwise \textresp{return} to
+opened suit).
+
+\subsection{Interference}
+\textbf{If weak two-bid is \emph{doubled}}, \textbid[lred]{redouble} shows a
+defensively oriented hand with at least 14 high card points.\\
+\textbf{If weak \emph{two-bid is overcalled}}, normal responses are on,
+\textbid[lyellow]{double} is for penalty, or \textbid[lred]{cue-bid}
+for an all-purpose slam try (except \D, which may be an attempt at
+3NT, asking for enemy stopper).\\
+\textbf{If \emph{2NT response is overcalled}},
+opener may \textbid[lorange]{pass} with minimum, \textbid[lblue]{double}
+to show feature (A, K, or Q) in enemy suit, bid \textbid[laqua]{3 of original
+suit} to show feature in an unavailable suit, or make any other normal rebid.
 
 % Organization: Do we want to do all the responses first,
 % and then the rebids, or do we want to separate out the
 % various types of auctions and show all responses and rebids
 % from there?  Probably the latter...
 
-\section{Opener's rebids after 1/1}
+\eject
+
+\section{Acol 3NT}
+Acol 3NT opening is a gambling 3NT, promising 16--21 points, a 7-card
+(or good 6-card) minor, at least two (usually 3) outside stoppers, and
+no singleton or void.  Responder must never attempt to rescue and only
+bid with a better game or to attempt to find a slam.
+
+\subsection{Responses}
+\textbid[lred]{4\C} is a slam try, promising 9 points, including an
+ace and king, or three kings (opener may bid \textresp{4NT} or
+\textresp{5m} to deny slam try, or \textresp{cue-bid} a major suit
+ace, or bid \textresp{4\D} Gerber).  \textbid[lpurple]{4\D\ww{a}} at
+any time by either player is Gerber, asking for aces.
+\textbid[lgreen]{4M} is nonforcing, showing a good 6-card or longer
+suit, denying an outside ace.  \textbid[lyellow]{4NT} is natural slam
+invite, showing 11--13 points but insufficient controls for 4\C.
+\textbid[lblue]{5\C} or \textbid[lblue]{6\C} at any time (including
+after asking Gerber) by responder requests sign-off in opener's minor
+suit (pass or correct).
+
+\subsection{Interference}
+\textbf{If 3NT is \emph{doubled}}, \textbid[lorange]{4\C} is a rescue bid,
+\textbid[lblue]{pass} with a few scattered values, \textbid[lred]{redouble}
+to show normal 4\C response, or any \textbid[laqua]{normal response}.
+
+\noindent\textbf{If 3NT is \emph{overcalled}}, \textbid[lgreen]{4NT}
+is competitive, \textbid[lyellow]{double} is for penalty,
+\textbid[laqua]{normal responses} are still on (including
+\textbid[lorange]{pass} with minimum).
+
+\noindent\textbf{If \emph{responder passes} overcall}, \textbid[lred]{bid}
+or \textbid[lred]{double} with maximum, \textbid[lorange]{pass} with minimum.
+
+\chapter{Defensive bidding}
+
+
+\section{Overcalls}
+
+\section{Takeout doubles}
+
+
+
+\chapter{Offensive bidding}
+
+
+\section{Negative doubles}
+
+\section{Overcalls}
+
+
+\chapter{Slam bidding}
+
+\section{Blackwood and Gerber}
+
+\section{Cue-bidding}
+
+
+\chapter*{Extra crap}
+
+
+\section*{Opener's rebids after 1/1}
 \begin{tabular}{lcccc}
 &\mc2{13--16}&\mc1{17--19}&\mc1{20--22}\\\hline\hline
 fit (4 trump)&\cb2{single raise}&\cg1{jump raise}&\cv1{reverse, jump shift}\\\hline
@@ -463,7 +785,7 @@ Pass with 6--7, bid suit or NT game with 8+.
 \subsubsection{After opener's jump shift}
 Bid naturally to show strength.  Game is required.
 
-\section{Opener's rebids after 2/1}
+\section*{Opener's rebids after 2/1}
 % GRR...  these tables are a pain, especially for stupid systems
 \begin{tabular}{lcccc}
 &\mc1{13--14}&\mc1{15--16}&\mc1{17--19}&\mc1{20+}\\\hline\hline
