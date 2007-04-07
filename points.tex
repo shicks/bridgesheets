@@ -242,7 +242,7 @@ Unusual NT && \co4{Weak} &&& \cp3{Strong}\\\hline
 \row{6 card suit}
   \bid(6-12,lblue){2\D\H\S}
   \bid(13-22,lgreen){1\C\D\H\S}
-  \bid(23,lpurple){\cdrop[-.45pc]{2\C\w{a}}}\\%\hline
+  \bid(23,lpurple){\clift{2\C\w{a}}}\\%\hline
 \row{7 card suit}
   \bid(0-8,lorange){\ge3\C\D\H\S}
   \bid*(9-12,lblue){2\D\H\S}
@@ -317,7 +317,7 @@ require roughly 6 cards at the 2-level and 7 at the 3-level.}}}
   \bid(6-10,lblue){1NT\footnote{\label{ntresp}1NT response/rebid denies a biddable 1-level major}}
   \bid(11-13,lgreen){2/1}\\
 \row{}%\row{\phantom{m}\ditto{0.6in}}
-  \bid(2-6,lorange){\cdrop[-.45pc]{jump shift}}
+  \bid(2-6,lorange){\clift{jump shift}}
   \bid(6-13,laqua){1/1}\\%\\[-.6pc]
 %\row{six-card suit}
 %  \bid(2-6,lorange){jump shift\savenote{\weakshift}{Weak jump shifts 
@@ -339,6 +339,16 @@ require roughly 6 cards at the 2-level and 7 at the 3-level.}}}
 
 \chapter{Notrump openings}
 
+Promise balanced hand (at most 1 doubleton).\\
+\begin{ptable}\headings{13-14|15-17|18-19|20-22|23+}
+\row{}
+  \bid(13-14,lblue){open suit, rebid NT}
+  \bid(15-17,lyellow){1NT}
+  \bid(18-19,lgreen){open suit, jump rebid NT}
+  \bid(20-22,lred){2NT}
+  \bid(23,lpurple){2\C, rebid NT}\\
+\end{ptable}
+
 \section{Responses to 1NT}
 \begin{ptable}\headings{0-8|8-10|11-12|13-15|16-17|18+}
 \row{(semi)balanced}
@@ -355,11 +365,11 @@ require roughly 6 cards at the 2-level and 7 at the 3-level.}}}
   \bid(0-18,lgreen){Jacoby transfer 2\D\H}\\
 \fi
 \row{four-card major}
-  \bid(0-8,lblue){2\C--Pass\footnote{only pass Stayman response with 4441 shape}}
+  \bid(0-8,lblue){2\C--Pass\footnote{only pass Stayman response with 4441 shape, 0--8 points}}
   \bid*(8-18,lyellow){Stayman 2\C}\\
 \row{5 or 6-card minor}
   \bid(0-8,lorange){3\C\D\footnote{minor suit bust requires 6 cards}}
-  \bid(11-18,lyellow){\cdrop[-.45pc]{Stayman 2\C}}\\
+  \bid(11-18,lyellow){\clift{Stayman 2\C}}\\
 \end{ptable}
 %\hskip 1pc
 %\parbox[t]{1.8in}{
@@ -398,7 +408,7 @@ reaches game).
 \subsection{Responses}
 \begin{ptable}\headings{0-7|8+}
 \row{good 5-card suit}\bid*(0-7,lorange){2\D\w{a}}\bid(8,lpurple){2M, 3m}\\
-\row{balanced}\bid(0-7,lorange){\cdrop[-.45pc]{2\D}}\bid(8,lred){2NT}\\
+\row{balanced}\bid(0-7,lorange){\clift{2\D}}\bid(8,lred){2NT}\\
 \end{ptable}
 \hskip 1pc\vrule\hskip 1pc
 \parbox[t]{4in}{\vskip -1.4pc %Solid suit headed by two of top three honors:\\
@@ -458,7 +468,7 @@ rebid.  All else is natural and game-forcing.
 \row{5-card suit}\bid*(0-4,lorange){pass}\bid(5-8,lgreen){bid suit}\\
 \row{long enemy suit}\bid*(0-4,lorange){pass}\bid(5-8,laqua){penalty double}\\
 \row{balanced + 1 stopper}\bid*(0-7,lorange){pass}\bid(8,lred){NT}\\
-\row{\singleton/void in enemy suit}\bid(0-7,lorange){\cdrop[-.45pc]{pass}}
+\row{\singleton/void in enemy suit}\bid(0-7,lorange){\clift{pass}}
   \bid(8,lpurple){cue-bid}\\
 \end{ptable}
 \fi
@@ -579,12 +589,57 @@ is competitive, \textbid[lyellow]{double} is for penalty,
 or \textbid[lred]{double} with maximum, \textbid[lorange]{pass} with minimum.
 
 \chapter{Defensive bidding}
-
+\begin{ptable}\headings{0-8|9-10|11-12|13-14|15-17|18+}
+\row{5-card suit}
+\bid(9-17,lblue){nonjump overcall}
+\bid(18-,lpurple){double}\\
+\row{all unbid suits}
+\bid(9-,laqua){double\footnote{lower point limit depends on quality of 
+shape (lower with eg 5440), major honors, and vulnerability, and may pass 
+with high as 13}}\\
+\row{\drop[1pc]{two-suited\brace{2.5em}{1.6pc}}}
+\bid(15-,lgreen){double w/ 5-card minor and 4-card major}\\
+\row{}
+\bid(9-12,lyellow){Michaels}
+\bid(18-,lred){Michaels}\\
+\row{}
+\bid(9-12,lyellow){Unusual 2NT}
+\bid(18,lred){Unusual 2NT}\\
+\row{balanced}
+\bid(15-17,lgreen){1NT}\\
+\row{independent suit}
+\bid(0-10,lorange){jump overall}\\
+\end{ptable}\\
+With 21 or more points and any shape, double then cue-bid.
 
 \section{Overcalls}
+\subsection{After partner's direct (nonjump) overcall}
+\begin{ptable}\headings{5|6-7|8|9|10|11|12|13-14|15+}
+\row{3+ trump fit}
+  \bid*(6-10,lblue){single raise}\bid*(11-,lyellow){cue-bid}\\
+\row{4+ trump + singleton/void}
+  \bid(6-10,lblue){\clift{single raise}}
+  \bid(11-12,lyellow){\clift{cue-bid}}
+  \bid(13-,lpurple){jump cue-bid}\\
+\row{new 5-card suit}
+  \bid(8-12,laqua){nonjump shift\footnote{need longer suit for higher level}}
+  \bid*(13-,lred){cue-bid}\\
+\row{new 6-card suit}
+  \bid(11-12,lgreen){jump shift}
+  \bid(13-,lred){\clift{cue-bid}}\\
+\row{stopper in enemy suit\footnote{suggests (semi)balanced and stoppers in
+    all unbid suits; points given
+    for 1-level overcall---reduce by 2--3 after 2-level overcall}}
+  \bid(8-11,lblue){1NT}
+  \bid(12-14,laqua){2NT}
+  \bid(15-,lpurple){3NT}\\
+\row{4+ trump fit}\bid(5-8,lorange){jump raise}\\
+\end{ptable}
+
+\subsection{After two-suited overcall}
 
 \section{Takeout doubles}
-
+Asks partner to bid a suit.
 
 
 \chapter{Offensive bidding}
