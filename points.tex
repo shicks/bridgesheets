@@ -3,6 +3,7 @@
 \usepackage{bridge}
 \usepackage[perpage,hang,symbol*]{footmisc}
 \usepackage{calc,graphicx}
+\usepackage{points}
 \renewcommand{\hangfootparskip}{0pt}
 
 \makeatletter
@@ -102,39 +103,143 @@
 \def\nodepth#1{\setbox\z@\hbox{#1}\dp\z@=0\p@\box\z@}
 \def\killvert#1{\setbox\z@\hbox{#1}\dp\z@=0\p@\ht\z@=0\p@\box\z@}
 
-% Defines command #1 which calls #2 with color in #3
-\def\colorcommand#1#2#3{%
-  \newcommand{#1}[2][*]{\ifx##1*\relax\def#3{{##2}}\else
-    \def#3{[##1]{##2}}\fi#2}}
-
-\newcommand{\@highlight}[2][2pt]{\begingroup
-  % Make a colorbox to get padding
-  \def\@cb{\expandafter\colorbox\@hl@col}%
-  \def\x{\dimen\z@}\def\y{\dimen\@ne}\def\z{\dimen\tw@}\def\p{\dimen\thr@@}%
-  \def\w{\wd\z@}\def\h{\ht\z@}\def\d{\dp\z@}%
-  \setbox\z@\hbox{\@cb{}}%
-  \p#1\relax\multiply\p\tw@ % twice the padding
-  % \dimen0 is the highlighting width, \dimen1 is the height+depth
-  \x-\w \y-\h \advance\y-\d
-  \advance\x\p \advance\y\p
-  % \dimen2 is just the depth
-  \z-\d \advance\z#1\relax
-  % Now set the text to get its dimensions
-  \setbox\z@\hbox{#2}%
-  \advance\x\w \advance\z\d
-  \advance\y\h \advance\y\d
-  % Set the actual colorbox
-  \setbox\z@\hbox{\hskip-#1\@cb{\hbox to \x{\vbox to \y{}}}}%
-  % Clear out its dimens and draw it (lowered)
-  \w=0\p@\h=0\p@\d=0\p@\lower\z\box\z@\endgroup\hbox{#2}}
-\colorcommand\highlight\@highlight\@hl@col
-
 \makesavenoteenv{tabular}
 
 \begin{document}
 
 \def\singleton{1$^{\underline{\mathrm{tn}}}$}
 
+v v v v v v v
+\let\xa\expandafter
+\newcount\c@a\newcount\c@b\newcount\c@c
+\newif\ifplus
+\def\@gobble@null\@null{}
+\def\@maybe@next{\ifx\@foo\@null\let\@next\@gobble@null\fi\@next}
+\def\@headings#1|{\doheading#1-.-\@end\let\@next\@headings\futurelet\@foo\@maybe@next}
+\def\headings#1{\global\c@c\z@\@headings#1|\@null\\\hline\hline}
+\def\stripplus#1+#2\@null{\ifx+#2\relax\plustrue\else\plusfalse\fi\c@a#1\relax}
+\def\setupper#1#2\@null{\ifx.#1\relax\number\c@a\relax\c@b\c@a\relax\else\c@b#1#2\relax\number\c@a--\number\c@b\fi\ifplus+\fi}
+\def\doheading#1-#2-#3\@end{%
+  &%  \ifnum\c@c>\z@&\fi
+  \stripplus#1+\@null % sets \ifplus and \c@a
+  \setupper#2\@null   % sets \c@b and prints stuff
+  \xa\xdef\csname a@\romannumeral\c@a\endcsname{\number\c@c}%
+  \xa\xdef\csname b@\romannumeral\c@b\endcsname{\number\c@c}%
+  \global\advance\c@c\@ne % next column...
+}
+
+
+\def\test{&1&2&3}
+
+\def\getleft{\xa\c@a\csname a@\romannumeral\c@a\endcsname}
+\def\getright{\xa\c@b\csname b@\romannumeral\c@b\endcsname}
+
+\def\@@lign{%
+  \t@b%  % This should work now...
+  \let\@next\@@lign
+  \ifnum\c@c<\c@a
+    \global\advance\c@c\@ne
+  \else
+    \let\@next\relax
+  \fi\@next}
+
+\newcount\@left
+\newcount\@cur
+
+\def\t@b{&}
+\def\@lign{%
+  \global\@left\c@a % copy this value
+  \global\advance\@left-\@cur % find out how many more we need to go.
+  \ifnum\@left>\z@  % SOMEHOW, this counter is getting changed on me!!!
+    \t@b\xa\multicolumn\xa{\number\@left}{c}{}\t@b%
+  \else\t@b\fi
+}
+
+\def\@bid#1#2#3#4{%
+\c@a#1\relax\getleft % \c@c stores the current position in the row...
+\c@b#2\relax\getright\advance\c@b\@ne
+\global\@cur\c@c\relax\global\c@c\c@b\relax % make sure to update it...
+\global\advance\c@b-\c@a\relax
+\@lign\mcc{\number\c@b}{#3}{#4}%
+}
+\def\resolverange#1-#2-#3\@null{{#1}{#2}}
+\def\@@bid#1#2#3{% #1 is a range
+\xa\@bid\resolverange#1-#1-\@null{#2}{#3}}
+
+\newif\if@star
+\newif\if@usingstar
+\global\@usingstartrue
+\def\bid{\futurelet\@foo\check@star}
+\def\check@star{\let\@next\@nsbid
+  \ifx\@foo*\relax
+    \if@usingstar\global\@startrue\fi
+%    \global\let\if@star\if@usingstar % bad syntax...
+    \let\@next\@sbid
+  \else
+    \global\@starfalse
+  \fi\@next}
+\def\@sbid*{\@nsbid}
+\def\@nsbid(#1,#2)#3{\@@bid{#1}{#2}{\if@star\else#3\fi}}
+
+\def\clear@ranges{\count@40\let\@next\@clr@ranges\@next}
+\def\@clr@ranges{\ifnum\count@<\z@\let\@next\relax\else
+  \xa\global\xa\let\csname a@\romannumeral\count@\endcsname\undef
+  \xa\global\xa\let\csname b@\romannumeral\count@\endcsname\undef
+  \global\advance\count@\m@ne
+\fi\@next}
+
+\def\b@ptable{\begin{tabular}{lccccccccccccccccccccc}} % should be enough...
+\def\e@ptable{\hline\end{tabular}\clear@ranges}
+
+\def\gap{\\[-.6pc]}
+\newcommand{\drop}[2][0.52pc]{\setbox0\hbox{\lower #1\hbox{#2}}\dp0=0pt\ht0=0pt\box0}
+\newcommand{\cdrop}[2][0.52pc]{\if@usingstar\setbox0\hbox{\lower #1\hbox{#2}}\dp0=0pt\ht0=0pt\box0\else#2\fi}
+
+\newenvironment{ptable}{\b@ptable}{\e@ptable}
+
+\def\row{\global\c@c\z@}
+\def\spanrow#1#2{\multicolumn{#1}{l}{#2}\c@c\m@ne\global\advance\c@c#1}
+\def\ob#1#2{\@@bid{#1}{lorange}{#2}}
+\def\yb#1#2{\@@bid{#1}{lyellow}{#2}}
+\def\gb#1#2{\@@bid{#1}{lgreen}{#2}}
+\def\bb#1#2{\@@bid{#1}{lblue}{#2}}
+\def\pb#1#2{\@@bid{#1}{lred}{#2}}
+\def\vb#1#2{\@@bid{#1}{lpurple}{#2}}
+\def\ab#1#2{\@@bid{#1}{laqua}{#2}}
+
+% There MUST be better ways to do this...
+\def\oc#1#2{\@@bid{#1}{lorange}{}}
+\def\yc#1#2{\@@bid{#1}{lyellow}{}}
+\def\gc#1#2{\@@bid{#1}{lgreen}{}}
+\def\bc#1#2{\@@bid{#1}{lblue}{}}
+\def\pc#1#2{\@@bid{#1}{lred}{}}
+\def\vc#1#2{\@@bid{#1}{lpurple}{}}
+\def\ac#1#2{\@@bid{#1}{laqua}{}}
+
+\def\ic{\futurelet\@foo\@ic}
+\def\@ic{\let\@next\g@ic\ifx\@foo\egroup\let\@next\relax\fi\@next}
+\def\g@ic#1{\futurelet\@foo\@ic}
+
+\def\ditto#1{\raise 0.18pc\hbox to #1{\leaders\hrule\hfill\lower 0.4pc\hbox{\kern1ex''\kern0.6ex}\leaders\hrule\hfill}}
+
+%\def\savenote#1#2{\begingroup\count@\value{footnote}\advance\count@\@ne\xdef#1{\the\count@}\endgroup\footnote{#2}}
+%\def\savenote#1#2{\footnote{#2}\xdef#1{\value{footnote}}}
+
+% Want some way to signify various properties - forcing, overcalls, etc...
+\def\w#1{\def\@top{}\def\@bot{}\@w#1\@go}
+\let\ww\w
+\def\@w#1{\let\@next\@w\ifx#1\@go\relax\let\@next\@go\else
+  \ifx#1o\relax\edef\@top{\@top o}\fi
+  \ifx#1d\relax\edef\@top{\@top d}\fi
+  \ifx#1a\relax\edef\@bot{\@bot a}\fi
+  \ifx#1i\relax\edef\@bot{\@bot i}\fi
+  \ifx#1s\relax\edef\@bot{\@bot s}\fi
+  \ifx#1f\relax\edef\@bot{\@bot f}\fi
+  \ifx#1g\relax\edef\@bot{\@bot g}\fi
+\fi\@next}
+\def\@go{ \nodepth{${}^{\mathrm{\tiny\@bot}}_{\mathrm{\tiny\@top}}$}}
+
+*************
 \newif\ifcolorbids
 \colorbidstrue
 
@@ -209,6 +314,7 @@ Unusual NT && \co4{Weak} &&& \cp3{Strong}\\\hline
 \eject
 \fi
 
+^ ^ ^ ^ ^ ^ ^
 %\title{Bridge Bidding}
 %\author{Arranged by Stephen Hicks}
 
@@ -315,10 +421,10 @@ at the 1-level.  2\H\ requires a five-card suit.  Weak jump preempts
 require roughly 6 cards at the 2-level and 7 at the 3-level.}}}
   \bid*(2-6,lorange){jump shift}
   \bid(6-10,lblue){1NT\footnote{\label{ntresp}1NT response/rebid denies a biddable 1-level major}}
-  \bid(11-13,lgreen){2/1}\\
+  \bid(11-13,lgreen){2/1\w{f}}\\
 \row{}%\row{\phantom{m}\ditto{0.6in}}
   \bid(2-6,lorange){\clift{jump shift}}
-  \bid(6-13,laqua){1/1}\\%\\[-.6pc]
+  \bid(6-13,laqua){1/1\w{f}}\\%\\[-.6pc]
 %\row{six-card suit}
 %  \bid(2-6,lorange){jump shift\savenote{\weakshift}{Weak jump shifts 
 %      at the three level \emph{must} have a slightly longer suit, 
@@ -329,12 +435,47 @@ require roughly 6 cards at the 2-level and 7 at the 3-level.}}}
 \end{ptable}
 
 \section{Major suit fits}
+Fit in major is 3 cards, since 5 are required to open.  With a minimal
+response (6--10 points), bid a \textbid[lblue]{single raise} at the
+2-level.  With an invitational response (11--12), bid a
+\textbid[lgreen]{limit raise} at the 3-level.  With a good fit (4+
+trump) and a strong response (13+ points), game is required and slam
+is possible.  There are two strong (artificial and forcing) responses:
+a \textbid[lyellow]{splinter bid} (double jump shift to a new suit%
+\footnote{The one exception to spliter bids is 1\S--4\H, which shows
+instead an independent heart suit and discourages further bidding})
+showing a singleton or void, or \textbid[lpurple]{Jacoby 2NT} without
+such a feature, which asks partner to further explain his hand.  With
+only a 3-card trump fit, bid a \textbid[laqua]{new suit} at the
+cheapest level.
+
+\subsection{Single raises and game tries}
+After a single raise, opener may \textbid[lorange]{pass}, 
+\textbid[lblue]{bid game}, \textbid[lgreen]{invite game} by reraising to 3,
+or bid a game try by bidding a \textbid[laqua]{new suit} at the cheapest level
+showing 5-cards and allowing responder to reevaluate his hand.
+
+\subsection{Splinter bids}
+Splinter bid is a \emph{telling} bid, placing opener in charge.
+After a splinter bid, \ldots\ (cuebid controls?  place game/slam?  ask for aces?)
+
+\subsection{Jacoby 2NT}
+Jacoby 2NT is an \emph{asking} bid, requiring opener to further describe his
+hand, according to the following: \textbid[lyellow]{new suit @3} shows
+a 5-card suit, \textbid[lpurple]{new suit @4} shows a splinter, 
+\textbid[lblue]{agreed major @4} is weak (13--16 points), 
+\textbid[lgreen]{agreed major @3} is strong (17+ points), \textbid[lred]{3NT}
+is ?
 
 
 \section{Minor suit fits}
-
+With a minor suit fit, raises are \emph{inverted}: With game-going strength,
+the extra room allows exploring for a notrump fit, while weaker hands can
+block opponents from finding a major suit fit by jump raising.
 
 \section{New suits}
+Standard rebids apply after a 1/1 or 2/1 response and are confusing.  We
+will explain them here.
 
 
 \chapter{Notrump openings}
@@ -390,8 +531,24 @@ Promise balanced hand (at most 1 doubleton).\\
 \end{ptable}
 
 \section{Stayman}
+There are three very different situations a responder can bid Stayman.
+In any case, opener has exactly three rebids: 4\H\ with a four-card heart
+suit (and maybe four spades), 4\S\ with four spades (and \lt4 hearts), or
+4\D\ with no four-card major.
 
-\section{Jacoby}
+\subsection{Weak Stayman after 1NT}
+After a 1NT opening, with a weak
+hand (\le8 points) and a very specific shape (4-4-4-1 with short clubs),
+game is impossible and opener will typically have 3--4 diamonds with a
+negative 2\D\ rebid, so responder may pass the rebid.
+\subsection{Strong minor suit}
+A strong minor suit can be shown by rebidding the minor regardless of
+opener's response.  Obviously after a 2NT opening, it requires a slightly
+better suit, since it blocks a 3NT exit.
+\subsection{Four-card major}
+Most typically 2\C\ is bid with 8+ points and a four-card major.
+
+\section{Jacoby transfers}
 
 
 \chapter{Artificial openings}
@@ -452,6 +609,8 @@ Opener may \textbid[lorange]{raise first suit\ww{s}} as only non-game-forcing
 rebid.  All else is natural and game-forcing.
 
 \subsection{After interference}
+v v v v v v v
+*************
 \iffalse % Table format
 \begin{ptable}\headings{0-4|5-7|8+}
 \multicolumn4c{After double (other responses on)}\\
@@ -473,6 +632,7 @@ rebid.  All else is natural and game-forcing.
 \end{ptable}
 \fi
 
+^ ^ ^ ^ ^ ^ ^
 % Text format
 \noindent \textbf{If 2\C is \emph{doubled}}, \textbid[lblue]{pass}
 with 4 clubs, \textbid[lyellow]{redouble} with 5 clubs (or 4 good
@@ -796,14 +956,5 @@ balanced & \cy1{1NT}&&\cp1{2NT (w/stops)}&\\\hline
                 &&&\cp2{reverse}\\\hline
 6-card original suit &\cy2{rebid suit}&\cb1{jump rebid}\\\hline
 \end{tabular}
-
-\makeatletter
-%\protected@write\@auxout{\string\def\expandafer\string\test{testing}}{
-%\def\@@@{4}
-%\protected@write\@auxout{}{\string\def\expandafter\string\csname test\@@@\endcsname{testing}}
-\protected@write\@auxout{}{\string\gdef\expandafter\string\csname test\endcsname{testing}}
-%\makeatother
-% The point - use a counter to count the tables, then use the aux file
-% to store the correct widths for all of them in a counted command.
 
 \end{document}
