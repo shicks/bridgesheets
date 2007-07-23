@@ -1,4 +1,9 @@
+.PHONY:clean all
+
 all:system.pdf basic.pdf competitive.pdf points.pdf
+
+clean:
+	rm -f *.log *.aux *.dvi *~
 
 %.dvi:%.tex
 	latex $<
