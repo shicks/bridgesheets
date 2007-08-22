@@ -157,4 +157,32 @@
   \wd0=0pt\ht0=0pt\dp0=0pt\box0}
 
 
+% Defines command #1 which calls #2 with color in #3
+\def\colorcommand#1#2#3{%
+  \newcommand{#1}[2][\no@arg]{%
+    \ifx##1\no@arg\relax\def#3{{##2}}%
+    \else\def#3{[##1]{##2}}\fi#2}}
+
+\newcommand{\@highlight}[2][2pt]{\begingroup
+  % Make a colorbox to get padding - \@hl@col is the color (w/ braces)
+  \def\@cb{\expandafter\colorbox\@hl@col}%
+  \def\x{\dimen\z@}\def\y{\dimen\@ne}\def\z{\dimen\tw@}\def\p{\dimen\thr@@}%
+  \def\w{\wd\z@}\def\h{\ht\z@}\def\d{\dp\z@}%
+  \setbox\z@\hbox{\@cb{}}%
+  \p#1\relax\multiply\p\tw@ % twice the padding
+  % \dimen0 is the highlighting width, \dimen1 is the height+depth
+  \x-\w \y-\h \advance\y-\d
+  \advance\x\p \advance\y\p
+  % \dimen2 is just the depth
+  \z-\d \advance\z#1\relax
+  % Now set the text to get its dimensions
+  \setbox\z@\hbox{#2}%
+  \advance\x\w \advance\z\d
+  \advance\y\h \advance\y\d
+  % Set the actual colorbox
+  \setbox\z@\hbox{\hskip-#1\@cb{\hbox to \x{\vbox to \y{}}}}%
+  % Clear out its dimens and draw it (lowered)
+  \w=0\p@\h=0\p@\d=0\p@\lower\z\box\z@\endgroup\hbox{#2}}
+\colorcommand\highlight\@highlight\@hl@col
+
 \makeatother

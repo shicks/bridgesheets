@@ -3,10 +3,16 @@
 \usepackage{bridge}
 \usepackage[perpage,hang,symbol*]{footmisc}
 \usepackage{calc,graphicx}
-\usepackage{points}
 \renewcommand{\hangfootparskip}{0pt}
 
 \makeatletter
+
+\newif\if@extratext
+\@extratextfalse
+\newbox\@throwaway
+
+\newenvironment{extra}{\if@extratext\else\setbox\@throwaway=\vbox\bgroup\fi}%
+	       {\if@extratext\else\egroup\fi}
 
 \newif\ifNoChapNumber
 \makechapterstyle{VZ34}{
@@ -250,7 +256,65 @@ or more points.
 %        \kern-\@tempdimc
 %        \hskip-\wd\z@ \@plus -1fill }
 
+\begin{extra}
+  \chapter*{Basics}
+  \subsection*{The auction}
+  The auction consists of the players going around the table clockwise,
+  each saying a bid in turn.  A bid consists of one of the 35 possible
+  contracts, or the special bids ``pass'', ``double'', or ``redouble''.
+  The auction ends when three players in a row pass.
+  \subsection*{The contracts}
+  A contract consists of a number (from 1--7) followed by a suit (\C, \D,
+  \H, \S) or ``notrump'' (abbreviated NT).  To make their contract, the
+  partnership that wins the auction must take six tricks, plus the
+  number that they bid, with their chosen suit as the trump suit.  For 
+  instance, to make a contract of 4\S\ (pronounced ``four spades''),
+  they must take 6+4=10 tricks when spades are trump.  Contracts
+  may only be bid in increasing order.  A contract is more valuable if
+  the number is larger, or for the same number if the suit is higher-ranking.
+  Thus, the contracts are in order, 1\C, 1\D, 1\H, 1\S, 1NT, 2\C, 2\D, \ldots.
+  \subsection*{Special bids}
+  Any player my pass (P) instead of making another bid.  If the last
+  bid was for a contract then a member of the other team may bid
+  ``double'' (DBL or X).  If the last bid was a double then a member of the
+  team whose contract was doubled may bid ``redouble'' (RDBL or XX).
+  \subsection*{Scoring}
+  All points scored go either above or below the line.  The value of the
+  contract (20 per trick for \C or \D, 30 per trick for \H or \S, or 40
+  for the first trick and 30 thereafter for NT) is added below the line
+  and counts towards ``game'' (the first team to 100 points), while overtricks
+  and other penalties are added above the line.  The first team to finish
+  two games wins the rubber and gets a large (500 or 700 point) bonus.  All
+  points below the line (``part scores'') are cleared out after each game.
+  \subsection*{Hand evaluation}
+  When looking at a hand, it is useful to evaluate it using a standard system.
+  Count each ace (A) as 4 points, each king (K) as 3, each queen (Q) as 2,
+  and each jack (J) as 1.  Points may be added for distribution as follows:
+  1 point for each card after the fourth in a suit, but only for suit 
+  contracts.  If a fit is found with partner's suit (8 trumps is considered
+  a fit) then 1 point may be added for each doubleton, 2 points for each 
+  singleton, and 3 for each void.  
+  \subsection*{Limit bids}
+  Until a player has limited his hand, his parnter should typically
+  not pass his bids, since he may have a lot more than he has shown.
+  A limit bid is one of the following: (a) a natural bid in a suit his 
+  partner has already mentioned, (b) a nutrump bid, or (c) pass.  These
+  bids give an upper limit to a player's hand and put his partner 
+  (the ``captain'') in charge of deciding the level of the final contract.
+\end{extra}
+
 \chapter{Suit openings}
+
+\begin{extra}
+  An opening of 1 of a suit promises 13--22 points and at least 5 of the suit
+  if it's a major (\H, \S), or 3 if a minor (\C, \D).  Without any
+  interference from the opponents, it is the responder's duty to respond if
+  she holds at least 6 points.  After a major suit opening, the priority
+  is to express a fit, while after a minor suit opening, the priority is
+  to either find 4-4 major suit split, or else to identify stoppers in
+  each suit and play notrump.  These priorities are built into the following
+  conventions.
+\end{extra}
 
 \section{Responses to 1 of a suit}
 %\textbf{Limit Major Raises}, \textbf{Jacoby 2NT},
