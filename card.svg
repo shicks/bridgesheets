@@ -44,16 +44,16 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="2"
-     inkscape:cx="440.91543"
-     inkscape:cy="780.78775"
-     inkscape:current-layer="layer3"
+     inkscape:zoom="1.28"
+     inkscape:cx="413.0929"
+     inkscape:cy="498.25274"
+     inkscape:current-layer="layer2"
      id="namedview2164"
      showgrid="false"
      inkscape:window-width="1274"
      inkscape:window-height="928"
-     inkscape:window-x="1777"
-     inkscape:window-y="175"
+     inkscape:window-x="1773"
+     inkscape:window-y="158"
      showguides="true"
      inkscape:guide-bbox="true" />
   <metadata
@@ -138,7 +138,7 @@
     <rect
        style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.89999998;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="rect2374"
-       width="34.168968"
+       width="33.168968"
        height="58.534191"
        x="346.01492"
        y="111.69875" />
@@ -246,18 +246,18 @@
     <rect
        style="font-size:6px;opacity:1;color:#000000;fill:none;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.89999998;stroke-linecap:butt;stroke-linejoin:miter;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
        id="rect2284"
-       width="155.24947"
-       height="62.784447"
+       width="154.24947"
+       height="62.534447"
        x="224.33301"
        y="275.47916" />
     <path
        style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="M 242.61824,288.74306 C 242.61824,288.74306 243.66711,287.19091 246.07839,287.01299 C 246.12038,287.00989 272.83307,287.01298 272.83307,287.01298 C 274.85149,286.94089 275.71652,285.13149 275.71652,285.13149 C 275.71652,285.13149 276.43739,287.08507 278.02329,287.01298 L 303.82337,286.9409 C 305.40927,286.9409 306.62749,288.74306 306.62749,288.74306"
+       d="M 242.61824,288.49306 C 242.61824,288.49306 243.66711,286.94091 246.07839,286.76299 C 246.12038,286.75989 272.83307,286.76298 272.83307,286.76298 C 274.85149,286.69089 275.71652,284.88149 275.71652,284.88149 C 275.71652,284.88149 276.43739,286.83507 278.02329,286.76298 L 303.82337,286.6909 C 305.40927,286.6909 306.62749,288.49306 306.62749,288.49306"
        id="path2306"
        sodipodi:nodetypes="ccccccc" />
     <path
        style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="M 316.54749,288.68678 C 316.54749,288.68678 317.59636,287.13463 320.00764,286.95671 C 320.04963,286.95361 345.43703,286.9567 345.43703,286.9567 C 347.45545,286.88461 348.32048,285.07521 348.32048,285.07521 C 348.32048,285.07521 349.04135,287.02879 350.62725,286.9567 L 373.77674,286.78267 C 375.36264,286.78267 376.58086,288.58483 376.58086,288.58483"
+       d="M 314.54749,288.68678 C 314.54749,288.68678 315.59636,287.13463 318.00764,286.95671 C 318.04963,286.95361 343.43703,286.9567 343.43703,286.9567 C 345.45545,286.88461 346.32048,285.07521 346.32048,285.07521 C 346.32048,285.07521 347.04135,287.02879 348.62725,286.9567 L 371.77674,286.78267 C 373.36264,286.78267 374.58086,288.58483 374.58086,288.58483"
        id="path2308"
        sodipodi:nodetypes="ccccccc" />
     <rect
@@ -314,42 +314,42 @@
        id="rect3263"
        width="22.058447"
        height="7.0294895"
-       x="314.19495"
+       x="312.44495"
        y="322.30762" />
     <rect
        style="fill:#bdc2ff;fill-opacity:1;stroke:#000000;stroke-width:0.89999998;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="rect3265"
        width="22.448744"
        height="6.5969415"
-       x="314.29691"
+       x="312.54691"
        y="294.36578" />
     <rect
        style="fill:#bdc2ff;fill-opacity:1;stroke:#000000;stroke-width:0.89999998;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="rect3269"
        width="46.279408"
        height="7.5567575"
-       x="314.29691"
+       x="312.54691"
        y="300.96277" />
     <rect
        style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.89999998;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="rect3271"
        width="17.444998"
        height="7.5568118"
-       x="360.57642"
+       x="358.82642"
        y="300.9628" />
     <rect
        style="fill:#bdc2ff;fill-opacity:1;stroke:#000000;stroke-width:0.89999998;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="rect3273"
        width="46.177532"
        height="7.0893402"
-       x="314.29691"
+       x="312.54691"
        y="308.41751" />
     <rect
        style="fill:#bdc2ff;fill-opacity:1;stroke:#000000;stroke-width:0.89999998;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="rect3279"
        width="13.988008"
        height="6.8722925"
-       x="364.03314"
+       x="362.28314"
        y="322.36316" />
     <rect
        style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.89999998;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
@@ -363,22 +363,15 @@
        id="rect3275"
        width="24.322969"
        height="6.8729286"
-       x="336.25339"
+       x="334.50339"
        y="315.50674" />
     <rect
-       style="fill:none;fill-opacity:1.0;stroke:#000000;stroke-width:0.89999998;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.89999998;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="rect3277"
        width="17.44492"
        height="13.860234"
-       x="360.57642"
+       x="358.82642"
        y="308.51947" />
-    <rect
-       style="fill:url(#pattern3557);stroke:none"
-       width="2.203125"
-       height="4.5585938"
-       x="173.46521"
-       y="46.726051"
-       id="rect3555" />
     <rect
        style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.89999998;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="rect7457"
@@ -389,87 +382,87 @@
     <text
        xml:space="preserve"
        style="font-size:4px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:89.99999762%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Cards"
-       x="337.7439"
+       x="335.9939"
        y="326.35083"
        id="text7459"
        sodipodi:linespacing="89.999998%"><tspan
          sodipodi:role="line"
          id="tspan7461"
-         x="337.7439"
+         x="335.9939"
          y="326.35083">should've</tspan><tspan
          sodipodi:role="line"
-         x="337.7439"
+         x="335.9939"
          y="329.95083"
          id="tspan7463">opened 1NT</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:4px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Cards"
-       x="363.69797"
+       x="361.94797"
        y="332.95319"
        id="text7465"><tspan
          sodipodi:role="line"
          id="tspan7467"
-         x="363.69797"
+         x="361.94797"
          y="332.95319">(18-19)</tspan></text>
     <rect
        style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.89999998;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="rect7469"
        width="154.15286"
        height="28.846054"
-       x="385.87314"
-       y="150.5876" />
+       x="386.1951"
+       y="148.01184" />
     <rect
        style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.89999998;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="rect7537"
-       width="152.25"
-       height="52"
-       x="386.25"
-       y="187" />
+       width="153.53787"
+       height="56.829548"
+       x="385.92804"
+       y="182.81439" />
     <rect
        style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.89999998;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="rect7583"
        width="148"
        height="52"
-       x="386.25"
-       y="245.25" />
+       x="386.57196"
+       y="245.89394" />
     <text
        xml:space="preserve"
        style="font-size:6px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:100%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Cards"
-       x="390.25"
-       y="252.25"
+       x="390.57196"
+       y="252.89394"
        id="text7587"
        sodipodi:linespacing="100%"><tspan
          sodipodi:role="line"
          id="tspan7589"
-         x="390.25"
-         y="252.25">0-8 pts=2$; else natural 2%^, 2NT, or 3#$</tspan><tspan
+         x="390.57196"
+         y="252.89394">0-8 pts=2$; else natural 2%^, 2NT, or 3#$</tspan><tspan
          sodipodi:role="line"
-         x="390.25"
-         y="258.25"
+         x="390.57196"
+         y="258.89394"
          id="tspan7593">After negative 2$, opener bids</tspan><tspan
          sodipodi:role="line"
-         x="390.25"
-         y="264.25"
+         x="390.57196"
+         y="264.89394"
          id="tspan7603">   2%^/3#$=5-cd suit (forcing)</tspan><tspan
          sodipodi:role="line"
-         x="390.25"
-         y="270.25"
+         x="390.57196"
+         y="270.89394"
          id="tspan7599">   2NT=23-24, 3NT=25-27, ... (nonforcing)</tspan><tspan
          sodipodi:role="line"
-         x="390.25"
-         y="276.25"
+         x="390.57196"
+         y="276.89394"
          id="tspan7605">Responder's rebids after 2$:</tspan><tspan
          sodipodi:role="line"
-         x="390.25"
-         y="282.25"
+         x="390.57196"
+         y="282.89394"
          id="tspan7607">   0-4 pts=cheaper minor (3#$) or 3NT</tspan><tspan
          sodipodi:role="line"
-         x="390.25"
-         y="288.25"
+         x="390.57196"
+         y="288.89394"
          id="tspan7609">      Following bids natural; GF unless rebid suit</tspan><tspan
          sodipodi:role="line"
-         x="390.25"
-         y="294.25"
+         x="390.57196"
+         y="294.89394"
          id="tspan7611">   4-8 pts=natural, game forcing</tspan></text>
     <rect
        style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.89999998;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
@@ -478,6 +471,55 @@
        height="52.830582"
        x="386.25"
        y="303.25" />
+    <rect
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.89999998;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect7642"
+       width="154.41602"
+       height="61.66724"
+       x="223.44576"
+       y="414.41507" />
+    <rect
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.89999998;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect7680"
+       width="151.29092"
+       height="59.763222"
+       x="223.4913"
+       y="481.42896" />
+    <rect
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.89999998;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect7951"
+       width="152.4035"
+       height="88.022293"
+       x="224.02429"
+       y="547.87079" />
+    <text
+       xml:space="preserve"
+       style="font-size:6px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Cards"
+       x="386.57852"
+       y="552.19647"
+       id="text8173"><tspan
+         sodipodi:role="line"
+         id="tspan8175"
+         x="386.57852"
+         y="552.19647">2NT OPENINGS (also 2#-2$-2NT)</tspan><tspan
+         sodipodi:role="line"
+         x="386.57852"
+         y="559.69647"
+         id="tspan8177">  which responses still OK?</tspan></text>
+    <rect
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.89999998;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect8252"
+       width="142.06418"
+       height="38.020382"
+       x="385.66782"
+       y="470.91934" />
+    <rect
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.89999998;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect8258"
+       width="142.74719"
+       height="23.449697"
+       x="385.66782"
+       y="517.13574" />
   </g>
   <g
      inkscape:label="Layer 1"
@@ -705,7 +747,7 @@
          sodipodi:role="line"
          x="349.04257"
          y="129.13071"
-         id="tspan2353">NT=40/30</tspan></text>
+         id="tspan2353">NT=4/30</tspan></text>
     <rect
        style="fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:0;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0"
        id="rect2368"
@@ -730,17 +772,6 @@
        height="6.3436074"
        x="222.74712"
        y="219.8779" />
-    <text
-       xml:space="preserve"
-       style="font-size:6px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Cards"
-       x="167.5289"
-       y="41.919067"
-       id="text3241"
-       sodipodi:linespacing="125%"><tspan
-         sodipodi:role="line"
-         id="tspan2248"
-         x="167.5289"
-         y="41.919067">Characters: #$%^ÀÁ·</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:4.69735336px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
@@ -831,12 +862,12 @@
        xml:space="preserve"
        style="font-size:6px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Cards"
        x="242.78716"
-       y="293.6449"
+       y="293.1449"
        id="text2288"><tspan
          sodipodi:role="line"
          x="242.78716"
-         y="293.6449"
-         id="tspan2298">13-16   17-19   20-22     13-14   15-16    17+</tspan></text>
+         y="293.1449"
+         id="tspan2298">13-16   17-19   20-22    13-14   15-16    17+</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:6px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:120.00000477%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Cards"
@@ -851,19 +882,19 @@
          sodipodi:role="line"
          x="226.63979"
          y="306.76027"
-         id="tspan2316">4 y's    2y        3y                             3y             4y</tspan><tspan
+         id="tspan2316">4 y's    2y        3y                            3y             4y</tspan><tspan
          sodipodi:role="line"
          x="226.63979"
          y="313.96027"
-         id="tspan4256">          non-reverse    jump               2z     </tspan><tspan
+         id="tspan4256">          non-reverse    jump              2z     </tspan><tspan
          sodipodi:role="line"
          x="226.63979"
          y="321.16027"
-         id="tspan4260">                         reverse                         3z</tspan><tspan
+         id="tspan4260">                         reverse                        3z</tspan><tspan
          sodipodi:role="line"
          x="226.63979"
          y="328.36027"
-         id="tspan4258">stops, bal        2NT                   2NT                  3NT</tspan><tspan
+         id="tspan4258">stops, bal        2NT                  2NT                  3NT</tspan><tspan
          sodipodi:role="line"
          x="226.63979"
          y="335.56027"
@@ -877,7 +908,7 @@
          sodipodi:role="line"
          id="tspan2304"
          x="260.2218"
-         y="284.09454">after 1x-1y                     after 1x-2y</tspan></text>
+         y="284.09454">after 1x-1y                    after 1x-2y</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:6px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Cards"
@@ -903,12 +934,12 @@
     <text
        xml:space="preserve"
        style="font-size:6px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Cards"
-       x="362.11087"
+       x="360.36087"
        y="317.9744"
        id="text4274"><tspan
          sodipodi:role="line"
          id="tspan4276"
-         x="362.11087"
+         x="360.36087"
          y="317.9744">jump</tspan></text>
     <g
        id="g3283"
@@ -1040,212 +1071,184 @@
          x="462.08948"
          y="128.75454"
          id="tspan3373">raise@4=minimum s/o</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-size:6px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Cards"
-       x="394.45703"
-       y="69.888618"
-       id="text4620"><tspan
-         sodipodi:role="line"
-         id="tspan4622"
-         x="394.45703"
-         y="69.888618">Puppet Stayman?</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-size:6px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Cards"
-       x="466.0954"
-       y="67.799843"
-       id="text4624"><tspan
-         sodipodi:role="line"
-         id="tspan4626"
-         x="466.0954"
-         y="67.799843">When is 4NT Blackwood?</tspan><tspan
-         sodipodi:role="line"
-         x="466.0954"
-         y="75.299843"
-         id="tspan4628"> - quant after Jacoby, Blackwood after Texas, etc</tspan></text>
     <rect
        style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.89999998;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="rect3409"
        width="147.41338"
        height="46.079426"
-       x="583.9715"
-       y="120.46307" />
+       x="56.239491"
+       y="336.74667" />
     <text
        xml:space="preserve"
        style="font-size:6px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Cards"
-       x="618.83691"
-       y="128.61873"
+       x="91.104912"
+       y="344.90234"
        id="text3421"><tspan
          sodipodi:role="line"
          id="tspan3423"
-         x="618.83691"
-         y="128.61873">0-8  8-10  10-12  13-15  16-17  18+</tspan></text>
+         x="91.104912"
+         y="344.90234">0-8  8-10  10-12  13-15  16-17  18+</tspan></text>
     <rect
        style="fill:#bdc2ff;fill-opacity:1;stroke:#000000;stroke-width:0.89999998;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="rect3479"
        width="14.272442"
        height="6.7284021"
-       x="631.68207"
-       y="151.25066"
+       x="103.95007"
+       y="367.53427"
        ry="0" />
     <rect
        style="fill:#bdc2ff;fill-opacity:1;stroke:#000000;stroke-width:0.89999998;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="rect3487"
        width="17.849226"
        height="6.7793813"
-       x="618.22522"
-       y="157.97908"
+       x="90.493217"
+       y="374.2627"
        ry="0" />
     <rect
        style="fill:#bdc2ff;fill-opacity:1;stroke:#000000;stroke-width:0.89999998;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="rect3489"
        width="17.161848"
        height="6.7284193"
-       x="631.23932"
-       y="129.4343" />
+       x="103.50732"
+       y="345.7179" />
     <rect
        style="fill:#bdc2ff;fill-opacity:1;stroke:#000000;stroke-width:0.89999998;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="rect3491"
        width="42.001606"
        height="6.7283816"
-       x="648.40118"
-       y="129.4343" />
+       x="120.66918"
+       y="345.7179" />
     <rect
        style="fill:#bdc2ff;fill-opacity:1;stroke:#000000;stroke-width:0.89999998;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="rect3493"
        width="20.593018"
        height="6.7284117"
-       x="690.40277"
-       y="129.4343" />
+       x="162.67076"
+       y="345.7179" />
     <rect
        style="fill:#bdc2ff;fill-opacity:1;stroke:#000000;stroke-width:0.89999998;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="rect3495"
        width="17.738539"
        height="6.7284117"
-       x="710.99573"
-       y="129.4343" />
+       x="183.26372"
+       y="345.7179" />
     <rect
        style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.89999998;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="rect3497"
        width="111.22254"
        height="7.3400941"
-       x="617.5116"
-       y="136.1627" />
+       x="89.779594"
+       y="352.44632" />
     <rect
        style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.89999998;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="rect3501"
        width="97.087219"
        height="7.7478676"
-       x="631.64709"
-       y="143.50279" />
+       x="103.91509"
+       y="359.78641" />
     <rect
        style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.89999998;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="rect3503"
        width="82.839577"
        height="6.6686997"
-       x="645.87"
-       y="151.31036" />
+       x="118.13799"
+       y="367.59396" />
     <rect
        style="fill:#bdc2ff;fill-opacity:1;stroke:#000000;stroke-width:0.89999998;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="rect3505"
        width="34.220215"
        height="6.7761722"
-       x="636.02039"
-       y="157.95253" />
+       x="108.28838"
+       y="374.23615" />
     <rect
        style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.89999998;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="rect3507"
        width="58.424522"
        height="6.7761722"
-       x="670.24054"
-       y="157.95253" />
+       x="142.50853"
+       y="374.23615" />
     <rect
        style="fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:0;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0"
        id="rect3407"
        width="51.102196"
        height="6.3436074"
-       x="585.74188"
-       y="117.08739" />
+       x="58.009876"
+       y="333.371" />
     <text
        xml:space="preserve"
        style="font-size:6px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Cards"
-       x="580.09753"
-       y="175.71759"
+       x="52.365528"
+       y="392.00119"
        id="text3433"><tspan
          sodipodi:role="line"
          id="tspan3435"
-         x="580.09753"
-         y="175.71759">·2^ is transfer to 3#, responder may correct 3$</tspan><tspan
+         x="52.365528"
+         y="392.00119">·2^ is transfer to 3#, responder may correct 3$</tspan><tspan
          sodipodi:role="line"
-         x="580.09753"
-         y="183.21759"
+         x="52.365528"
+         y="399.50119"
          id="tspan3439">·3#$ invites 3NT       ·With 4441, 0-8 bid Stayman</tspan><tspan
          sodipodi:role="line"
-         x="580.09753"
-         y="190.71759"
+         x="52.365528"
+         y="407.00119"
          id="tspan3471">·4$%=Texas transfer: 6-cd major, typically signoff</tspan><tspan
          sodipodi:role="line"
-         x="580.09753"
-         y="198.21759"
+         x="52.365528"
+         y="414.50119"
          id="tspan3443">·5/4 majors: 2#-2$-2%=0-8(%), 2%-2^-P=0-8(^)</tspan><tspan
          sodipodi:role="line"
-         x="580.09753"
-         y="205.71759"
+         x="52.365528"
+         y="422.00119"
          id="tspan3467">2#-2$-2^=8-9(^), 2$-2%-2^=8-9(%), 2#-2%^-3%^=8-9</tspan><tspan
          sodipodi:role="line"
-         x="580.09753"
-         y="213.21759"
+         x="52.365528"
+         y="429.50119"
          id="tspan3453">2#-2%^-4%^=10+, 2#-2$-3^%=Smolen (10+)</tspan><tspan
          sodipodi:role="line"
-         x="580.09753"
-         y="220.71759"
+         x="52.365528"
+         y="437.00119"
          id="tspan3475">·Stayman: 2#-x-2NT=8-9, 2#-x-3NT=10+</tspan><tspan
          sodipodi:role="line"
-         x="580.09753"
-         y="228.21759"
-         id="tspan3477">·Smolen: </tspan><tspan
-         sodipodi:role="line"
-         x="580.09753"
-         y="235.71759"
+         x="52.365528"
+         y="444.50119"
          id="tspan3376">·2NT responses same as 1NT but -5pt, no 2^,3#$%^</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:6px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:120.00000477%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Cards"
-       x="587.02991"
-       y="134.93936"
+       x="59.297901"
+       y="351.22296"
        id="text3411"
        sodipodi:linespacing="120%"><tspan
          sodipodi:role="line"
          id="tspan3413"
-         x="587.02991"
-         y="134.93936">semibal            2NT          3NT          4NT   6NT</tspan><tspan
+         x="59.297901"
+         y="351.22296">semibal            2NT          3NT          4NT   6NT</tspan><tspan
          sodipodi:role="line"
-         x="587.02991"
-         y="142.13936"
+         x="59.297901"
+         y="358.42296"
          id="tspan3425">5-cd maj                      Jacoby 2$%</tspan><tspan
          sodipodi:role="line"
-         x="587.02991"
-         y="149.33936"
+         x="59.297901"
+         y="365.62296"
          id="tspan3417">4-cd maj                         Stayman 2#</tspan><tspan
          sodipodi:role="line"
-         x="587.02991"
-         y="156.53936"
+         x="59.297901"
+         y="372.82296"
          id="tspan3437" /><tspan
          sodipodi:role="line"
-         x="587.02991"
-         y="163.73936"
+         x="59.297901"
+         y="380.02296"
          id="tspan3419">5 or 6 min   2^        3#$                 2#-3#$</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:6px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Cards"
-       x="586.41821"
-       y="122.09421"
+       x="58.686207"
+       y="338.37781"
        id="text3389"><tspan
          sodipodi:role="line"
          id="tspan3391"
-         x="586.41821"
-         y="122.09421">1NT RESPONSES</tspan></text>
+         x="58.686207"
+         y="338.37781">1NT RESPONSES</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:6px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Cards"
@@ -1285,257 +1288,80 @@
     <text
        xml:space="preserve"
        style="font-size:14px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Cards"
-       x="233.10606"
+       x="226.98863"
        y="392.42426"
        id="text4681"><tspan
          sodipodi:role="line"
          id="tspan4683"
-         x="233.10606"
-         y="392.42426"># $ BRIDGE: NT % ^</tspan></text>
+         x="226.98863"
+         y="392.42426"># $ NT AUCTIONS % ^</tspan></text>
     <text
        xml:space="preserve"
-       style="font-size:6px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Cards"
+       style="font-size:6px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Cards;font-stretch:normal;font-variant:normal;text-anchor:start;text-align:start;writing-mode:lr;line-height:100%"
        x="224.73485"
        y="401.43939"
-       id="text4685"><tspan
+       id="text4685"
+       sodipodi:linespacing="100%"><tspan
          sodipodi:role="line"
          id="tspan4687"
          x="224.73485"
          y="401.43939">½NT = nonjump NT rebid (13-14 points)</tspan><tspan
          sodipodi:role="line"
          x="224.73485"
-         y="408.93939"
+         y="407.43939"
          id="tspan4689">1½NT = jump NT rebid (18-19 points)</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:6px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Cards"
-       x="180.91824"
-       y="265.38815"
+       x="144.85764"
+       y="264.10028"
        id="text2397"><tspan
          sodipodi:role="line"
          id="tspan2399"
-         x="180.91824"
-         y="265.38815">Reverses?</tspan></text>
+         x="144.85764"
+         y="264.10028">Structured Reverses?</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:6px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Cards"
        x="558.61737"
-       y="244.31818"
+       y="130.59518"
        id="text2405"><tspan
          sodipodi:role="line"
          id="tspan2407"
          x="558.61737"
-         y="244.31818">opener shows 5-cd major, weak minor, max w/ 2#-2%^-2NT-3%^</tspan><tspan
+         y="130.59518">opener shows 5-cd major, weak minor, max w/ 2#-2%^-2NT-3%^</tspan><tspan
          sodipodi:role="line"
          x="558.61737"
-         y="251.81818"
+         y="138.09518"
          id="tspan2409">after Stayman...  chart of weak/inv/game/sinv/slam?</tspan><tspan
          sodipodi:role="line"
          x="558.61737"
-         y="259.31818"
-         id="tspan2417"> - 5m/4M GF = transfer, then bid major</tspan><tspan
+         y="145.59518"
+         id="tspan2417">Follow-up for major-minor two-suiters</tspan><tspan
          sodipodi:role="line"
          x="558.61737"
-         y="266.81818"
+         y="153.09518"
+         id="tspan8181"> - 5-cd minor/4-cd major GF = transfer, then bid major</tspan><tspan
+         sodipodi:role="line"
+         x="558.61737"
+         y="160.59518"
          id="tspan2451">    - 3m = accept minor, 4M = accept major (may have mA)</tspan><tspan
          sodipodi:role="line"
          x="558.61737"
-         y="274.31818"
+         y="168.09518"
          id="tspan2455">    - 3NT = natural</tspan><tspan
          sodipodi:role="line"
          x="558.61737"
-         y="281.81818"
+         y="175.59518"
          id="tspan2453">    - anything else = cue bid, accepting major</tspan><tspan
          sodipodi:role="line"
          x="558.61737"
-         y="289.31818"
+         y="183.09518"
          id="tspan2419"> - 5m/4M inv = ???</tspan><tspan
          sodipodi:role="line"
          x="558.61737"
-         y="296.81818"
+         y="190.59518"
          id="tspan2484">Jacoby - super accept w/ 4 trump or v. good 3 &amp; max - retransfer?</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-size:6px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Cards"
-       x="559.58337"
-       y="311.60989"
-       id="text2421"><tspan
-         sodipodi:role="line"
-         id="tspan2423"
-         x="559.58337"
-         y="311.60989">ASID: agrees Stayman suit</tspan><tspan
-         sodipodi:role="line"
-         x="559.58337"
-         y="319.10989"
-         id="tspan2498">Unsure whether 3NT or 3/4%^</tspan><tspan
-         sodipodi:role="line"
-         x="559.58337"
-         y="326.60989"
-         id="tspan2433">2#-2%^-3$-</tspan><tspan
-         sodipodi:role="line"
-         x="559.58337"
-         y="334.10989"
-         id="tspan2425">  3%^=flat, min</tspan><tspan
-         sodipodi:role="line"
-         x="559.58337"
-         y="341.60989"
-         id="tspan2427">  3NT=flat, max</tspan><tspan
-         sodipodi:role="line"
-         x="559.58337"
-         y="349.10989"
-         id="tspan2431">  4%^=5-card %^</tspan><tspan
-         sodipodi:role="line"
-         x="559.58337"
-         y="356.60989"
-         id="tspan2429">  3^%,4#$=doubleton</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-size:6px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Cards"
-       x="661.32574"
-       y="309.03412"
-       id="text2435"><tspan
-         sodipodi:role="line"
-         id="tspan2437"
-         x="661.32574"
-         y="309.03412">SARS: look for minor game/slam</tspan><tspan
-         sodipodi:role="line"
-         x="661.32574"
-         y="316.53412"
-         id="tspan2439">2#-2$-3#-</tspan><tspan
-         sodipodi:role="line"
-         x="661.32574"
-         y="324.03412"
-         id="tspan2441">  3$=5#s or 5$s (5332)</tspan><tspan
-         sodipodi:role="line"
-         x="661.32574"
-         y="331.53412"
-         id="tspan2482">      [extra issues if 5422 ok]</tspan><tspan
-         sodipodi:role="line"
-         x="661.32574"
-         y="339.03412"
-         id="tspan2449">    -3%-3^=#s, -3%-3NT=$s</tspan><tspan
-         sodipodi:role="line"
-         x="661.32574"
-         y="346.53412"
-         id="tspan2443">  3%=4#s (4333)</tspan><tspan
-         sodipodi:role="line"
-         x="661.32574"
-         y="354.03412"
-         id="tspan2445">  3^=4$s (4333)</tspan><tspan
-         sodipodi:role="line"
-         x="661.32574"
-         y="361.53412"
-         id="tspan2447">  3NT=4#s and 4$s</tspan><tspan
-         sodipodi:role="line"
-         x="661.32574"
-         y="369.03412"
-         id="tspan2467">2#-2%-3#-</tspan><tspan
-         sodipodi:role="line"
-         x="661.32574"
-         y="376.53412"
-         id="tspan2471">  3$=4#s or 4$s</tspan><tspan
-         sodipodi:role="line"
-         x="661.32574"
-         y="384.03412"
-         id="tspan2473">    -3%-3^=#s, -3%-3NT=$s</tspan><tspan
-         sodipodi:role="line"
-         x="661.32574"
-         y="391.53412"
-         id="tspan2475">  3%=5%s</tspan><tspan
-         sodipodi:role="line"
-         x="661.32574"
-         y="399.03412"
-         id="tspan2477">  3^=4^s</tspan><tspan
-         sodipodi:role="line"
-         x="661.32574"
-         y="406.53412"
-         id="tspan2487">  3NT=flat</tspan><tspan
-         sodipodi:role="line"
-         x="661.32574"
-         y="414.03412"
-         id="tspan2479">2#-2^-3#-</tspan><tspan
-         sodipodi:role="line"
-         x="661.32574"
-         y="421.53412"
-         id="tspan2481">  3$=4#s</tspan><tspan
-         sodipodi:role="line"
-         x="661.32574"
-         y="429.03412"
-         id="tspan2483">  3%=4$s</tspan><tspan
-         sodipodi:role="line"
-         x="661.32574"
-         y="436.53412"
-         id="tspan2485">  3^=5^s</tspan><tspan
-         sodipodi:role="line"
-         x="661.32574"
-         y="444.03412"
-         id="tspan2469">  3NT=flat</tspan><tspan
-         sodipodi:role="line"
-         x="661.32574"
-         y="451.53412"
-         id="tspan2457">--- follow-ups show fit type</tspan><tspan
-         sodipodi:role="line"
-         x="661.32574"
-         y="459.03412"
-         id="tspan2461">  (5/4, 4/4, 5/3), 4m=RKCB</tspan><tspan
-         sodipodi:role="line"
-         x="661.32574"
-         y="466.53412"
-         id="tspan2465" /></text>
-    <text
-       xml:space="preserve"
-       style="font-size:6px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Cards"
-       x="571.49622"
-       y="375.0379"
-       id="text2489"><tspan
-         sodipodi:role="line"
-         id="tspan2491"
-         x="571.49622"
-         y="375.0379">0-8 5/4 - stayman</tspan><tspan
-         sodipodi:role="line"
-         x="571.49622"
-         y="382.5379"
-         id="tspan2493">0-8 6/4 - jacoby</tspan><tspan
-         sodipodi:role="line"
-         x="571.49622"
-         y="390.0379"
-         id="tspan2438">0-8 5/5 - pretend 5/4</tspan><tspan
-         sodipodi:role="line"
-         x="571.49622"
-         y="397.5379"
-         id="tspan2440" /><tspan
-         sodipodi:role="line"
-         x="571.49622"
-         y="405.0379"
-         id="tspan2442">8-9 5/4 - quest 2#-2$-3$%</tspan><tspan
-         sodipodi:role="line"
-         x="571.49622"
-         y="412.5379"
-         id="tspan2444">8-9 6/4 - &quot;</tspan><tspan
-         sodipodi:role="line"
-         x="571.49622"
-         y="420.0379"
-         id="tspan2446">8-9 5/5 - 2$-2%-2^</tspan><tspan
-         sodipodi:role="line"
-         x="571.49622"
-         y="427.5379"
-         id="tspan2448" /><tspan
-         sodipodi:role="line"
-         x="571.49622"
-         y="435.0379"
-         id="tspan2450">10+ 5/4 - quest-3NT choice</tspan><tspan
-         sodipodi:role="line"
-         x="571.49622"
-         y="442.5379"
-         id="tspan2452">10+ 6/4 - extended texas</tspan><tspan
-         sodipodi:role="line"
-         x="571.49622"
-         y="450.0379"
-         id="tspan2454">              2#-2$-4$% (still)</tspan><tspan
-         sodipodi:role="line"
-         x="571.49622"
-         y="457.5379"
-         id="tspan2456">10+ 5/5 - 2%-2^-3%</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:6px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Cards"
@@ -1549,264 +1375,160 @@
     <text
        xml:space="preserve"
        style="font-size:6px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Cards"
-       x="558.29547"
-       y="477.10229"
-       id="text2458"><tspan
-         sodipodi:role="line"
-         id="tspan2460"
-         x="558.29547"
-         y="477.10229">Quest transfers:</tspan><tspan
-         sodipodi:role="line"
-         x="558.29547"
-         y="484.60229"
-         id="tspan2466"> 3$% after Stayman 2#-2$</tspan><tspan
-         sodipodi:role="line"
-         x="558.29547"
-         y="492.10229"
-         id="tspan2468"> says &quot;I have a 5/4 split&quot;</tspan><tspan
-         sodipodi:role="line"
-         x="558.29547"
-         y="499.60229"
-         id="tspan2464"> - super accepts available w/ good</tspan><tspan
-         sodipodi:role="line"
-         x="558.29547"
-         y="507.10229"
-         id="tspan2480">   trump and good shape</tspan><tspan
-         sodipodi:role="line"
-         x="558.29547"
-         y="514.60229"
-         id="tspan2470"> - 3 of requested suit: normal</tspan><tspan
-         sodipodi:role="line"
-         x="558.29547"
-         y="522.10229"
-         id="tspan2472"> - 3NT = deny (3-2 majors, max)</tspan><tspan
-         sodipodi:role="line"
-         x="558.29547"
-         y="529.60229"
-         id="tspan2474"> - 4 of req. = 3-card, no ace</tspan><tspan
-         sodipodi:role="line"
-         x="558.29547"
-         y="537.10229"
-         id="tspan2476"> - other suit = cuebid -&gt; retransfer</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-size:6px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Cards"
-       x="675.17047"
-       y="481.2879"
-       id="text2486"><tspan
-         sodipodi:role="line"
-         id="tspan2488"
-         x="675.17047"
-         y="481.2879">Minor suit transfs</tspan><tspan
-         sodipodi:role="line"
-         x="675.17047"
-         y="488.7879"
-         id="tspan2490"> - need 6 cards and</tspan><tspan
-         sodipodi:role="line"
-         x="675.17047"
-         y="496.2879"
-         id="tspan2492">   some points or</tspan><tspan
-         sodipodi:role="line"
-         x="675.17047"
-         y="503.7879"
-         id="tspan2494">   else GF 5-cd</tspan><tspan
-         sodipodi:role="line"
-         x="675.17047"
-         y="511.2879"
-         id="tspan2496">3#$%^=GF bal. splinters</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-size:6px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Cards"
-       x="568.27649"
-       y="666.42047"
+       x="550.95483"
+       y="233.19107"
        id="text2500"><tspan
          sodipodi:role="line"
          id="tspan2502"
-         x="568.27649"
-         y="666.42047">Slam conventions card?</tspan><tspan
+         x="550.95483"
+         y="233.19107">Slam conventions card?</tspan><tspan
          sodipodi:role="line"
-         x="568.27649"
-         y="673.92047"
+         x="550.95483"
+         y="240.69107"
          id="tspan2504">  - when is it blackwood/gerber? (cf. Pattaya)</tspan><tspan
          sodipodi:role="line"
-         x="568.27649"
-         y="681.42047"
+         x="550.95483"
+         y="248.19107"
          id="tspan2506">  - cue-bidding=any (unassigned) off-suit bid after fit already</tspan><tspan
          sodipodi:role="line"
-         x="568.27649"
-         y="688.92047"
+         x="550.95483"
+         y="255.69107"
          id="tspan2508">                         established...?</tspan><tspan
          sodipodi:role="line"
-         x="568.27649"
-         y="696.42047"
+         x="550.95483"
+         y="263.19107"
          id="tspan2510">  - quantitative stuff?</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:6px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Cards"
-       x="564.09088"
-       y="564.35608"
+       x="551.92072"
+       y="210.00922"
        id="text2512"><tspan
          sodipodi:role="line"
-         id="tspan2514"
-         x="564.09088"
-         y="564.35608">Importance of opening 1NT with a 5-card major or else</tspan><tspan
+         x="551.92072"
+         y="210.00922"
+         id="tspan2538">When to not open 1NT w/ a 5-cd major: rare exception, i.e.</tspan><tspan
          sodipodi:role="line"
-         x="564.09088"
-         y="571.85608"
-         id="tspan2516">can't accurately respond to 2/1.  But this means we need</tspan><tspan
-         sodipodi:role="line"
-         x="564.09088"
-         y="579.35608"
-         id="tspan2518">a way to find a 5/3 split - will responder do any asking w/</tspan><tspan
-         sodipodi:role="line"
-         x="564.09088"
-         y="586.85608"
-         id="tspan2520">3 cards?  Is it opener's job to present his 5-card suit after</tspan><tspan
-         sodipodi:role="line"
-         x="564.09088"
-         y="594.35608"
-         id="tspan2522">responder's invite?  What if responder bids game right away?</tspan><tspan
-         sodipodi:role="line"
-         x="564.09088"
-         y="601.85608"
-         id="tspan2524">That would deny a 4-card major at least...</tspan><tspan
-         sodipodi:role="line"
-         x="564.09088"
-         y="609.35608"
-         id="tspan2526">  with invitational and 5/3^, we get 1NT-2#-2^-2NT-3^-4^</tspan><tspan
-         sodipodi:role="line"
-         x="564.09088"
-         y="616.85608"
-         id="tspan2528">  with GF and 5/3^, 1NT-3NT  -- this seems lacking...</tspan><tspan
-         sodipodi:role="line"
-         x="564.09088"
-         y="624.35608"
-         id="tspan2532">BUT, what if 5332, 16 points, 1^-2$-3#?!?!? -&gt; must open 1NT</tspan><tspan
-         sodipodi:role="line"
-         x="564.09088"
-         y="631.85608"
-         id="tspan2536">  and risk missing a 5/3 fit...</tspan><tspan
-         sodipodi:role="line"
-         x="564.09088"
-         y="639.35608"
-         id="tspan2538">Dtill, this is probably best with rare exception (2 unstopped suits,</tspan><tspan
-         sodipodi:role="line"
-         x="564.09088"
-         y="646.85608"
-         id="tspan2540">  really amazing trump honors, a terrible major doubleton)</tspan></text>
+         x="551.92072"
+         y="217.50922"
+         id="tspan2540">  2 unstopped suits, amazing trump honors, terrible major doubleton</tspan></text>
     <rect
        style="fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:0;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0"
        id="rect7471"
        width="47.141117"
        height="6.0936074"
-       x="387.5513"
-       y="147.12114" />
+       x="387.87326"
+       y="144.54538" />
     <text
        xml:space="preserve"
        style="font-size:6px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:100%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Cards"
-       x="389.06049"
-       y="158.48895"
+       x="389.38245"
+       y="155.91319"
        id="text7483"
        sodipodi:linespacing="100%"><tspan
          sodipodi:role="line"
          id="tspan7485"
-         x="389.06049"
-         y="158.48895">Fit=4 cards (opener may deny fit w/ 3)</tspan><tspan
+         x="389.38245"
+         y="155.91319">Fit=4 cards (opener may deny fit w/ 3)</tspan><tspan
          sodipodi:role="line"
-         x="389.06049"
-         y="164.48895"
+         x="389.38245"
+         y="161.91319"
          id="tspan7489">Always prefer to show 4-cd major at any strength</tspan><tspan
          sodipodi:role="line"
-         x="389.06049"
-         y="170.48895"
+         x="389.38245"
+         y="167.91319"
          id="tspan7491">Inverted 2#$ raise requires 5-card suit, &lt;4%^s</tspan><tspan
          sodipodi:role="line"
-         x="389.06049"
-         y="176.48895"
+         x="389.38245"
+         y="173.91319"
          id="tspan7535">After 2#$ raise, look for possible 3NT game</tspan><tspan
          sodipodi:role="line"
-         x="389.06049"
-         y="182.48895"
+         x="389.38245"
+         y="179.91319"
          id="tspan7495" /><tspan
          sodipodi:role="line"
-         x="389.06049"
-         y="188.48895"
+         x="389.38245"
+         y="185.91319"
          id="tspan7487" /></text>
     <rect
        style="fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:0;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0"
        id="rect7539"
        width="54.391117"
        height="6.3436074"
-       x="387.67944"
-       y="182.5782" />
+       x="387.35748"
+       y="178.39259" />
     <text
        xml:space="preserve"
        style="font-size:6px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:100%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Cards"
-       x="390"
-       y="194.75"
+       x="389.67804"
+       y="190.56439"
        id="text7541"
        sodipodi:linespacing="100%"><tspan
          sodipodi:role="line"
-         x="390"
-         y="194.75"
-         id="tspan7549">Raise to 3 with support to durther preempt</tspan><tspan
+         x="389.67804"
+         y="190.56439"
+         id="tspan7549">Weak-2 promises 2 honors in long suit (dep vuln)</tspan><tspan
          sodipodi:role="line"
-         x="390"
-         y="200.75"
+         x="389.67804"
+         y="196.56439"
+         id="tspan8169">Raise to 3 with support to further preempt</tspan><tspan
+         sodipodi:role="line"
+         x="389.67804"
+         y="202.56439"
          id="tspan7551">Shift with better preempt (typically 7 cards)</tspan><tspan
          sodipodi:role="line"
-         x="390"
-         y="206.75"
+         x="389.67804"
+         y="208.56439"
          id="tspan7555">Sign off in any game (suit or NT)</tspan><tspan
          sodipodi:role="line"
-         x="390"
-         y="212.75"
+         x="389.67804"
+         y="214.56439"
          id="tspan7557">2NT=only forcing response, requires 14+ points</tspan><tspan
          sodipodi:role="line"
-         x="390"
-         y="218.75"
+         x="389.67804"
+         y="220.56439"
          id="tspan7561">  Rebids: 3 of original suit=5-8 points,</tspan><tspan
          sodipodi:role="line"
-         x="390"
-         y="224.75"
+         x="389.67804"
+         y="226.56439"
          id="tspan7565">               3NT=long suit has ÁAKJxxx</tspan><tspan
          sodipodi:role="line"
-         x="390"
-         y="230.75"
+         x="389.67804"
+         y="232.56439"
          id="tspan7567">               3 of new suit=outside honor (AKQ)</tspan><tspan
          sodipodi:role="line"
-         x="390"
-         y="236.75"
+         x="389.67804"
+         y="238.56439"
          id="tspan7569">               4 of new minor=4-5 card side suit</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:5.06832361px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
-       x="673.14685"
-       y="144.20795"
+       x="672.6239"
+       y="141.63101"
        id="text7571"
        transform="scale(0.6156663,1.6242565)"><tspan
          sodipodi:role="line"
          id="tspan7573"
-         x="673.14685"
-         y="144.20795"
+         x="672.6239"
+         y="141.63101"
          style="font-size:11.82608891px">{</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:6px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Cards"
-       x="391"
-       y="230"
+       x="390.67804"
+       y="225.81439"
        id="text7575"><tspan
          sodipodi:role="line"
          id="tspan7577"
-         x="391"
-         y="230">8-11pts</tspan></text>
+         x="390.67804"
+         y="225.81439">8-11pts</tspan></text>
     <rect
        style="fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:0;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0"
        id="rect7585"
        width="46.641117"
        height="6.3436074"
-       x="388.30444"
-       y="241.5782" />
+       x="388.6264"
+       y="242.22214" />
     <rect
        style="fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:0;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0"
        id="rect7615"
@@ -1814,6 +1536,417 @@
        height="6.3436074"
        x="388.67944"
        y="298.82822" />
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:0;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0"
+       id="rect7648"
+       width="60.487404"
+       height="7.0027065"
+       x="224.84508"
+       y="410.56018" />
+    <text
+       xml:space="preserve"
+       style="font-size:6px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:100%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Cards"
+       x="228.19984"
+       y="421.99762"
+       id="text7650"
+       sodipodi:linespacing="100%"><tspan
+         sodipodi:role="line"
+         id="tspan7652"
+         x="228.19984"
+         y="421.99762">2#=Stayman &quot;bid a 4-cd major or 2$&quot;</tspan><tspan
+         sodipodi:role="line"
+         x="228.19984"
+         y="427.99762"
+         id="tspan7654">2$%^NT=Jacoby transfer to 2%^/3#$</tspan><tspan
+         sodipodi:role="line"
+         x="228.19984"
+         y="433.99762"
+         id="tspan7662">3#$%^=Splinter    3NT=Sign-off    4#=Gerber</tspan><tspan
+         sodipodi:role="line"
+         x="228.19984"
+         y="439.99762"
+         id="tspan7666">4$%=Texas transfer to 4%^ w/ 6-card GF</tspan><tspan
+         sodipodi:role="line"
+         x="228.19984"
+         y="445.99762"
+         id="tspan7764">4NT=Quantitative slam invite</tspan></text>
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:0;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0"
+       id="rect7682"
+       width="40.334862"
+       height="7.0027065"
+       x="225.77451"
+       y="476.86694" />
+    <text
+       xml:space="preserve"
+       style="font-size:6px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:100%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Cards"
+       x="227.95454"
+       y="454.24243"
+       id="text7768"
+       sodipodi:linespacing="100%"><tspan
+         sodipodi:role="line"
+         id="tspan7770"
+         x="227.95454"
+         y="454.24243">2#-2$-3$%=Quest transfer to 3%^ (inv or GF)</tspan><tspan
+         sodipodi:role="line"
+         x="227.95454"
+         y="460.24243"
+         id="tspan7772">2#-2$%^-3#=Shape Asking Relay SARS (GF only)</tspan><tspan
+         sodipodi:role="line"
+         x="227.95454"
+         y="466.24243"
+         id="tspan7774">2#-2%^-3$=Stayman In Doubt ASID (GF only)</tspan><tspan
+         sodipodi:role="line"
+         x="227.95454"
+         y="472.24243"
+         id="tspan7778">2#-2$-4$%=Extended Texas Â 4%^ (6/4 GF)</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:6px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:100%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Cards"
+       x="384.75717"
+       y="383.49521"
+       id="text7782"
+       sodipodi:linespacing="100%"><tspan
+         sodipodi:role="line"
+         id="tspan7784"
+         x="384.75717"
+         y="383.49521">                  0-8                 8-9                  10-15</tspan><tspan
+         sodipodi:role="line"
+         x="384.75717"
+         y="389.49521"
+         id="tspan7786">bal               P               2#Â2NT                3NT</tspan><tspan
+         sodipodi:role="line"
+         x="384.75717"
+         y="395.49521"
+         id="tspan7802">4%^              P             2#Â2^/2NT        2#Â3^/game</tspan><tspan
+         sodipodi:role="line"
+         x="384.75717"
+         y="401.49521"
+         id="tspan7820">5%^         2$%ÂP           2$%Â2NT            2$%Â3NT</tspan><tspan
+         sodipodi:role="line"
+         x="384.75717"
+         y="407.49521"
+         id="tspan7844">6%^              &quot;               2$%Â3%^       2$%Â4%^ or 4$%</tspan><tspan
+         sodipodi:role="line"
+         x="384.75717"
+         y="413.49521"
+         id="tspan7842">5-4 maj  2#ÂP/2%^   2#Âinvite/quest  2#ÂquestÂ3NT</tspan><tspan
+         sodipodi:role="line"
+         x="384.75717"
+         y="419.49521"
+         id="tspan7832">5%-5^           &quot;               2$-2%-2^            2%-2^-3%</tspan><tspan
+         sodipodi:role="line"
+         x="384.75717"
+         y="425.49521"
+         id="tspan7836">6-4 maj  JacobyÂP   2#Âinvite/quest  2#Âgame/Texas</tspan><tspan
+         sodipodi:role="line"
+         x="384.75717"
+         y="431.49521"
+         id="tspan7838">5#$              P               2#Â2NT         3NT or 2^/2NT</tspan><tspan
+         sodipodi:role="line"
+         x="384.75717"
+         y="437.49521"
+         id="tspan7848">6#$        2^/2NTÂP           ???                        &quot;      </tspan><tspan
+         sodipodi:role="line"
+         x="384.75717"
+         y="443.49521"
+         id="tspan7866">Á4#-4$        P                2#Â2NT          2#Â3# SARS</tspan><tspan
+         sodipodi:role="line"
+         x="384.75717"
+         y="449.49521"
+         id="tspan8059">5-4 maj/min                                       xferÂ5, rebid 4</tspan><tspan
+         sodipodi:role="line"
+         x="384.75717"
+         y="455.49521"
+         id="tspan7894">5-5/6-4 min                                        xferÂbid new</tspan><tspan
+         sodipodi:role="line"
+         x="384.75717"
+         y="461.49521"
+         id="tspan8063">singleton                                                 3#$%^</tspan></text>
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot7788"><flowRegion
+         id="flowRegion7790"><rect
+           id="rect7792"
+           width="26.409367"
+           height="10.928014"
+           x="425.73721"
+           y="434.94797" /></flowRegion><flowPara
+         id="flowPara7794">44NTg</flowPara></flowRoot>    <text
+       xml:space="preserve"
+       style="font-size:6px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Cards"
+       x="55.46706"
+       y="469.29446"
+       id="text7856"><tspan
+         sodipodi:role="line"
+         id="tspan7858"
+         x="55.46706"
+         y="469.29446">After Stayman response,</tspan><tspan
+         sodipodi:role="line"
+         x="55.46706"
+         y="476.79446"
+         id="tspan7860">  ALWAYS figure out possible</tspan><tspan
+         sodipodi:role="line"
+         x="55.46706"
+         y="484.29446"
+         id="tspan7862">  shapes for opener</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:6px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Cards"
+       x="53.131226"
+       y="505.27252"
+       id="text7868"><tspan
+         sodipodi:role="line"
+         id="tspan7870"
+         x="53.131226"
+         y="505.27252">Responding to 2NT invite:</tspan><tspan
+         sodipodi:role="line"
+         x="53.131226"
+         y="512.77252"
+         id="tspan7872">  w/ max may bid 5cd major</tspan><tspan
+         sodipodi:role="line"
+         x="53.131226"
+         y="520.27252"
+         id="tspan7874">After 1NT-2%-2^-2NT (5^ invite):</tspan><tspan
+         sodipodi:role="line"
+         x="53.131226"
+         y="527.77252"
+         id="tspan7876">  w/ max may bid other 5cd major or ask for help</tspan><tspan
+         sodipodi:role="line"
+         x="53.131226"
+         y="535.27252"
+         id="tspan7878">      in a minor suit (agrees trump, resp bids 3/4^)</tspan></text>
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:0;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0"
+       id="rect7953"
+       width="139.14232"
+       height="7.0027065"
+       x="226.62355"
+       y="543.00336" />
+    <text
+       xml:space="preserve"
+       style="font-size:6px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:100%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Cards"
+       x="226.30095"
+       y="556.06677"
+       id="text7955"
+       sodipodi:linespacing="100%"><tspan
+         sodipodi:role="line"
+         id="tspan7957"
+         x="226.30095"
+         y="556.06677">JACOBY: 2$%=xfer to %^ w/ 5 trump, any strength</tspan><tspan
+         sodipodi:role="line"
+         x="226.30095"
+         y="562.06677"
+         id="tspan8012">  Opener may bypass w/ 4 trump support:</tspan><tspan
+         sodipodi:role="line"
+         x="226.30095"
+         y="568.06677"
+         id="tspan8014">     3%^=min        2NT=max       other=doubleton</tspan><tspan
+         sodipodi:role="line"
+         x="226.30095"
+         y="574.06677"
+         id="tspan8043"> After xfer: new suit=GF 5-4, raise=6, 2/3NT=5</tspan><tspan
+         sodipodi:role="line"
+         x="226.30095"
+         y="580.06677"
+         id="tspan8008">QUEST: 2#-2$-3$%=xfer to %^ w/ 5-4, inv or GF</tspan><tspan
+         sodipodi:role="line"
+         x="226.30095"
+         y="586.06677"
+         id="tspan7961">  May bypass w/ max, good trump/shape:</tspan><tspan
+         sodipodi:role="line"
+         x="226.30095"
+         y="592.06677"
+         id="tspan8029">    3NT=2 trump   4%^=3 trump    other=cuebid</tspan><tspan
+         sodipodi:role="line"
+         x="226.30095"
+         y="598.06677"
+         id="tspan8031">TEXAS: 4$%=xfer to %^ w/ 6 trump, GF, no slam</tspan><tspan
+         sodipodi:role="line"
+         x="226.30095"
+         y="604.06677"
+         id="tspan8035">EXTENDED TEXAS: 2#-2$-4$% w/ 6-4 majors</tspan><tspan
+         sodipodi:role="line"
+         x="226.30095"
+         y="610.06677"
+         id="tspan8039">MINORS: 2^/2NT=xfer to #$ w/ 6 any or 5 GF</tspan><tspan
+         sodipodi:role="line"
+         x="226.30095"
+         y="616.06677"
+         id="tspan8045">  In-between (2NT/3#) to bypass, suggests 3NT</tspan><tspan
+         sodipodi:role="line"
+         x="226.30095"
+         y="622.06677"
+         id="tspan8049">  May bypass w/ max, good #$ honors</tspan><tspan
+         sodipodi:role="line"
+         x="226.30095"
+         y="628.06677"
+         id="tspan8027"> After xfer: new suit=GF 5-5/6-4</tspan><tspan
+         sodipodi:role="line"
+         x="226.30095"
+         y="634.06677"
+         id="tspan8171">RETRANSFER: bid suit below target after bypass</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:6px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:110.00000238%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Cards"
+       x="389.7106"
+       y="479.99365"
+       id="text8085"
+       sodipodi:linespacing="110%"><tspan
+         sodipodi:role="line"
+         id="tspan8087"
+         x="389.7106"
+         y="479.99365">           2#-2$-3#-      2#-2%-3#-      2#-2^-3#-</tspan><tspan
+         sodipodi:role="line"
+         x="389.7106"
+         y="486.59365"
+         id="tspan8089">-3$     5#s or 5$s     4#s or 4$s           4#s</tspan><tspan
+         sodipodi:role="line"
+         x="389.7106"
+         y="493.19365"
+         id="tspan8093">-3%     4#s (3334)         5%s                 4$s</tspan><tspan
+         sodipodi:role="line"
+         x="389.7106"
+         y="499.79365"
+         id="tspan8097">-3^     4$s (3343)         4^s                 5^s</tspan><tspan
+         sodipodi:role="line"
+         x="389.7106"
+         y="506.39365"
+         id="tspan8099">-3NT  4#s and 4$s   flat (3433)    flat (4333)</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:6px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:100%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Cards"
+       x="389.2937"
+       y="525.31958"
+       id="text8123"
+       sodipodi:linespacing="100%"><tspan
+         sodipodi:role="line"
+         x="389.2937"
+         y="525.31958"
+         id="tspan8127">Agrees Stayman suit, asks for shape/strength</tspan><tspan
+         sodipodi:role="line"
+         x="389.2937"
+         y="531.31958"
+         id="tspan8133">raise 3%^=4333, min   3NT=4333, max</tspan><tspan
+         sodipodi:role="line"
+         x="389.2937"
+         y="537.31958"
+         id="tspan8137">raise 4%^=5-cd suit     other=doubleton</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:6px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:100%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Cards"
+       x="392.45819"
+       y="590.08246"
+       id="text8151"
+       sodipodi:linespacing="100%"><tspan
+         sodipodi:role="line"
+         id="tspan8153"
+         x="392.45819"
+         y="590.08246">1NT-X-</tspan><tspan
+         sodipodi:role="line"
+         x="392.45819"
+         y="596.08246"
+         id="tspan8155">  - XX=8+ points, only strong rebid</tspan><tspan
+         sodipodi:role="line"
+         x="392.45819"
+         y="602.08246"
+         id="tspan8157">  - Conventions ON</tspan><tspan
+         sodipodi:role="line"
+         x="392.45819"
+         y="608.08246"
+         id="tspan8161">1NT-o/c</tspan><tspan
+         sodipodi:role="line"
+         x="392.45819"
+         y="614.08246"
+         id="tspan8167">  - Conventions OFF</tspan><tspan
+         sodipodi:role="line"
+         x="392.45819"
+         y="620.08246"
+         id="tspan8165">  - Cuebid=Stayman (3%^ promises other suit)</tspan><tspan
+         sodipodi:role="line"
+         x="392.45819"
+         y="626.08246"
+         id="tspan8179">  - Lebensohl</tspan></text>
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:0;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0"
+       id="rect8254"
+       width="53.767212"
+       height="7.0027065"
+       x="387.81174"
+       y="466.96265" />
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:0;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0"
+       id="rect8256"
+       width="48.303204"
+       height="7.0027065"
+       x="387.92557"
+       y="513.86206" />
+    <text
+       xml:space="preserve"
+       style="font-size:6px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Cards"
+       x="129.82324"
+       y="98.303291"
+       id="text8262"><tspan
+         sodipodi:role="line"
+         id="tspan8264"
+         x="129.82324"
+         y="98.303291">FONT:</tspan><tspan
+         sodipodi:role="line"
+         x="129.82324"
+         y="105.80329"
+         id="tspan8292">#=clubs</tspan><tspan
+         sodipodi:role="line"
+         x="129.82324"
+         y="113.30329"
+         id="tspan8268">$=diamonds</tspan><tspan
+         sodipodi:role="line"
+         x="129.82324"
+         y="120.80329"
+         id="tspan8270">%=hearts</tspan><tspan
+         sodipodi:role="line"
+         x="129.82324"
+         y="128.30329"
+         id="tspan8272">^=spades</tspan><tspan
+         sodipodi:role="line"
+         x="129.82324"
+         y="135.80329"
+         id="tspan8278">À=less than or equal</tspan><tspan
+         sodipodi:role="line"
+         x="129.82324"
+         y="143.30329"
+         id="tspan8280">Á=greater or equal</tspan><tspan
+         sodipodi:role="line"
+         x="129.82324"
+         y="150.80329"
+         id="tspan8282">Â=right arrow</tspan><tspan
+         sodipodi:role="line"
+         x="129.82324"
+         y="158.30329"
+         id="tspan8266">·=bullet</tspan></text>
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect8312"
+       width="162.0453"
+       height="270.0755"
+       x="382.4805"
+       y="667.05536" />
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect8314"
+       width="162.0453"
+       height="270.0755"
+       x="220.43518"
+       y="667.05536" />
+    <text
+       xml:space="preserve"
+       style="font-size:14px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Cards"
+       x="226.00322"
+       y="682.96436"
+       id="text8316"><tspan
+         sodipodi:role="line"
+         id="tspan8318"
+         x="226.00322"
+         y="682.96436"># $ COMPETITION % ^</tspan></text>
   </g>
   <g
      inkscape:groupmode="layer"
@@ -1887,33 +2020,33 @@
     <text
        xml:space="preserve"
        style="font-size:6px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Cards"
-       x="388.29126"
-       y="188.06281"
+       x="387.9693"
+       y="183.8772"
        id="text3569"><tspan
          sodipodi:role="line"
-         x="388.29126"
-         y="188.06281"
+         x="387.9693"
+         y="183.8772"
          id="tspan3573">2$%^ RESPONSES</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:6px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Cards"
-       x="388.69907"
-       y="246.54453"
+       x="389.02103"
+       y="247.18846"
        id="text3577"><tspan
          sodipodi:role="line"
          id="tspan3579"
-         x="388.69907"
-         y="246.54453">2# RESPONSES</tspan></text>
+         x="389.02103"
+         y="247.18846">2# RESPONSES</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:6px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Cards"
-       x="388.14981"
-       y="151.65894"
+       x="388.47177"
+       y="149.08318"
        id="text7473"><tspan
          sodipodi:role="line"
          id="tspan7475"
-         x="388.14981"
-         y="151.65894">MINOR SUIT FIT</tspan></text>
+         x="388.47177"
+         y="149.08318">MINOR SUIT FIT</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:6px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Cards"
@@ -1963,5 +2096,138 @@
          x="389.5"
          y="353.5"
          id="tspan7636">After X, 4# is rescue (to play 4#$), XX is slam try</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:6px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Cards"
+       x="225.35355"
+       y="415.67157"
+       id="text7638"><tspan
+         sodipodi:role="line"
+         id="tspan7640"
+         x="225.35355"
+         y="415.67157">RESPONSES TO 1NT</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:6px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Cards"
+       x="226.67329"
+       y="482.48962"
+       id="text7676"><tspan
+         sodipodi:role="line"
+         id="tspan7678"
+         x="226.67329"
+         y="482.48962">STAYMAN 2#</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:6px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:100%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Cards"
+       x="227.21632"
+       y="489.04309"
+       id="text7684"
+       sodipodi:linespacing="100%"><tspan
+         sodipodi:role="line"
+         id="tspan7686"
+         x="227.21632"
+         y="489.04309">Responses: 2%=4 %s (maybe 4 ^s),</tspan><tspan
+         sodipodi:role="line"
+         x="227.21632"
+         y="495.04309"
+         id="tspan7690">    2^=4 ^s (denies 4 %s),     2$=no 4-cd major</tspan><tspan
+         sodipodi:role="line"
+         x="227.21632"
+         y="501.04309"
+         id="tspan7692">Situations:</tspan><tspan
+         sodipodi:role="line"
+         x="227.21632"
+         y="507.04309"
+         id="tspan7702">  Garbage: 0-8 pts, 4441 (or just 5-4) Â pass</tspan><tspan
+         sodipodi:role="line"
+         x="227.21632"
+         y="513.04309"
+         id="tspan7706">  Invitational: 8-9 pts Â 2^, 2NT, or 3%^ raise</tspan><tspan
+         sodipodi:role="line"
+         x="227.21632"
+         y="519.04309"
+         id="tspan7710">  Game-forcing: 10-15 points Â 3NT or 4%^</tspan><tspan
+         sodipodi:role="line"
+         x="227.21632"
+         y="525.04309"
+         id="tspan7716">  5/4 majors: any strength Â 3$% Quest</tspan><tspan
+         sodipodi:role="line"
+         x="227.21632"
+         y="531.04309"
+         id="tspan7712">  Minor suit asking: 10+ points (GF) Â 3# SARS</tspan><tspan
+         sodipodi:role="line"
+         x="227.21632"
+         y="537.04309"
+         id="tspan7700">  Flat (4333), GF: 3$ ASID to agree with 2%^</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:6px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Cards"
+       x="227.66695"
+       y="548.78143"
+       id="text7945"><tspan
+         sodipodi:role="line"
+         id="tspan7947"
+         x="227.66695"
+         y="548.78143">TRANSFERS: JACOBY, QUEST, TEXAS, MINORS</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:6px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Cards"
+       x="387.94449"
+       y="472.74069"
+       id="text8075"><tspan
+         sodipodi:role="line"
+         x="387.94449"
+         y="472.74069"
+         id="tspan8081">SARS 2#-2$%^-3#</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:6px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Cards"
+       x="388.6275"
+       y="518.50171"
+       id="text8109"><tspan
+         sodipodi:role="line"
+         x="388.6275"
+         y="518.50171"
+         id="tspan8115">ASID 2#-2%^-3$</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:6px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Cards"
+       x="388.29544"
+       y="584.33276"
+       id="text8139"><tspan
+         sodipodi:role="line"
+         x="388.29544"
+         y="584.33276"
+         id="tspan8143">COMPETITION</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:6px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Cards"
+       x="230.10733"
+       y="694.828"
+       id="text8498"><tspan
+         sodipodi:role="line"
+         id="tspan8500"
+         x="230.10733"
+         y="694.828">DIRECT SUIT OVERCALLS</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:6px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Cards"
+       x="230.39896"
+       y="748.67303"
+       id="text8502"><tspan
+         sodipodi:role="line"
+         x="230.39896"
+         y="748.67303"
+         id="tspan8506">TWO-SUITED OVERCALLS</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:6px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Cards"
+       x="231.30963"
+       y="806.58411"
+       id="text8510"><tspan
+         sodipodi:role="line"
+         id="tspan8512"
+         x="231.30963"
+         y="806.58411">TAKEOUT DOUBLES</tspan></text>
   </g>
 </svg>
