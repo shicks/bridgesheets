@@ -1,0 +1,405 @@
+% Begining of Preamble: use memoir class
+\documentclass[oneside]{memoir}
+\usepackage{colortbl,footnote,fullpage}%,pointtables}
+\usepackage{bridge}
+\usepackage[perpage,hang,symbol*]{footmisc}
+\usepackage{calc,graphicx}
+\renewcommand{\hangfootparskip}{0pt}
+\usepackage{bridgememoir} % should take an argument ``extra'', 
+% Defines conditionals:
+%  @extratext - defaults to \@extratexttrue
+%  colorbids  - defaults to \colorbidstrue
+\usepackage[logonly]{trace}
+
+\begin{document}
+\traceoff
+
+\title{Bridge Bidding: From The Ground Up}
+\author{Stephen Hicks}
+
+\maketitle
+
+\vspace*{-1.5pc}
+\tableofcontents*
+
+\chapter*{Preface}
+Before we can start talking about the wonderful game of bridge, I find it
+necessary to explain a bit of how this document came to be, what I hope to
+achieve with it, and how it should be used.
+
+My goal for this book is to have a simple way to introduce bridge to people
+who have played similar games such as spades, but have felt that the learning
+curve of bridge was too much to take on all at once.  Thus, my primary goal
+is to put together a mini-curriculum which can be introduced piece-by-piece
+at a rate the learner is comfortable with.  At the same time, I mean to
+build up a bidding system that is \textit{playable} at each intermediate stage.
+In this way, an experienced player may play with a less experienced partner
+and still be on the same page with regards to the bidding.
+
+The first part is exactly this step-by-step system.  In each chapter,
+I introduce several bidding concepts, giving what are hopefully compelling
+and memorable reasons for why they are useful.  At the end of the chapter, I
+present a mini ``convention page'' with a list summarizing the agreements
+in play.  In some cases, I present two opposite treatments and leave the
+choice to partnership agreement.  These are clearly marked by check-boxes
+on the convention card, which should be photocopied and filled in.  In this
+way, experienced players may see immediately what they can expect their
+partners to be familiar with.  
+
+I attempt to give numerous examples of each case.
+A reader who has read (and played) through this part should end up
+with a useful bidding system, based on the \textit{Standard American Yellow Card}
+(SAYC) system developed by the American Contract Bridge League (ACBL).  This
+system is widely played on many online bridge games, and is useful in clubs,
+where strangers may end up as partners without having much chance to discuss
+their own systems.  While the SAYC standard allows no choices regarding the
+bidding---a decision which greatly helps for online and club games---I feel
+that an established partnership can benefit greatly from deviating from such
+standards where newer and more useful techniques are available.  Thus, I do
+present several ``non-standard'' treatments and conventions mixed in with
+the standard treatments in this part.  When this occurs, it is clearly
+marked, and the corresponding convention page will have a check-box to show
+that such recommended alternatives have been agreed upon.  Additionally,
+I will try to thoroughly discuss the ramifications of using such a convention,
+especially as regards to standard bids whose meanings must change.
+
+The later parts are a number of topical embellishments on the system
+presented in the first part which are not critical for basic bidding system.
+A ``full'' convention page is given including all the discussed conventions
+so that advanced partnerships may still keep track of their agreements.
+
+\section*{What this book is not}
+I do not plan to say much of anything about the \textit{play}, either as
+declarer or defender.  I mention such issues only insofar as they relate
+to bidding, such as briefly relating why a partnership might or might not
+want to play from one hand or the other.
+
+This book is also not a comprehensive encyclopedia of all possible bridge
+conventions.  Such a task would be nearly impossible to do in the first
+place, mainly because different partnerships play different conventions with
+different subtle nuances.  Additionally, it would be out of date within a
+couple years, as the bridge community is always developing new and better
+conventions.  For such a project, please refer to the Bridge Wikia at 
+\verb|http://bridge.wikia.org/|.
+
+Finally, let me just say that I really have no qualification to write this
+book.
+
+\part{Step-by-step bidding}
+\chapter{Rules}
+Here I attempt to provide as brief as possible a summary of the rules of
+bridge.  This summary is aimed at players who are familiar with games
+in the spades/hearts/skat/euchre family.  If you are not familiar with any
+of these games, I highly recommend learning one (preferably spades, as it
+is the most similar) and gaining some familiarity before proceeding with
+bridge.
+
+\subsection{Auction}
+The game consists of two partnerships of two players each, sitting
+across from one another.  The deck is dealt out entirely, 13 cards to
+a player.  At this point, the dealer has the first opportunity to make
+a bid.  Bidding proceeds clockwise around the table.  Bids may be one
+of 35 contract bids (a number from 1 to 7, followed by either a trump
+suit or ``notrump''), pass, double, or redouble.  The contracts are
+ranked in value, starting from 1\C, 1\D, 1\H, 1\S, 1\NT, 2\C, \ldots,
+and reaching eventually 7\NT.  Any contract bid must be higher than
+the previously-bid contract.  Any player may pass at any time.  Double
+may only be bid if the last (non-pass) bid was a contract bid by an
+opponent, and redouble is only allowed if the last (non-pass) bid was
+a double by an opponent.  The auction ends as soon as three passes
+occur in a row without any intervening bid (i.e. the last player to
+make a non-pass bid is not allowed to bid again).
+
+\subsection{Play}
+Once the auction ends, the partnership who made the last contract bid
+must play that contract.  The bid suit becomes the trump suit (unless
+it was notrump), and the partnership must take a number of tricks
+equal to the number bid plus six (half, rounded down).  The partner
+who \textit{first} bid a contract of the eventual trump suit is known
+as the \textit{declarer} and plays both hand.  The \textit{defender}
+to the left of the declarer plays the opening lead.  At this point,
+the declarer's partner turns his hand face up and becomes the
+\textit{dummy}.  The declarer now plays both hands, and play continues
+clockwise around the table.  All plays to a trick must follow the suit
+that was led.  If a hand is out of that suit, any card may be played,
+including a trump.  If a trump is present in the trick, the highest
+trump wins the trick.  Otherwise, the highest card in the led suit is
+the winner.  The winner of the trick takes the trick and leads to the
+next trick from any card in his hand, including trump.  There are
+\textit{no} requirements about trump having been broken before they
+may be led.
+
+\subsection{Scoring}
+I will not go into the details of scoring here.  Suffice it to say
+that points are won for each trick that is bid.  \C\ and \D\ are worth
+20 points each, \H\ and \S\ 30 each, and \NT\ worth 40 for the first and
+30 thereafter.  Once 100 points have been earned, the game is finished
+and another game begins.  The partnership that wins the game possibly
+gets a bonus.  Overtricks are scored as bonus points not counting
+toward the 100 points for game.  Undertricks are penalized as bonus
+points as well.  Doubled and redoubled contracts are more valuable in
+all these respects.
+
+The reason for explaining this is that the bids of 5\C, 5\D, 4\H, 4\S,
+and 3\NT\ are all the lowest possible bids in each suit that are worth at
+least 100 points.  As such, these are known as ``game bids'' and are to
+be desired whenever possible.
+
+\chapter{Terminology and Basics}
+Before we can begin talking about any actual bidding, we must find a way
+to distinguish between one hand and another.  What are the important aspects
+of a hand that we want to convey to our partner?
+
+The language of the bridge auction consists of 38 words:
+\boxed{Allowed Bids: \P, 1\C, 1\D, 1\H, 1\S, 1\NT, 2\C, \ldots, 
+       2\NT, 3\C, \ldots, 7\NT, \X, and \XX}
+Moreover, there are heavy constraints on the sequencing of these bids.
+Therefore, we do not have the luxury of telling our partner that we
+have, card for card\footnote{nor would we want to if we could---this
+  would give our opponents lots of information we'd rather them not
+  have}.  Rather, we want to give a general idea of the
+\textit{strength} of our hand, as well as the \textit{shape} of the
+suit distribution.
+As such, it help to have a quantitative way to understand strength and
+shape.
+
+\section{High card points}
+We assign the following ``points'' for honors (note that these are \textit{not}
+related to how a hand is scored---they are for self-evaluation purposes only):
+\boxed{High Card Points (HCP): A---4, K---3, Q---2, J---1}
+Additional modifications may be added as well\footnote{such as an
+  extra point for all four aces, a penalty point for no aces, and not
+  counting unprotected honors}.  Note that there are 40 HCP in the
+deck and 10 in each suit.  
+
+\section{High card points are not exact}
+Certain combinations of honors are more or less useful than others.
+In particular, a singleton king, or doubleton queen (Qx) is known as
+\textit{unprotected} and is more likely to be worthless.  They should
+therefore not generally be counted with the other high cards, or at least
+the value should be dimished.  On the other hand, having many honors in
+the same suit is more valuable then having all the same face cards scattered
+over all the suits, and therefore the hand should be regarded as stronger.
+
+Finally, the presence or absence of ``sub-honors'', or ``body'' cards, is
+also important.  A hand with many 8s, 9s, and 10s is certainly stroger
+than the same hand with 2s, 3s, and 4s instead, and should be treated as such.
+
+\section{Distribution points}
+High cards are not the only way to win tricks.  Having a particularly long
+or short suit is also valuable, since the short suit allows \textit{ruffing}
+trump and even the low values in the long suit may take tricks once all the
+honors and trump are gone.  Thus, we also define distributional points.
+These may be \textbf{either} long suit points or short suit points and are
+to be added to the HCP whenever considering a \textit{suit contract} (other
+than when the trump suit is short).
+\boxed{%
+  Long Suit Points: 1 point for each card after the fourth\\
+  Short Suit Points: Void---3, Singleton---2, Doubleton---1}
+Note that these measures are nearly equivalent, with the long suit points
+valuing several balanced hands one point less.  Thus, \textbf{both types
+of distributional points must \emph{not} be added on the same hand}.  Both are
+presented here simply so that the reader may choose which he prefers to use.
+
+On average, different level contracts require different amounts of points
+between both partners.  These numbers are useful guidelines to remember,
+but it should be stressed that with a good trump fit between the partners,
+and a good split of trump between the opponents, contracts
+can be made with much less, and with a poor fit and/or split,
+a contract may fail even with an overabundance of points.
+\traceon
+\boxed{
+  3\NT, 4-level suit contracts (including 4\H\ and 4\S)---26 points\\
+  5-level suit contracts (including 5\C\ and 5\D)---29 points\\
+  6-level contracts (``small slam'')---33 points\\
+  7-level contracts (``grand slam'')---37 points}
+\section{Fit and Split}
+Discssion of different kinds of fit and what sort of (partnership)
+splits are good and a little on how to tell this from the bidding.
+
+\textit{Fit} is typically defined as when a partnership holds eight
+or more cards in the trump suit.  This is most often split 5--3 or
+4--4, but sometimes is more one-sided, as in 6--2.  These different
+fits play out differently, but they are all fits nonetheless.  The
+astute reader may note that if a partnership has as few as seven trump,
+they still have a majority.  Often this is enough to make a contract,
+although it's often more difficult because one opponent typically has
+four of the outstanding trump, which is a lot.  This type of fit is
+called a \textit{Moyesian fit} because it is poorer than the typical fit.
+
+\textit{Split} refers to the distribution of trump (or other suits)
+between the defenders.  Even if the declarer has an 8-card fit, it
+is possible that one defender has all the remaining trump.  If the
+declarer is 4--4, and one defender has 5 trump, then the declarer may
+have a great difficulty making good use of these trump.  This is why,
+once one opponent bids a suit naturally, it is generally a good idea
+not to even investigate a possible fit in that suit, since chances are
+that even if a fit is found, the split will be terrible.  There are
+rare occasions when this is not the case, such as when a minor suit
+opening shows only a 3-card suit.
+
+\chapter{Basic Natural Openings and Responses}
+We can now begin to discuss a rudimentary first attempt at a bidding
+system.  As a first-order approximation, it is certainly not the most
+usable system, but it will give the reader an entry point into actually
+bidding and playing some hands.
+
+\section{Strength requirements}
+We don't want to stick our nose into the bidding unless there's a remote
+chance that we can actually make the contract we bid (or one we can escape to).
+Thus, we require the following
+\boxed{
+  13 or more points are required to open one of a suit.\\
+  6 or more points are required to respond.}
+Where did these numbers come from?  Because game generally requires about
+26 points, we want to make sure that both partners don't pass if game is
+a possibility.  By making the opening requirement 13 points, exactly half
+of 26, it is certain that one partner or the other will open whenever there
+is enough strength for game between them.  The number 6 is not quite as
+obvious yet.  Later on, we will put an upper bound of about 21 on
+this opening.  In this case, with less than 5 points, there is no hope for
+game anyway, so there's not much reason to respond.
+
+\section{What to open?}
+If the bidding has passed around to you and you have the strength to open,
+great!  It is now your \textit{duty} to your partner to tell him that by
+opening the bidding.  But just what bid should you make?
+\subsection{Five-card majors}
+We pointed out above that \H\ and \S\ tricks are more valuable, and game
+is easier in these suits.  These suits are known as \textit{major suits}.
+Because major suits are more desirable than  minor suits (\C\ and \D),
+we \textit{increase} the requirements for opening them:
+\boxed{Opening 1\H\ or 1\S\ requires a five-card suit.}
+The reason behind this is simple.  If majors were opened with a four-card
+suit, then the responder needs a four-card suit to acknowledge that he
+has a fit.  With five-card majors, responder only needs three to have
+a fit.  What about when both partners have exactly four?  Then the opener
+will open a minor suit and the responder will respond in a major suit, and
+the 4--4 fit is just as easily discovered.
+\subsection{Better minor}
+Because we require five hearts or spades to open hearts or spades, we must
+be careful that hands just short of this can open \textit{something}.  Consider,
+in particular, hands with 4\S s, 4\H s, 3\D s, and 2\C s (hereafter denoted
+4=4=3=2).  In this case, 1\H\ and 1\S\ are both forbidden.  We must therefore
+allow opening (in this case) 1\D\ with only a three-card suit.  Likewise, if
+the hand were 4=4=2=3, we would need to open 1\C\ with a three-card suit.
+This is as bad as it gets, so we agree that
+\boxed{
+  Without a five-card major, open the longest minor suit, 1\C\ or 1\D.\\
+  This may be as short as three cards.}
+Furthermore, with 4--4 minors, open 1\D, and with 3--3 minors, open 1\C.
+This treatment increases the chance of a 1\D\ opening being ``real''.
+Although there is a possibility of a minor suit opening being based on
+a three-card suit, it is generally best to assume a four-card suit until
+told otherwise.
+
+\subsection{With two long suits}
+Sometimes hands are \textit{two-suited}, having 5 or more cards in each of
+two suits.  In this case, there is a choice which suit to open.  If one
+suit is longer, it should typically be opened first.  If one suit is a
+major suit, it should be preferred over minor suits, particularly in
+weaker hands.  Later we will introduce the concept of the \textit{reverse},
+which will forbid certain second bids (``rebids'') from hands with less
+than 17 points.  The upshot is that the highest-ranking suit should generally
+be opened.  See REF? for more details on different situations which might
+arise.
+
+\section{Responding}
+
+So your partner has gone out on a limb and opened the bidding.  And then
+your right hand opponent passed, leaving you the chance to bid.  If you
+have six or more points in your hand, it is now your solemn duty to tell
+your partner, and you \textit{must} respond.  Remember, your partner may
+be holding a monster hand and just needs the slightest encouragement from
+you to bid game.
+
+\subsection{How to respond?}
+The type of response depends a lot on the type of opening.  If the opened
+suit was a major, the responder's first priority is to confirm or deny an
+eight-card fit (three-card support) in that major suit.  Without such a 
+fit, responder should show a four-card suit (with preference to the other
+major).
+
+On the other hand, if the opening was in a minor suit, the first priority
+is to find a 4--4 (or better) major suit fit.  Thus, responder should ignore
+a possible minor suit fit if he has a four-card major to show.  Otherwise,
+he confirms or denies a fit (four-card support, since minor suit openings
+are shorter than major suit openings).
+
+\boxed{After a major suit opening, raise the suit with three-card support.\\
+\hskip2pc Otherwise, show a four-card suit.\\
+After a minor suit opening, show a four card major suit if possible.\\
+\hskip2pc Otherwise, raise the minor suit with four-card support.\\
+\hskip2pc Otherwise, bid any other four-card suit or notrump.}
+
+Now that we know what suit to bid, the question is what level to bid
+it at.  If we always made the cheapest possible bid, then out partner
+wouldn't be able to tell if we had 6 points or 26 points.  Therefore,
+we should try to \textit{limit} ourselves to certain point ranges
+whenever possible (specifically, when we have a fit---if we're still
+looking for a fit, we don't have the luxury of using up so much
+bidding room).  The general rule for this is to assume our partner has
+the minimum strength he's promised, and then to bid what we can make
+if we add our hand to that.  Since opener has promised 13 points, our
+6 makes 19, which is about enough for 8 tricks if we have a fit.  So we
+bid at the 2-level with anywhere from 6--10 points.  With 10--12 points,
+we have 23--25 points as a partnership: just short of what we need for
+a major suit game.  So a 3-level bid is what we want.  With 13--15, we
+should be at the 4-level.  Note that for minor suits we should be wary
+of raising at higher levels, in case the opener's suit is short.
+\boxed{With 6--10 points and fit, bid the cheapest raise (2-level).\\
+With 10--12 points and fit, bid a jump raise to the 3-level.\\
+With 13 or more points and major suit fit, bid game (4-level).}
+
+As far as new suits are concerned, we don't have the luxury of so fine a
+graduation of point ranges.  Instead, we agree that with 6--12 points, we
+will bid a new suit as cheaply as possible, and with 13 or more points,
+we will bid a new suit, skipping a whole level of bidding.  This is known
+as a \textit{jump shift}.
+\boxed{\until{\sec4.1}With 6--12 points and a new suit, bid it as cheaply as possible.\\
+\until{\sec4.1}With 13 or more points and a new suit, bid it one level higher.}
+
+\section{Continuing the auction}
+After the first two bids, if no fit is found, the opener should continue
+to look for a fit by bidding any four-card suits.  This takes a bit of
+thought, because the responder has not only shown which four-card suits
+he \textit{has}, but also which he \textit{does not have}, by skipping over
+any major suits.  So if the responder has already \textit{denied} a four-card
+suit, there is no need to show it.  Doing so would then suggest a longer suit.
+
+Without any suits to bid, notrump is also a possible bid.  It
+generally promises at least a \textit{stopper} (protected honor) in
+each suit that hasn't been named.  For point ranges, figure 20 to make 
+1\NT\ and 23 to make 2\NT.
+
+\section{Competition}
+So far, we do not know how to deal with competition, that is, when one
+partnership opens the bidding and then the other starts bidding over them.
+% Recommendation: ...?
+
+\chapter{Notrump Auctions}
+So far we have only mentioned notrump bids in passing.    These bids provide
+a very useful way of expressing \textit{balanced} hands.  We define
+\boxed{A hand is \textit{balanced} if it contains at most one doubleton.\\
+Balanced hand shapes are 4333, 4432, and 5332.}
+
+Because balanced hands are always capable of opening in a suit, we have the
+luxury of refining a 1\NT\ (and higher) opening to give much more detail
+than a suit opening.
+\boxed{A balanced hand with 15--17 high card points should open 1\NT.\\
+A balanced hand with 20-22 high card points should open 2\NT.\\
+\without{\sec A.1}A balanced hand with 25--27 high card points should open 3\NT.}
+
+
+
+%\part{Extra stuff}
+%LMO
+%\chapter{Slams}
+
+
+%\appendix
+%\part{Appendices}
+%\chapter{Glossary}
+%AAA
+
+\end{document}
