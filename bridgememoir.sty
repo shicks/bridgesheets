@@ -1,0 +1,209 @@
+% Lots of fancy stuff goes here that is used both in points.tex
+% and in step.tex...
+
+\makeatletter
+
+% This is for putting in optional text... I'm not sure if it's needed
+\newif\if@extratext
+\@extratextfalse
+\newbox\@throwaway
+\newenvironment{extra}{\if@extratext\else\setbox\@throwaway=\vbox\bgroup\fi}%
+	       {\if@extratext\else\egroup\fi}
+
+
+\newif\ifNoChapNumber
+\makechapterstyle{VZ34}{
+  \renewcommand\chapternamenum{}
+  \renewcommand\printchaptername{}
+  \renewcommand\printchapternum{}
+  \renewcommand\chapnumfont{\Huge\bfseries}
+  \renewcommand\chaptitlefont{\Huge\bfseries\raggedright}
+%  \renewcommand\afterchapternum{\vspace*{-5pc}}
+%  \renewcommand\insertchapterspace{\vspace*{-5pc}}
+  \renewcommand\printchaptertitle[1]{%
+    \begin{tabular}{@{}p{1cm}|!{\quad}p{\textwidth-1cm-2em-4\tabcolsep }}
+      \ifNoChapNumber\relax\else\chapnumfont \thechapter\fi
+      & \chaptitlefont ##1
+    \end{tabular}
+    \NoChapNumberfalse
+  }
+  \renewcommand\printchapternonum{\NoChapNumbertrue}
+}
+\makechapterstyle{AndersLyhne}{% doesn't seem to work?!
+  \newlength{\chapterlineskipx}
+  \setlength{\chapterlineskipx}{0.2cm}
+  \setlength{\beforechapskip}{1.5cm}
+  \setlength{\afterchapskip}{1cm}
+  \setlength{\midchapskip}{2cm}
+  \renewcommand\chapnamefont{\normalfont\normalsize\scshape\raggedleft}
+  \renewcommand\chaptitlefont{\normalfont\normalsize\bfseries\sffamily\raggedleft}
+  \renewcommand\chapternamenum{}
+  \renewcommand\printchapternum{\makebox[0pt][1]{\hspace{0.2em}%
+      \resizebox{!}{2ex}{\chapnamefont\bfseries\sffamily\thechapter}}}
+  \renewcommand\afterchapternum{\par\hspace{1.5cm}\hrule\vspace{0.2cm}}
+  \renewcommand\printchapternonum{\par}
+  \renewcommand\printchaptertitle{\vskip\chapterlineskipx
+    \hrule\vskip\afterchapskip}
+}  
+
+\chapterstyle{VZ34}
+  
+
+% We need to do stuff like this to pull things out of the aux file safely.
+\ifx\test\undef
+  \def\test{placeholder}
+\fi
+
+\let\xa\expandafter
+
+\def\cellcol#1#2{\multicolumn{1}{>{\columncolor{#1}}c}{#2}}
+\let\mc\multicolumn
+
+\def\cellcol#1#2{\multicolumn{1}{>{\columncolor{#1}}c}{#2}}
+\def\mc#1#2{\multicolumn{#1}{c}{#2}}
+\def\mcc#1#2#3{\multicolumn{#1}{>{\columncolor{#2}}c}{#3}}
+
+\definecolor{lblue}{rgb}{.75,.8,1}
+\definecolor{lred}{rgb}{1,.8,.8}
+\definecolor{lgreen}{rgb}{.8,1,.8}
+\definecolor{lorange}{rgb}{1,.9,.7}
+\definecolor{lpurple}{rgb}{.95,.7,1}
+\definecolor{lyellow}{rgb}{1,1,.6}
+\definecolor{laqua}{rgb}{.65,.95,1}
+
+% See if we can't get better colors (both values and names and meanings)
+% Forcing
+% Game Forcing
+% Invitational
+% Slam asking?
+% Asking/telling?
+% Captain?
+% - Striped background for responses which are off after interference
+%   (various kinds for off after double and/or overcall??)
+
+\newcommand{\cb}[2]{\mcc#1{lblue}{#2}}
+\newcommand{\cp}[2]{\mcc#1{lred}{#2}}
+\newcommand{\cg}[2]{\mcc#1{lgreen}{#2}}
+\newcommand{\co}[2]{\mcc#1{lorange}{#2}}
+\newcommand{\cv}[2]{\mcc#1{lpurple}{#2}}
+\newcommand{\cy}[2]{\mcc#1{lyellow}{#2}}
+\let\PP\P % Save this before overriding it...
+
+\def\C{$\clubsuit$}
+\def\D{$\diamondsuit$}
+\def\H{$\heartsuit$}
+\let\sec\S
+\def\S{$\spadesuit$}
+\def\NT{\textsc{nt}}
+\def\X{\textsc{dbl}}
+\def\XX{\textsc{rdbl}}
+\def\P{\textsc{pass}}
+\let\TeXto\to
+\let\TeXge\ge
+\let\TeXle\le
+\def\to{$\TeXto$}
+\def\lt{$<$}
+\def\gt{$>$}
+\def\le{$\TeXle$}
+\def\ge{$\TeXge$}
+\def\ltsim{$\lesssim$}
+\def\gtsim{$\gtrsim$}
+\def\nodepth#1{\setbox\z@\hbox{#1}\dp\z@=0\p@\box\z@}
+\def\killvert#1{\setbox\z@\hbox{#1}\dp\z@=0\p@\ht\z@=0\p@\box\z@}
+\def\singleton{1$^{\underline{\mathrm{tn}}}$}
+
+\newif\ifcolorbids
+\colorbidstrue
+
+% Stuff for tables and for bids w/ backgrounds outside tables...
+
+%\newcommand{\textbid}[2][white]{\ifcolorbids\colorbox{#1}{\killvert{\textbf{#2}}}\else\textbf{#2}\fi}
+\newcommand{\textbid}[2][white]{\ifcolorbids\leavevmode\highlight{#1}[2pt]{\textbf{#2}}\else\textbf{#2}\fi}
+\newcommand{\textresp}[2][white]{\emph{#2}}
+
+% Dimensions: bw=remaining width; bh,bd=box height and depth
+%             corr=correction for colorbox padding
+\newdimen\scb@bw\newdimen\scb@bh\newdimen\scb@bd\newdimen\scb@corr
+% This recursively typesets the stripes, one at a time
+\def\scb@stripes{\let\scb@next\scb@stripes
+  % First make sure we aren't over the bounds
+  \ifdim\scb@bw<0\p@\let\scb@next\relax\else
+  % See if we need to draw a partial stripe
+  \ifdim\scb@bw<\scb@sw\relax
+    % Correct the width if so, and make this the last loop
+    \advance\scb@corr-\scb@sw\relax\advance\scb@corr\scb@bw\let\scb@next\relax
+  \fi
+  % Subtract off sw (stripe width) and ww (white width) from the remainder
+  \advance\scb@bw-\scb@sw\global\advance\scb@bw-\scb@ww
+  % Draw the colorbox and then skip over the white - could be generalized
+  \expandafter\colorbox\scb@col{\lower\scb@bd\vbox to \scb@bh{}\hskip\scb@corr}\hskip\scb@ww\fi
+  \scb@next}
+% Typesets the two boxes, one on top of the other
+\def\scb@scb#1{%
+  % Calculate the width of the colorbox padding
+  \setbox0\hbox{\expandafter\colorbox\scb@col{}}\scb@corr\scb@sw\advance\scb@corr-\wd0%
+  % Put everything into an hbox, calculate the width of the text
+  \hbox{\setbox0\hbox{#1}\scb@bw\wd0\scb@bh\ht0\advance\scb@bh\dp0\scb@bd\dp0%
+    % Draw the stripes, then set it to zero size
+    \setbox0\hbox{\scb@stripes}\wd0=0\p@\ht0=0\p@\dp0=0\p@
+    % Typeset both boxes
+    \box0\hbox{#1}}}
+% Pull off the optional widths
+\newcommand{\scb@getwidths}[1][5pt]{\scb@parsewidths#1,#1,\@@\scb@scb}
+% Parse the widths and stick into variables
+\def\scb@parsewidths#1,#2,#3\@@{\def\scb@sw{#1}\def\scb@ww{#2}}
+% Grab the color into col, then keep processing
+\newcommand{\stripedcolorbox}[2][*]{\ifx#1*\relax\def\scb@col{{#2}}\else
+  \def\scb@col{[#1]{#2}}\fi\scb@getwidths}
+
+\makesavenoteenv{tabular}
+
+
+%%%%%%%%%%%%%%%%%%
+% Here's a command to make boxed text...
+
+
+%\let\xa\expandafter
+%\def\xa@iii#1#2#3{\xa#1\xa#2\xa#3}
+%\newenvironment{boxed}{\box@begin}{\box@end}
+%\newtoks\lines@list
+% \newtoks\this@line % would need this to parse in an environment
+% so that we can expand token by token to find the end delimiter...
+% Alternately, we can use \begin@boxed and \end@boxed...
+%\def\add@tokens#1{\lines@list\expandafter{\the\lines@list#1}}
+%\def\begin@boxed{\begingroup\lines@list{}\line@}
+%\def\end@boxed{\message{!!}\endlines@\begin{center}\framebox{\vbox{\the\lines@list}}%
+%  \end{center}\endgroup}
+%\def\boxed#1{\begin@boxed#1\end@boxed} % two ways to call...
+%\def\line@#1\\{\add@tokens{\hbox{#1}}\xa@iii\futurelet\@foo\maybe@line@}
+
+\def\fake#1{\setbox\z@\hbox{#1}\ht\z@=0pt\wd\z@=0pt\dp\z@0pt\box\z@}
+\def\boxed#1{\begingroup
+  \begin{center}\framebox{\vbox{%
+    \line@@#1\\\endlines@
+  }}\end{center}\endgroup
+}
+\def\vstack#1{\vbox{\line@@#1\\\endlines@}}
+\def\boxedcomment#1#2{\begingroup
+  \begin{center}%
+    \framebox{\xa\setbox\xa\z@\vstack{#1}
+    \global\dimen@\columnwidth
+    \global\advance\dimen@-\wd\z@
+    \box\z@
+  }%
+  \rlap{\hskip0.5\dimen@\vstack{#2}}%
+  \end{center}\endgroup
+  \traceoff
+}
+% \def\begin@boxed#1\end@boxed{\boxed{#1}} % this doesn't seem to work!
+\def\consume@i#1{}
+\def\line@@{\expandafter\line@\ignorespaces}
+\def\line@#1\\{\hbox{#1}\futurelet\@foo\maybe@line@}
+\def\maybe@line@{\let\ml@next\line@@
+  \ifx\@foo\endlines@\let\ml@next\consume@i\fi
+  \ml@next}
+
+% Macro \until
+% used for the boxes to clarify when something is no longer in effect
+\def\until#1{\llap{[until #1]\hskip 5pt}}
+\def\without#1{\llap{[without #1]\hskip 5pt}}
