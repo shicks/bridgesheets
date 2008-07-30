@@ -11,6 +11,16 @@
 %  colorbids  - defaults to \colorbidstrue
 \usepackage[logonly]{trace}
 
+% We have a problem with TeXLive using setspace@singlespace but not defining it
+% Robin Fairbairns has made a working version at
+%   http://www.cl.cam.ac.uk/~rf10/footmisc/footmisc.sty (.pdf)
+% Here is a simple patch for now...
+\makeatletter
+\ifx\setspace@singlespace\@undefined
+  \xdef\setspace@singlespace{\baselinestretch}
+\fi
+\makeatother
+
 \begin{document}
 \traceoff
 
@@ -85,8 +95,11 @@ conventions.  For such a project, please refer to the Bridge Wikia at
 Finally, let me just say that I really have no qualification to write this
 book.
 
-\part{Step-by-step bidding}
-\chapter{Rules}
+\addtocounter{chapter}{-1}
+
+\chapter{Introduction}
+
+\section{Rules}
 Here I attempt to provide as brief as possible a summary of the rules of
 bridge.  This summary is aimed at players who are familiar with games
 in the spades/hearts/skat/euchre family.  If you are not familiar with any
@@ -145,14 +158,14 @@ and 3\NT\ are all the lowest possible bids in each suit that are worth at
 least 100 points.  As such, these are known as ``game bids'' and are to
 be desired whenever possible.
 
-\chapter{Terminology and Basics}
+\section{Terminology and Basics}
 Before we can begin talking about any actual bidding, we must find a way
 to distinguish between one hand and another.  What are the important aspects
 of a hand that we want to convey to our partner?
 
 The language of the bridge auction consists of 38 words:
 \boxed{Allowed Bids: \P, 1\C, 1\D, 1\H, 1\S, 1\NT, 2\C, \ldots, 
-       2\NT, 3\C, \ldots, 7\NT, \X, and \XX}
+       2\NT, 3\C, \ldots, 7\S, 7\NT, \X, \XX}
 Moreover, there are heavy constraints on the sequencing of these bids.
 Therefore, we do not have the luxury of telling our partner that we
 have, card for card\footnote{nor would we want to if we could---this
@@ -163,7 +176,7 @@ suit distribution.
 As such, it help to have a quantitative way to understand strength and
 shape.
 
-\section{High card points}
+\subsection{High card points}
 We assign the following ``points'' for honors (note that these are \textit{not}
 related to how a hand is scored---they are for self-evaluation purposes only):
 \boxed{High Card Points (HCP): A---4, K---3, Q---2, J---1}
@@ -172,7 +185,7 @@ Additional modifications may be added as well\footnote{such as an
   counting unprotected honors}.  Note that there are 40 HCP in the
 deck and 10 in each suit.  
 
-\section{High card points are not exact}
+\subsection{High card points are not exact}
 Certain combinations of honors are more or less useful than others.
 In particular, a singleton king, or doubleton queen (Qx) is known as
 \textit{unprotected} and is more likely to be worthless.  They should
@@ -185,7 +198,7 @@ Finally, the presence or absence of ``sub-honors'', or ``body'' cards, is
 also important.  A hand with many 8s, 9s, and 10s is certainly stroger
 than the same hand with 2s, 3s, and 4s instead, and should be treated as such.
 
-\section{Distribution points}
+\subsection{Distribution points}
 High cards are not the only way to win tricks.  Having a particularly long
 or short suit is also valuable, since the short suit allows \textit{ruffing}
 trump and even the low values in the long suit may take tricks once all the
@@ -213,7 +226,7 @@ a contract may fail even with an overabundance of points.
   5-level suit contracts (including 5\C\ and 5\D)---29 points\\
   6-level contracts (``small slam'')---33 points\\
   7-level contracts (``grand slam'')---37 points}
-\section{Fit and Split}
+\subsection{Fit and Split}
 Discssion of different kinds of fit and what sort of (partnership)
 splits are good and a little on how to tell this from the bidding.
 
@@ -237,6 +250,8 @@ not to even investigate a possible fit in that suit, since chances are
 that even if a fit is found, the split will be terrible.  There are
 rare occasions when this is not the case, such as when a minor suit
 opening shows only a 3-card suit.
+
+\part{Step-by-step bidding}
 
 \chapter{Basic Natural Openings and Responses}
 We can now begin to discuss a rudimentary first attempt at a bidding
@@ -314,17 +329,18 @@ be holding a monster hand and just needs the slightest encouragement from
 you to bid game.
 
 \subsection{How to respond?}
-The type of response depends a lot on the type of opening.  If the opened
-suit was a major, the responder's first priority is to confirm or deny an
-eight-card fit (three-card support) in that major suit.  Without such a 
-fit, responder should show a four-card suit (with preference to the other
-major).
+The priority of different responses depends a lot on the opening.  If
+the opened suit was a major, the responder's first priority is to
+confirm or deny an eight-card fit (three-card support) in that major
+suit.  Without such a fit, responder should show a four-card suit
+(with preference to the other major).
 
-On the other hand, if the opening was in a minor suit, the first priority
-is to find a 4--4 (or better) major suit fit.  Thus, responder should ignore
-a possible minor suit fit if he has a four-card major to show.  Otherwise,
-he confirms or denies a fit (four-card support, since minor suit openings
-are shorter than major suit openings).
+On the other hand, if the opening was in a minor suit, the first
+priority is to find a 4--4 (or better) major suit fit.  Thus,
+responder should ignore a possible minor suit fit if he has a
+four-card major to show.  This is called \textit{bidding up the line}.
+Otherwise, he confirms or denies a fit (four-card support, since minor
+suit openings are shorter than major suit openings).
 
 \boxed{After a major suit opening, raise the suit with three-card support.\\
 \hskip2pc Otherwise, show a four-card suit.\\
@@ -338,7 +354,12 @@ wouldn't be able to tell if we had 6 points or 26 points.  Therefore,
 we should try to \textit{limit} ourselves to certain point ranges
 whenever possible (specifically, when we have a fit---if we're still
 looking for a fit, we don't have the luxury of using up so much
-bidding room).  The general rule for this is to assume our partner has
+bidding room).  This leads to the idea of \emph{limit bids}.
+
+\boxed{A natural bid of a suit previously mentioned by either partner, or
+  \NT, is a \emph{limit bid}.}
+
+The general rule for this is to assume our partner has
 the minimum strength he's promised, and then to bid what we can make
 if we add our hand to that.  Since opener has promised 13 points, our
 6 makes 19, which is about enough for 8 tricks if we have a fit.  So we
@@ -375,7 +396,57 @@ each suit that hasn't been named.  For point ranges, figure 20 to make
 \section{Competition}
 So far, we do not know how to deal with competition, that is, when one
 partnership opens the bidding and then the other starts bidding over them.
-% Recommendation: ...?
+This situation can cause a lot of confusion, since some bids become
+unavailable and therefore even the bids that are available must change
+their meaning.  Until a more structured convention is developed
+(see \ref{???}) I recommend trying one of the following treatments:
+\begin{itemize}
+\item Disallow interference entirely for some or all hands.
+\item Try to bid naturally after interference, and urge opponents to
+  be less aggressive for the time being.
+\end{itemize}
+
+\section{Examples}
+\begin{description}
+\example{AQT87|K4|QJ5|QT3}
+This hand has 14 high card points and a five-card spade suit.
+It should therefore open 1\S.
+
+\example{AK76|AQ98|Q32|A6}
+With 18 high card points, we must open.  But without a five-card
+major, the only option is 1\D.  Do not be deterred by the lack of strength in
+this suit: you are really looking for a \H\ or \S\ fit.
+
+\example{QJ3|KJ643|Q52|K4}
+We have a marginal 13 points if we count both distribution \emph{and} the
+unprotected jack.  We could possibly open 1\H, but we might be better off
+passing and waiting for a chance to respond.  If the \H3 were a \C3 instead,
+we would certainly rather wait than open a 3-card suit with so weak a hand.
+
+\example{AQJT86|K874|T32|---}
+We only have 10 high card points, but with a such a nice 6-card spade suit
+and a void, there's no question we should open 1\S.
+
+\example{52|K753|QT2|QT85 Partner opened 1\D}
+We have the resuisite points to respond.  Since partner opened a minor suit,
+we should show our four-card major.  Respond 1\H.  If partner had opened
+1\H\ or 1\S, we would respond 2\H.
+
+\example{K82|K43|AK4|T975 Partner opened 1\C}
+We don't have any other suit to show, but with 13 points, we want to be in
+game.  4\C\ would communicate our strength, but this passes over 3\NT, which
+is likely where we want to end up.  Bid 3\NT\ in this case.  If we didn't
+have the outside honors, we would prefer to bid 3\C.  If partner opened any
+other suit at the 1-level, we should consider jump-shifting to 3\C.
+
+\example{AQT87|K4|QJ5|QT3 Partner has opened 1\C, 1\D, or 1\H}
+With our 14 points and at least 13 from partner, we most likely have the
+strength for game and so should show this by responding with a jump shift, 2\S.
+
+\example{T|9642|QJ52|9532 Partner made any opening}
+This hand is too weak to respond.  Pass any opening.
+
+\end{description}
 
 \chapter{Notrump Auctions}
 So far we have only mentioned notrump bids in passing.    These bids provide
@@ -390,6 +461,17 @@ than a suit opening.
 A balanced hand with 20-22 high card points should open 2\NT.\\
 \without{\sec A.1}A balanced hand with 25--27 high card points should open 3\NT.}
 
+Notice that there are gaps in these point ranges.  We will fill them shortly.
+
+\section{Responses}
+After a notrump opening, the responder has much more information about
+the opener's hand than vice versa, and therefore the responder becomes
+the \textit{captain}.  The opener has promised at least two cards in every
+suit, so a 6-card suit held by the responder is gauranteed to be a fit.  With
+enough strength for game and a 6-card suit, it should be bid right away.
+With a 5-card suit, opener likely has a fit and this should be investigated.
+With a balanced hand, responder should \textit{sign off} at the appropriate
+level of notrump.
 
 
 %\part{Extra stuff}

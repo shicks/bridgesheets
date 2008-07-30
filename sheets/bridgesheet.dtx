@@ -1,0 +1,364 @@
+% \iffalse
+%
+% bridgesheet.dtx - Created 7/30/2008 Steve Hicks
+%
+% Run LaTeX on this document to produce documentation.
+% Run LaTeX on the .ins file to produce the package.
+%<*driver>
+\ProvidesFile{bridgesheet.dtx}
+%</driver>
+%
+%<class>\NeedsTeXFormat{LaTeX2e}
+%<class>\ProvidesClass{bridgesheet}%
+           [2008/07/30 v1.0 Bridge sheet class]
+%<*driver>
+\documentclass{ltxdoc}
+%\CheckSum{}
+%\OnlyDescription % (un)comment this line to show (hide) source code
+\RecordChanges
+\EnableCrossrefs
+\CodelineIndex   % (un)comment this line to index source by page (line)
+\begin{document}
+  \newcommand*{\Lopt}[1]{\textsf {#1}}
+  \parindent0pt
+  \def\*#1{\texttt{\string#1}} %% sdh - |...| doesn't work in headings
+  \makeatletter
+  %
+  \newcount\mac@depth\mac@depth\z@
+  \newcommand\@macros{}\newcommand\@endmacros{}
+  \catcode`&3  %% we use a funny catcode to ensure never used.
+  \def\@macros#1,{\macro{#1}\global\advance\mac@depth\@ne\relax
+    \@ifnextchar&\@gobble\@macros}
+  \def\@endmacros{\let\mac@next\relax\ifnum\mac@depth>\z@
+    \endmacro\let\mac@next\@endmacros
+    \global\advance\mac@depth\m@ne\fi\mac@next}
+  \newenvironment{macros}[1]{\@macros#1,&}{\@endmacros}
+  \catcode`&4  %% put it back 
+  \makeatother %% must be balanced for character table to work properly
+  %
+  \DocInput{bridgesheet.dtx}
+  \setcounter{IndexColumns}{2}
+  \PrintIndex
+  \PrintChanges
+\end{document}
+%</driver>
+% \fi
+% \changes{v1.0}{2008/07/30}
+%       {(SDH) Initial version.}
+%
+% \GetFileInfo{bridgesheet.dtx}
+% \title{|bridgesheet| class documentation}
+% \author{Stephen Hicks}
+% \date{\fileversion{} -- \filedate}
+% \maketitle
+%
+% \part*{Usage}
+%
+% \StopEventually{}
+%
+% \makeatletter
+% \part*{Implementation}
+% Make the |@|-sign into a letter for use in macro names.
+%    \begin{macrocode}
+%<*class>
+\makeatletter
+%    \end{macrocode}
+%
+% \subsection{Option processing}
+% We want to pass some options to the |bridge| package, process
+% some ourselves, and pass everything else to the base class.
+%
+% \begin{macros}{\PassTheseOptionsToPackage,\BS@passopts,%
+%                \BS@pkgs,\BS@palatino}
+% Some auxilliary code to make this ``easier''
+%    \begin{macrocode}
+\begingroup
+  \catcode`&3  %% we use a funny catcode to ensure never used.
+  \gdef\PassTheseOptionsToPackage#1#2{
+    \BS@passopts{\PassOptionsToPackage{\CurrentOption}{#2}}#1,&}
+  \gdef\BS@passopts#1#2,{\DeclareOption{#2}{#1}
+    \@ifnextchar&\@gobble{\BS@passopts{#1}}}
+\endgroup
+\def\BS@pkgs{\BS@palatino}
+\let\BS@palatino\relax
+%    \end{macrocode}
+% \end{macros}
+%
+% The following options are passed directly to the |bridge| package:
+% \Lopt{color}, \Lopt{fourcolor}
+%    \begin{macrocode}
+\PassTheseOptionsToPackage{color,fourcolor}{bridge}
+%    \end{macrocode}
+%
+% The \Lopt{cmr} option tells us to use computer modern fonts instead of
+% palatino.
+%    \begin{macrocode}
+\DeclareOption{cmr}{{\def\BS@palatino{}\xdef\BS@pkgs{\BS@pkgs}}}
+%    \end{macrocode}
+%
+% All the other options are passed directly to memoir.
+%    \begin{macrocode}
+\DeclareOption*{\PassOptionToClass{\CurrentOption}{memoir}}
+%    \end{macrocode}
+%
+% Finally, process the options.
+%    \begin{macrocode}
+\ProcessOptions\relax
+%    \end{macrocode}
+%
+% \subsection{Package requirements}
+% We load |memoir| and |bridge| and whatever other packages we
+% need (depending on options)
+%    \begin{macrocode}
+\LoadClass{memoir}
+\RequirePackage{bridge}
+\RequirePackage{xkeyval}
+\RequirePackage{fullpage}
+
+\def\BS@palatino{\RequirePackage{palatino}}
+\BS@pkgs
+%    \end{macrocode}
+%
+% \section{Formatting macros}
+% This is where this class actually comes into play, by setting up
+% various ways to format the columns, etc.
+%
+% \subsection{Sheet}
+% \begin{environment}{sheet}
+% \begin{macros}{\BS@sheetbox}
+% The |sheet| environment is the main wrapper for each page.  It takes
+% a single argument: the title.
+%    \begin{macrocode}
+\newbox\BS@sheetbox
+\newenvironment{sheet}[1]{%
+  \global\setbox\BS@sheetbox\vbox\bgroup
+    \ \hfill{\Huge#1}\hfill\ % Start with title
+    \vskip1pc%
+}{%
+  \egroup
+  \box\BS@sheetbox
+}
+%    \end{macrocode}
+% \end{macros}\end{environment}
+%
+% \begin{environment}{columns}
+% \begin{macros}{\BS@columnsep,\BS@columnwidth,\BS@numcols,\BS@oncol,%
+%                \BS@columnsbox}
+% The |columns| environment starts up multicolumns.  It takes a single
+% required argument: the number of columns.
+%    \begin{macrocode}
+\newdimen\BS@columnsep  \BS@columnsep=1pc
+\newdimen\BS@columnwidth
+\newcount\BS@numcols
+\newcount\BS@oncol
+\newbox\BS@columnsbox
+
+\def\precolumns{\egroup}
+\def\postcolumns{\global\setbox\BS@sheetbox\vbox\bgroup
+  \unvbox\BS@sheetbox\box\BS@columnsbox
+}
+\newenvironment{columns}[1]{%
+  \BS@numcols#1\relax
+  \BS@oncol\z@
+  \BS@columnwidth\dimexpr
+    (\textwidth-\BS@columnsep*(\BS@numcols-1))/\BS@numcols\relax
+  \global\setbox\BS@columnsbox\hbox{}%
+}{%
+}
+%    \end{macrocode}
+% \end{macros}\end{environment}
+%
+% Future: Plan for how to insert a float at the top of so many of the
+% FLOWing columns...?  Sort of like a cheap ``wrapfloat''.  We obviously
+% need to know the height of the float before we start flowing, and maybe
+% even before we start setting text (so that we can correctly set the
+% max height?)
+%
+% \begin{environment}{column}
+% This environment takes a single optional argument that gives the options
+% for the column.  It can be any of |flow=number|, |span=number|, or
+% |height=dimen|.  For the |flow| option, we can also provide an optional
+% |stretch| option that will make the column splitting a little more liberal
+% and therefore make the balancing easier (not yet implemented!).
+% If the argument to flow or span is nonpositive then it says how many
+% columns to save afterwards.
+% Conceivably, |span| could  be compatible with the others by just using
+% wider columns...?
+%    \begin{macrocode}
+\newenvironment{column}[1][flow=0]{%
+  \def\BS@startcolumn{\ClassError{bridgesheet}{No column type given}\@eha}
+  \setkeys[BS]{column}{#1}%
+  \BS@startcolumn
+}{%
+  \BS@endcolumn
+}
+%    \end{macrocode}
+% \end{environment}
+%
+% Here we process and act on the options above...
+% \begin{macros}{\BS@colroom,\BS@maxcols}
+%    \begin{macrocode}
+\newdimen\BS@colroom
+\newdimen\BS@colwidth % width of THIS column...
+\newcount\BS@maxcols
+\newbox\BS@colbox
+\define@key[BS]{column}{flow}{%
+  \count@#1\relax
+  \ifnum\count@<\@ne
+    \count@\numexpr\BS@numcols-\BS@oncol+\count@\relax
+  \fi
+  \BS@colroom\dimexpr(\textheight*\count@-\ht\BS@sheetbox)\relax
+  \BS@colwidth\BS@columnwidth
+  \def\BS@startcolumn{\BS@startcol}%
+  \edef\BS@endcolumn{\noexpand\BS@endflow{\the\count@}}%
+}
+\define@key[BS]{column}{stretch}{\def\BS@flowstretch{#1}}
+\define@key[BS]{column}{span}{%
+  \BS@colroom\dimexpr(\textheight-\ht\BS@sheetbox)\relax
+  \BS@colwidth\dimexpr\BS@columnwidth*#1+\BS@columnsep*(#1-1)\relax
+  \def\BS@startcolumn{\BS@startcol}%
+  \def\BS@endcolumn{\BS@endflow{1}}%
+}
+\define@key[BS]{column}{height}{%
+  \BS@maxcols\numexpr\BS@numcols-\BS@oncol\relax
+  \ifdim\dimexpr#1+\ht\BS@sheetbox>\textheight
+    \PackageWarning{bridgesheet}{Column height too large to fit}%
+  \fi
+  \BS@colroom\dimexpr\BS@maxcols*(\textheight-\ht\BS@sheetbox)\relax
+  \BS@colwidth\BS@columnwidth
+  \def\BS@startcolumn{\BS@startcol}%
+  \def\BS@endcolumn{\BS@endheight{#1}}%
+}
+%    \end{macrocode}
+% \end{macros}
+%
+% \begin{macros}{\BS@startflow,\BS@endflow}
+%    \begin{macrocode}
+\newdimen\BS@splitheight
+\newcommand\BS@startcol{%
+  \global\setbox\BS@colbox\vbox\bgroup
+    \hsize\BS@colwidth
+}
+\newcommand\BS@endflow[1]{%
+  \egroup
+  \BS@splitheight\dimexpr\ht\BS@colbox/#1\relax
+  \BS@splitflow{#1}% Now split into #1 separate boxes or height \BS@splitheight
+  % Note that this won't really work... because each time we gain a little
+  % bit!  So how can we best deal with it...?  Maybe steal the balancing
+  % code from multicols package?
+  % Easiest would be to just try to do it and see how much is left at the end,
+  % Then add that to the column lengths and repeat.
+}
+\newcommand\BS@endheight[1]{%
+  \egroup
+  \BS@splitheight#1\relax
+  \count@\z@
+  \dimen@\z@
+  \@whilesw\ifdim\dimen@<\ht\BS@colbox\fi{%
+    \advance\dimen@#1\relax
+    \advance\count@\@ne
+  }
+  \expandafter\BS@splitflow\expandafter{\the\count@}%
+  % Just re-use this for now - it MIGHT expand the boxes.. oh well.
+}
+\newbox\BS@colcopy
+\newbox\BS@splitbox
+\newif\ifBS@firstcol
+\newcommand\BS@splitflow[1]{%
+  \typeout{Attempting to split into #1 columns of height \the\BS@splitheight}%
+  \let\next\relax
+  \count@#1\relax
+  \global\BS@firstcoltrue
+  \setbox\BS@splitbox\hbox{}
+  \setbox\BS@colcopy\copy\BS@colbox
+  \BS@@split % split into \count@ columns of \BS@splitheight
+  \ifdim\ht\BS@colbox>\z@
+    \advance\BS@splitheight\dimexpr\ht\BS@colbox/#1\relax
+    \setbox\BS@colbox\box\BS@colcopy % restore the box to try again...
+    \def\next{\BS@splitflow{#1}}%
+  \else
+    \global\setbox\BS@columnsbox\hbox{%
+      \unhbox\BS@columnsbox
+      \ifnum\BS@oncol>\z@\hskip\BS@columnsep\fi
+      \unhbox\BS@splitbox
+    }%
+    \global\advance\BS@oncol#1\relax
+  \fi
+  \next
+}
+\newcommand\BS@@split{%
+  \typeout{...\the\count@\space to go: height left=\the\ht\BS@colbox}%
+  \splittopskip=0pt%
+  \setbox\BS@splitbox\hbox{\unhbox\BS@splitbox
+    \ifBS@firstcol\global\BS@firstcolfalse\else\hskip\BS@columnsep\fi
+    \setbox\@tempboxa\vsplit\BS@colbox to \BS@splitheight
+    %\showbox\@tempboxa
+    %\ifnum\badness>100
+    %  \setbox\@tempboxa\vbox to \BS@splitheight{\unvbox\@tempboxa\vfill}\fi
+    \dp\@tempboxa\dimexpr\dp\@tempboxa+\ht\@tempboxa\relax\ht\@tempboxa\z@
+    \box\@tempboxa%
+  }%
+  \advance\count@\m@ne
+  \ifnum\count@>\z@\expandafter\BS@@split\fi
+}
+
+ % THis is a dirty hack - watch out for placement of \egroup and \bgroup
+ % for outer vbox in sheet, and overriding that in the columns environment
+ % (which must not be OUTER in sheet - can easily check for this...)
+
+\def\begin#1{%
+  \@ifundefined{#1}%
+    {\def\reserved@a{\@latex@error{Environment #1 undefined}\@eha}}%
+    {\@ifundefined{pre#1}{}{\csname pre#1\endcsname}%
+     \def\reserved@a{\def\@currenvir{#1}%
+     \edef\@currenvline{\on@line}%
+     \csname #1\endcsname}}%
+  \@ignorefalse
+  \begingroup\@endpefalse\reserved@a}
+
+\def\end#1{%
+  \csname end#1\endcsname\@checkend{#1}%
+  \expandafter\endgroup\if@endpe\@doendpe\fi
+  \@ifundefined{post#1}{}{\csname post#1\endcsname}%
+  \if@ignore\@ignorefalse\ignorespaces\fi}
+
+%    \end{macrocode}
+% \end{macros}
+%
+% \section{End}
+%    \begin{macrocode}
+\makeatother
+%</class>
+%    \end{macrocode}
+
+% \makeatother
+% \Finale
+%
+%
+% \iffalse
+%
+% The next line of code prevents DocStrip from adding the
+% character table to the generated files(s).
+
+% Removed stuff
+
+\endinput
+%
+% \fi
+%
+%% \CharacterTable
+%%  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
+%%   Lower-case    \a\b\c\d\e\f\g\h\i\j\k\l\m\n\o\p\q\r\s\t\u\v\w\x\y\z
+%%   Digits        \0\1\2\3\4\5\6\7\8\9
+%%   Exclamation   \!     Double quote  \"     Hash (number) \#
+%%   Dollar        \$     Percent       \%     Ampersand     \&
+%%   Acute accent  \'     Left paren    \(     Right paren   \)
+%%   Asterisk      \*     Plus          \+     Comma         \,
+%%   Minus         \-     Point         \.     Solidus       \/
+%%   Colon         \:     Semicolon     \;     Less than     \<
+%%   Equals        \=     Greater than  \>     Question mark \?
+%%   Commercial at \@     Left bracket  \[     Backslash     \\
+%%   Right bracket \]     Circumflex    \^     Underscore    \_
+%%   Grave accent  \`     Left brace    \{     Vertical bar  \|
+%%   Right brace   \}     Tilde         \~}
+%%

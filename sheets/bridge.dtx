@@ -1,0 +1,199 @@
+% \iffalse
+%
+% bridge.dtx - Created 7/30/2008 Steve Hicks
+%
+% Run LaTeX on this document to produce documentation.
+% Run LaTeX on the .ins file to produce the package.
+%<*driver>
+\ProvidesFile{bridge.dtx}
+%</driver>
+%
+%<package>\NeedsTeXFormat{LaTeX2e}
+%<package>\ProvidesPackage{bridge}%
+           [2008/07/30 v1.0 Bridge package]
+%<*driver>
+\documentclass{ltxdoc}
+%\CheckSum{}
+%\OnlyDescription % (un)comment this line to show (hide) source code
+\RecordChanges
+\EnableCrossrefs
+\CodelineIndex   % (un)comment this line to index source by page (line)
+\begin{document}
+  \newcommand*{\Lopt}[1]{\textsf {#1}}
+  \parindent0pt
+  \def\*#1{\texttt{\string#1}} %% sdh - |...| doesn't work in headings
+  \makeatletter
+  %
+  \newcount\mac@depth\mac@depth\z@
+  \newcommand\@macros{}\newcommand\@endmacros{}
+  \catcode`&3  %% we use a funny catcode to ensure never used.
+  \def\@macros#1,{\macro{#1}\global\advance\mac@depth\@ne\relax
+    \@ifnextchar&\@gobble\@macros}
+  \def\@endmacros{\let\mac@next\relax\ifnum\mac@depth>\z@
+    \endmacro\let\mac@next\@endmacros
+    \global\advance\mac@depth\m@ne\fi\mac@next}
+  \newenvironment{macros}[1]{\@macros#1,&}{\@endmacros}
+  \catcode`&4  %% put it back 
+  \makeatother %% must be balanced for character table to work properly
+  %
+  \DocInput{bridge.dtx}
+  \setcounter{IndexColumns}{2}
+  \PrintIndex
+  \PrintChanges
+\end{document}
+%</driver>
+% \fi
+% \changes{v1.0}{2008/07/30}
+%       {(SDH) Initial version.}
+%
+% \GetFileInfo{bridge.dtx}
+% \title{|bridge| package documentation}
+% \author{Stephen Hicks}
+% \date{\fileversion{} -- \filedate}
+% \maketitle
+%
+% \part*{Usage}
+%
+% \StopEventually{}
+%
+% \makeatletter
+% \part*{Implementation}
+% Make the |@|-sign into a letter for use in macro names.
+%    \begin{macrocode}
+%<*package>
+\makeatletter
+%    \end{macrocode}
+%
+% \begin{macros}{\nlet,\rlet,\ndef}
+% We define a few commands to take advantage of \LaTeX's safety features.
+% These behave exactly like the \TeX{} counterparts, but they use
+% |\newcommand| or |\renewcommand| first to make sure that we're not
+% (or are) clobbering anything.
+%    \begin{macrocode}
+\newcommand\nlet[2]{%
+  \newcommand#1{}\let#1#2%
+}
+\newcommand\rlet[2]{%
+  \renewcommand#1{}\let#1#2%
+}
+\newcommand\ndef[1]{%
+  \newcommand#1{}\def#1%
+}
+%    \end{macrocode}
+% \end{macros}
+%
+% \subsection{Option processing}
+%
+% \begin{macro}{\if@BRcolor}
+% The \Lopt{color} option sets all the suits in solid colors.
+%    \begin{macrocode}
+\newif\if@BRcolor
+\DeclareOption{color}{\@BRcolortrue}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\if@BRfourcolor}
+% The \Lopt{fourcolor} option sets the suits in four different colors.
+% This automatically sets \Lopt{color}.
+%    \begin{macrocode}
+\newif\if@BRfourcolor
+\DeclareOption{fourcolor}{\@BRfourcolortrue\@BRcolortrue}
+%    \end{macrocode}
+% \end{macro}
+%
+% Finally, process the options.
+%    \begin{macrocode}
+\ProcessOptions\relax
+%    \end{macrocode}
+%
+% \subsection{Package requirements}
+% We load |color| and |pifont| if needed.
+%    \begin{macrocode}
+\if@BRcolor
+  \RequirePackage{color}
+  \RequirePackage{pifont} % needed for solid heart/diamond
+\fi
+%    \end{macrocode}
+%
+% \section{Suit setup}
+% \begin{macros}{\c,\d,\h,\s,\nt}
+% We define macros |\c|, |\d|, |\h|, |\s|, and |\nt|.
+%    \begin{macrocode}
+\if@BRcolor
+  \renewcommand\c{\textcolor{clubcolor}{\Pisymbol{psy}{"A7}}}
+  \renewcommand\d{\textcolor{diamondcolor}{\Pisymbol{psy}{"A8}}}
+  \newcommand\h{\textcolor{heartcolor}{\Pisymbol{psy}{"A9}}}
+  \newcommand\s{\textcolor{spadecolor}{\Pisymbol{psy}{"AA}}}
+  \newcommand\nt{\textcolor{ntcolor}{\textsc{nt}}}
+\else
+  \renewcommand\c{$\clubsuit$}
+  \renewcommand\d{$diamondsuit$}
+  \newcommand\h{$\heartsuit$}
+  \newcommand\s{$\spadesuit$}
+  \newcommand\nt{\textsc{nt}}
+\fi
+%    \end{macrocode}
+% \end{macros}
+%
+% \subsection{Colors}
+% \begin{macros}{clubcolor,diamondcolor,heartcolor,spadecolor}
+% We need to set the colors as well.
+%    \begin{macrocode}
+\if@BRcolor
+  \if@BRfourcolor
+    \definecolor{clubcolor}{rgb}{0,0.3,0.3}
+    \definecolor{diamondcolor}{rgb}{0.3,0.3,0}
+    \definecolor{heartcolor}{rgb}{1,0,0}
+    \definecolor{spadecolor}{rgb}{0,0,0}
+    \definecolor{ntcolor}{rgb}{0,0,0}
+  \else
+    \definecolor{clubcolor}{rgb}{0,0,0}
+    \definecolor{diamondcolor}{rgb}{1,0,0}
+    \definecolor{heartcolor}{rgb}{1,0,0}
+    \definecolor{spadecolor}{rgb}{0,0,0}
+    \definecolor{ntcolor}{rgb}{0,0,0}
+  \fi
+\fi
+%    \end{macrocode}
+% \end{macros}
+%
+% \section{Tables}
+% We have some fancy macros for setting up point range tables.
+%
+% \section{End}
+%    \begin{macrocode}
+\makeatother
+%</package>
+%    \end{macrocode}
+
+% \makeatother
+% \Finale
+%
+%
+% \iffalse
+%
+% The next line of code prevents DocStrip from adding the
+% character table to the generated files(s).
+
+% Removed stuff
+
+\endinput
+%
+% \fi
+%
+%% \CharacterTable
+%%  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
+%%   Lower-case    \a\b\c\d\e\f\g\h\i\j\k\l\m\n\o\p\q\r\s\t\u\v\w\x\y\z
+%%   Digits        \0\1\2\3\4\5\6\7\8\9
+%%   Exclamation   \!     Double quote  \"     Hash (number) \#
+%%   Dollar        \$     Percent       \%     Ampersand     \&
+%%   Acute accent  \'     Left paren    \(     Right paren   \)
+%%   Asterisk      \*     Plus          \+     Comma         \,
+%%   Minus         \-     Point         \.     Solidus       \/
+%%   Colon         \:     Semicolon     \;     Less than     \<
+%%   Equals        \=     Greater than  \>     Question mark \?
+%%   Commercial at \@     Left bracket  \[     Backslash     \\
+%%   Right bracket \]     Circumflex    \^     Underscore    \_
+%%   Grave accent  \`     Left brace    \{     Vertical bar  \|
+%%   Right brace   \}     Tilde         \~}
+%%

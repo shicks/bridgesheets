@@ -207,3 +207,9 @@
 % used for the boxes to clarify when something is no longer in effect
 \def\until#1{\llap{[until #1]\hskip 5pt}}
 \def\without#1{\llap{[without #1]\hskip 5pt}}
+
+\def\handline#1{\@handline#1 $}
+\def\@handline#1|#2|#3|#4 #5${%
+  \noindent\S#1\hskip1em\H#2\hskip1em\D#3\hskip1em\C#4\hskip1.5em#5%
+}
+\def\example#1{\item[\handline{#1}]\leavevmode\\}
