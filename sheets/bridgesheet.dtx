@@ -98,7 +98,8 @@
 %
 % All the other options are passed directly to memoir.
 %    \begin{macrocode}
-\DeclareOption*{\PassOptionToClass{\CurrentOption}{memoir}}
+\PassOptionsToClass{article}{memoir} % automatically to article
+\DeclareOption*{\PassOptionsToClass{\CurrentOption}{memoir}}
 %    \end{macrocode}
 %
 % Finally, process the options.
@@ -115,6 +116,10 @@
 \RequirePackage{xkeyval}
 \RequirePackage{fullpage}
 
+ %\RequirePackage{footnote}
+\RequirePackage[perpage,hang,symbol*]{footmisc}
+\renewcommand{\hangfootparskip}{0pt}
+
 \def\BS@palatino{\RequirePackage{palatino}}
 \BS@pkgs
 %    \end{macrocode}
@@ -130,9 +135,13 @@
 % a single argument: the title.
 %    \begin{macrocode}
 \newbox\BS@sheetbox
+
+\newcommand\Heading[1]{{\strut\hfill{\Huge#1}\hfill\strut}}
+\newcommand\heading[1]{\vskip1pc{\strut\hfill{\huge#1}\hfill\strut}\vskip.6pc}
+
 \newenvironment{sheet}[1]{%
   \global\setbox\BS@sheetbox\vbox\bgroup
-    \ \hfill{\Huge#1}\hfill\ % Start with title
+    \Heading{#1}% Start with title
     \vskip1pc%
 }{%
   \egroup
@@ -153,10 +162,6 @@
 \newcount\BS@oncol
 \newbox\BS@columnsbox
 
-\def\precolumns{\egroup}
-\def\postcolumns{\global\setbox\BS@sheetbox\vbox\bgroup
-  \unvbox\BS@sheetbox\box\BS@columnsbox
-}
 \newenvironment{columns}[1]{%
   \BS@numcols#1\relax
   \BS@oncol\z@
@@ -164,6 +169,7 @@
     (\textwidth-\BS@columnsep*(\BS@numcols-1))/\BS@numcols\relax
   \global\setbox\BS@columnsbox\hbox{}%
 }{%
+  \box\BS@columnsbox
 }
 %    \end{macrocode}
 % \end{macros}\end{environment}
@@ -185,9 +191,10 @@
 % Conceivably, |span| could  be compatible with the others by just using
 % wider columns...?
 %    \begin{macrocode}
-\newenvironment{column}[1][flow=0]{%
-  \def\BS@startcolumn{\ClassError{bridgesheet}{No column type given}\@eha}
+\newenvironment{column}[1][flow=1]{%
+  \def\BS@startcolumn{\ClassError{bridgesheet}{No column type given}\@eha}%
   \setkeys[BS]{column}{#1}%
+  \def\fixcolumnwidth{\hsize\BS@colwidth}%
   \BS@startcolumn
 }{%
   \BS@endcolumn
@@ -202,7 +209,7 @@
 \newdimen\BS@colwidth % width of THIS column...
 \newcount\BS@maxcols
 \newbox\BS@colbox
-\define@key[BS]{column}{flow}{%
+\define@key[BS]{column}{flow}[0]{%
   \count@#1\relax
   \ifnum\count@<\@ne
     \count@\numexpr\BS@numcols-\BS@oncol+\count@\relax
@@ -224,7 +231,7 @@
   \ifdim\dimexpr#1+\ht\BS@sheetbox>\textheight
     \PackageWarning{bridgesheet}{Column height too large to fit}%
   \fi
-  \BS@colroom\dimexpr\BS@maxcols*(\textheight-\ht\BS@sheetbox)\relax
+  \BS@colroom\dimexpr(\textheight-\ht\BS@sheetbox)*\BS@maxcols\relax
   \BS@colwidth\BS@columnwidth
   \def\BS@startcolumn{\BS@startcol}%
   \def\BS@endcolumn{\BS@endheight{#1}}%
@@ -257,7 +264,7 @@
   \@whilesw\ifdim\dimen@<\ht\BS@colbox\fi{%
     \advance\dimen@#1\relax
     \advance\count@\@ne
-  }
+  }%
   \expandafter\BS@splitflow\expandafter{\the\count@}%
   % Just re-use this for now - it MIGHT expand the boxes.. oh well.
 }
@@ -265,11 +272,11 @@
 \newbox\BS@splitbox
 \newif\ifBS@firstcol
 \newcommand\BS@splitflow[1]{%
-  \typeout{Attempting to split into #1 columns of height \the\BS@splitheight}%
+  %\typeout{Attempting to split into #1 columns of height \the\BS@splitheight}%
   \let\next\relax
   \count@#1\relax
   \global\BS@firstcoltrue
-  \setbox\BS@splitbox\hbox{}
+  \setbox\BS@splitbox\hbox{}%
   \setbox\BS@colcopy\copy\BS@colbox
   \BS@@split % split into \count@ columns of \BS@splitheight
   \ifdim\ht\BS@colbox>\z@
@@ -287,7 +294,7 @@
   \next
 }
 \newcommand\BS@@split{%
-  \typeout{...\the\count@\space to go: height left=\the\ht\BS@colbox}%
+  %\typeout{...\the\count@\space to go: height left=\the\ht\BS@colbox}%
   \splittopskip=0pt%
   \setbox\BS@splitbox\hbox{\unhbox\BS@splitbox
     \ifBS@firstcol\global\BS@firstcolfalse\else\hskip\BS@columnsep\fi
@@ -296,16 +303,73 @@
     %\ifnum\badness>100
     %  \setbox\@tempboxa\vbox to \BS@splitheight{\unvbox\@tempboxa\vfill}\fi
     \dp\@tempboxa\dimexpr\dp\@tempboxa+\ht\@tempboxa\relax\ht\@tempboxa\z@
+      \wd\@tempboxa=\BS@colwidth % some environments change this!
     \box\@tempboxa%
   }%
   \advance\count@\m@ne
   \ifnum\count@>\z@\expandafter\BS@@split\fi
 }
 
+ %%%%%%%%%%%%% Here's code for expanding the spaces... do we really need it?
+
+\newtoks\ag@stack
+\def\ag@code#1#2\ag@end{#1\global\ag@stack{#2}}
+\def\ag@push#1{\begingroup\toks@{\ag@code{#1}}%
+  \global\ag@stack\expandafter\expandafter\expandafter{\expandafter
+    \the\expandafter\toks@\the\ag@stack}\endgroup}
+\def\ag@pushE#1{\begingroup\edef\@tempa{\noexpand\ag@code{#1}}%
+  \global\ag@stack\expandafter\expandafter\expandafter{\expandafter\@tempa
+    \the\ag@stack}\endgroup}
+\def\ag@pop{\the\ag@stack\ag@end}
+\def\AfterGroupPush#1{\ag@push{#1}\aftergroup\ag@pop}
+\def\AfterGroupPushE#1{\ag@pushE{#1}\aftergroup\ag@pop}
+
+\def\expandspaces#1{
+  \AfterGroupPushE{\noexpand\fontdimen3\the\font\the\fontdimen3\font}%
+  \begingroup\dimen@\fontdimen3\font\advance\dimen@#1\dimen@
+  \fontdimen3\font\dimen@\endgroup
+}
+ % also make baselineskip stretchy...
+\AtBeginDocument{\advance\baselineskip 0pt plus 1.5pt minus .5pt\relax}
+
+
+ % Imported from points.tex
+\let\TeXto\to
+\let\TeXge\ge
+\let\TeXle\le
+\def\to{$\TeXto$}
+\def\lt{$<$}
+\def\gt{$>$}
+\def\le{$\TeXle$}
+\def\ge{$\TeXge$}
+\def\ltsim{$\lesssim$}
+\def\gtsim{$\gtrsim$}
+\def\nodepth#1{\setbox\z@\hbox{#1}\dp\z@=0\p@\box\z@}
+ %\makesavenoteenv{tabular}
+\def\singleton{1$^{\underline{\mathrm{tn}}}$}
+\def\doubleton{2$^{\underline{\mathrm{tn}}}$}
+\newcommand{\textbid}[2][white]{\ifcolorbids\leavevmode\highlight{#1}[2pt]{\textbf{#2}}\else\textbf{#2}\fi}
+\newcommand{\textresp}[2][white]{\emph{#2}}
+
+\newcommand\tightensections[1]{%
+  \divide\beforesecskip#1\relax
+  \divide\aftersecskip#1\relax
+  \divide\beforesubsecskip#1\relax
+  \divide\aftersubsecskip#1\relax
+}
+
+
+
+%%%%%%%%%%%%%%
+
+\def\thesection{\number\c@section}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
  % THis is a dirty hack - watch out for placement of \egroup and \bgroup
  % for outer vbox in sheet, and overriding that in the columns environment
  % (which must not be OUTER in sheet - can easily check for this...)
-
+\iffalse - this is evil
 \def\begin#1{%
   \@ifundefined{#1}%
     {\def\reserved@a{\@latex@error{Environment #1 undefined}\@eha}}%
@@ -315,12 +379,35 @@
      \csname #1\endcsname}}%
   \@ignorefalse
   \begingroup\@endpefalse\reserved@a}
-
 \def\end#1{%
   \csname end#1\endcsname\@checkend{#1}%
   \expandafter\endgroup\if@endpe\@doendpe\fi
   \@ifundefined{post#1}{}{\csname post#1\endcsname}%
   \if@ignore\@ignorefalse\ignorespaces\fi}
+\def\precolumns{\egroup}
+\def\postcolumns{\global\setbox\BS@sheetbox\vbox\bgroup
+  \unvbox\BS@sheetbox\box\BS@columnsbox
+}
+\newenvironment{columns}[1]{%
+  \let\vskip\BS@save@vskip
+  \BS@numcols#1\relax
+  \BS@oncol\z@
+  \BS@columnwidth\dimexpr
+    (\textwidth-\BS@columnsep*(\BS@numcols-1))/\BS@numcols\relax
+  \global\setbox\BS@columnsbox\hbox{}%
+}{%
+}
+\newenvironment{sheet}[1]{%
+  \global\setbox\BS@sheetbox\vbox\bgroup
+    \ \hfill{\Huge#1}\hfill\ % Start with title
+    %\vskip0.5pc%
+}{%
+  \egroup
+  \box\BS@sheetbox
+}
+\fi
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 %    \end{macrocode}
 % \end{macros}

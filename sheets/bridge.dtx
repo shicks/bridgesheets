@@ -113,6 +113,12 @@
   \RequirePackage{color}
   \RequirePackage{pifont} % needed for solid heart/diamond
 \fi
+
+ % These are imported from the old version...
+\RequirePackage{colortbl}
+\RequirePackage{calc,graphicx}
+
+
 %    \end{macrocode}
 %
 % \section{Suit setup}
@@ -141,15 +147,15 @@
 %    \begin{macrocode}
 \if@BRcolor
   \if@BRfourcolor
-    \definecolor{clubcolor}{rgb}{0,0.3,0.3}
-    \definecolor{diamondcolor}{rgb}{0.3,0.3,0}
-    \definecolor{heartcolor}{rgb}{1,0,0}
+    \definecolor{clubcolor}{rgb}{0,0.35,0.45}
+    \definecolor{diamondcolor}{rgb}{0.6,0.6,0}
+    \definecolor{heartcolor}{rgb}{0.8,0,0}
     \definecolor{spadecolor}{rgb}{0,0,0}
     \definecolor{ntcolor}{rgb}{0,0,0}
   \else
     \definecolor{clubcolor}{rgb}{0,0,0}
-    \definecolor{diamondcolor}{rgb}{1,0,0}
-    \definecolor{heartcolor}{rgb}{1,0,0}
+    \definecolor{diamondcolor}{rgb}{0.8,0,0}
+    \definecolor{heartcolor}{rgb}{0.8,0,0}
     \definecolor{spadecolor}{rgb}{0,0,0}
     \definecolor{ntcolor}{rgb}{0,0,0}
   \fi
@@ -159,6 +165,203 @@
 %
 % \section{Tables}
 % We have some fancy macros for setting up point range tables.
+%    \begin{macrocode}
+
+ % Here are a bunch of routines for the ptable environment
+ % The basic syntax is
+ % \begin{ptable}\headings{#-#|#-#|...|#+}
+ %   \row{row heading}
+ %     \bid(#-#,color){text}
+ %     \bid*(#-,color){text}\\ % to end of table, no text
+ %   \row{...}
+ %     \bid...
+ % \end{ptable}
+ % Also commands \drop[dimension]{text}, \clift[dimension]{text}
+ % for row headings and bids, respectively
+ % \brace{skip}{height} puts a brace ahead a certain distance
+
+\let\xa\expandafter
+\newcount\c@a\newcount\c@b\newcount\c@c
+\newif\ifplus
+\def\@gobble@null\@null{}
+\def\@maybe@next{\ifx\@foo\@null\let\@next\@gobble@null\fi\@next}
+\def\@headings#1|{\doheading#1-.-\@end\let\@next\@headings\futurelet\@foo\@maybe@next}
+\def\headings#1{\global\c@c\z@\@headings#1|\@null\\\hline\hline}
+\def\stripplus#1+#2\@null{\ifx+#2\relax\plustrue\else\plusfalse\fi\c@a#1\relax}
+\def\setupper#1#2\@null{\ifx.#1\relax\number\c@a\relax\c@b\c@a\relax\else\c@b#1#2\relax\number\c@a--\number\c@b\fi\ifplus+\fi}
+\def\doheading#1-#2-#3\@end{%
+  &%  \ifnum\c@c>\z@&\fi
+  \stripplus#1+\@null % sets \ifplus and \c@a
+  \setupper#2\@null   % sets \c@b and prints stuff
+  \xa\xdef\csname a@\romannumeral\c@a\endcsname{\number\c@c}%
+  \xa\xdef\csname b@\romannumeral\c@b\endcsname{\number\c@c}%
+  \ifplus\xdef\b@plus{\number\c@b}\fi
+  \global\advance\c@c\@ne % next column...
+}
+
+\def\getleft{\xa\c@a\csname a@\romannumeral\c@a\endcsname}
+\def\getright{\xa\c@b\csname b@\romannumeral\c@b\endcsname}
+
+\def\@@lign{%
+  \t@b%  % This should work now...
+  \let\@next\@@lign
+  \ifnum\c@c<\c@a
+    \global\advance\c@c\@ne
+  \else
+    \let\@next\relax
+  \fi\@next}
+
+\newcount\@left
+\newcount\@cur
+
+\def\t@b{&}
+\def\@lign{%
+  \global\@left\c@a % copy this value
+  \global\advance\@left-\@cur % find out how many more we need to go.
+  \ifnum\@left>\z@  % SOMEHOW, this counter is getting changed on me!!!
+    \t@b\xa\multicolumn\xa{\number\@left}{c}{}\t@b%
+  \else\t@b\fi
+}
+
+\def\@bid#1#2#3#4{%
+  %\message{#1-#2}%
+  \c@a#1\relax\getleft % \c@c stores the current position in the row...
+  \c@b#2\relax\getright\advance\c@b\@ne
+  \global\@cur\c@c\relax\global\c@c\c@b\relax % make sure to update it...
+  \global\advance\c@b-\c@a\relax
+  \@lign\mcc{\number\c@b}{#3}{#4}%
+}
+ %\def\resolverange{% First check for a + after first bid
+ %  \xa\@resolverange\fix@@plus}
+ %\def\fix@@plus{}%
+ %\def\fix@plus#1{%
+ %  \let\@next\fix@plus
+ %  \ifx#1-\relax\let\@next\relax\fi
+ %  \ifx#1+\relax-\b@plus\let\@next\relax
+ %  \else#1\fi
+ %  \@next
+ %}
+\def\@pick#1#2{\ifx\@null#1\@null#2\else#1\fi} % puts #2 is #1 is empty
+\def\@resolverange#1-#2-#3\@null{{#1}{\@pick{#2}{\b@plus}}}
+\def\@@bid#1#2#3{% #1 is a range
+\xa\@bid\@resolverange#1-#1-\@null{#2}{#3}}
+
+\newif\if@star
+\newif\if@usingstar
+\global\@usingstartrue
+\def\bid{\futurelet\@foo\check@star}
+\def\check@star{\let\@next\@nsbid
+  \ifx\@foo*\relax
+    \if@usingstar\global\@startrue\fi
+ %    \global\let\if@star\if@usingstar % bad syntax...
+    \let\@next\@sbid
+  \else
+    \global\@starfalse
+  \fi\@next}
+\def\@sbid*{\@nsbid}
+\def\@nsbid(#1,#2)#3{\@@bid{#1}{#2}{\if@star\else#3\fi}}
+
+\def\clear@ranges{\count@40\let\@next\@clr@ranges\@next}
+\def\@clr@ranges{\ifnum\count@<\z@\let\@next\relax\else
+  \xa\global\xa\let\csname a@\romannumeral\count@\endcsname\undef
+  \xa\global\xa\let\csname b@\romannumeral\count@\endcsname\undef
+  \global\advance\count@\m@ne
+\fi\@next}
+
+\def\b@ptable{\begin{tabular}{lccccccccccccccccccccc}} % should be enough...
+\def\e@ptable{\hline\end{tabular}\clear@ranges}
+
+\def\gap{\\[-.6pc]}
+\newcommand{\drop}[2][0.52pc]{\setbox0\hbox{\lower #1\hbox{#2}}\dp0=0pt\ht0=0pt\box0}
+\newcommand{\clift}[2][0.45pc]{\if@usingstar\setbox0\hbox{\raise #1\hbox{#2}}\dp0=0pt\ht0=0pt\box0\else#2\fi} % conditional lift - only if using stars
+
+\newenvironment{ptable}{\b@ptable}{\e@ptable}
+
+\def\row{\global\c@c\z@}
+\def\spanrow#1#2{\multicolumn{#1}{l}{#2}\c@c\m@ne\global\advance\c@c#1}
+\def\ob#1#2{\@@bid{#1}{lorange}{#2}}
+\def\yb#1#2{\@@bid{#1}{lyellow}{#2}}
+\def\gb#1#2{\@@bid{#1}{lgreen}{#2}}
+\def\bb#1#2{\@@bid{#1}{lblue}{#2}}
+\def\pb#1#2{\@@bid{#1}{lred}{#2}}
+\def\vb#1#2{\@@bid{#1}{lpurple}{#2}}
+\def\ab#1#2{\@@bid{#1}{laqua}{#2}}
+
+ % There MUST be better ways to do this...
+\def\oc#1#2{\@@bid{#1}{lorange}{}}
+\def\yc#1#2{\@@bid{#1}{lyellow}{}}
+\def\gc#1#2{\@@bid{#1}{lgreen}{}}
+\def\bc#1#2{\@@bid{#1}{lblue}{}}
+\def\pc#1#2{\@@bid{#1}{lred}{}}
+\def\vc#1#2{\@@bid{#1}{lpurple}{}}
+\def\ac#1#2{\@@bid{#1}{laqua}{}}
+
+\def\ic{\futurelet\@foo\@ic}
+\def\@ic{\let\@next\g@ic\ifx\@foo\egroup\let\@next\relax\fi\@next}
+\def\g@ic#1{\futurelet\@foo\@ic}
+
+\def\ditto#1{\raise 0.18pc\hbox to #1{\leaders\hrule\hfill\lower 0.4pc\hbox{\kern1ex''\kern0.6ex}\leaders\hrule\hfill}}
+
+ %\def\savenote#1#2{\begingroup\count@\value{footnote}\advance\count@\@ne\xdef#1{\the\count@}\endgroup\footnote{#2}}
+ %\def\savenote#1#2{\footnote{#2}\xdef#1{\value{footnote}}}
+
+ % Want some way to signify various properties - forcing, overcalls, etc...
+\def\w#1{\def\@top{}\def\@bot{}\@w#1\@go}
+\let\ww\w
+\def\@w#1{\let\@next\@w\ifx#1\@go\relax\let\@next\@go\else
+  \ifx#1o\relax\edef\@top{\@top o}\fi
+  \ifx#1d\relax\edef\@top{\@top d}\fi
+  \ifx#1a\relax\edef\@bot{\@bot a}\fi
+  \ifx#1i\relax\edef\@bot{\@bot i}\fi
+  \ifx#1s\relax\edef\@bot{\@bot s}\fi
+  \ifx#1f\relax\edef\@bot{\@bot f}\fi
+  \ifx#1g\relax\edef\@bot{\@bot g}\fi
+\fi\@next}
+\def\@go{\kern .2em\smash{\rlap{\raise 0.8ex\hbox{\tiny\@bot}}\rlap{\lower 0.2ex\hbox{\tiny\@top}}}}
+
+
+\def\brace#1#2{\setbox0=\hbox{\hskip #1$\left\{\vbox to #2{}\right.$}%
+  \wd0=0pt\ht0=0pt\dp0=0pt\box0}
+
+
+ % Defines command #1 which calls #2 with color in #3
+\def\colorcommand#1#2#3{%
+  \newcommand{#1}[2][\no@arg]{%
+    \ifx##1\no@arg\relax\def#3{{##2}}%
+    \else\def#3{[##1]{##2}}\fi#2}}
+
+\newcommand{\@highlight}[2][2pt]{\begingroup
+  % Make a colorbox to get padding - \@hl@col is the color (w/ braces)
+  \def\@cb{\expandafter\colorbox\@hl@col}%
+  \def\x{\dimen\z@}\def\y{\dimen\@ne}\def\z{\dimen\tw@}\def\p{\dimen\thr@@}%
+  \def\w{\wd\z@}\def\h{\ht\z@}\def\d{\dp\z@}%
+  \setbox\z@\hbox{\@cb{}}%
+  \p#1\relax\multiply\p\tw@ % twice the padding
+  % \dimen0 is the highlighting width, \dimen1 is the height+depth
+  \x-\w \y-\h \advance\y-\d
+  \advance\x\p \advance\y\p
+  % \dimen2 is just the depth
+  \z-\d \advance\z#1\relax
+  % Now set the text to get its dimensions
+  \setbox\z@\hbox{#2}%
+  \advance\x\w \advance\z\d
+  \advance\y\h \advance\y\d
+  % Set the actual colorbox
+  \setbox\z@\hbox{\hskip-#1\@cb{\hbox to \x{\vbox to \y{}}}}%
+  % Clear out its dimens and draw it (lowered)
+  \w=0\p@\h=0\p@\d=0\p@\lower\z\box\z@\endgroup\hbox{#2}}
+\colorcommand\highlight\@highlight\@hl@col
+
+\def\mcc#1#2#3{\multicolumn{#1}{>{\columncolor{#2}}c}{#3}}
+\definecolor{lblue}{rgb}{.75,.8,1}
+\definecolor{lred}{rgb}{1,.8,.8}
+\definecolor{lgreen}{rgb}{.8,1,.8}
+\definecolor{lorange}{rgb}{1,.9,.7}
+\definecolor{lpurple}{rgb}{.95,.7,1}
+\definecolor{lyellow}{rgb}{1,1,.6}
+\definecolor{laqua}{rgb}{.65,.95,1}
+
+%    \end{macrocode}
 %
 % \section{End}
 %    \begin{macrocode}

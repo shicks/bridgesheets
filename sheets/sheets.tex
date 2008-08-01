@@ -1,72 +1,16 @@
 \documentclass[fourcolor]{bridgesheet}
-\usepackage{lipsum}
 
 \errorcontextlines=100
 %\showboxdepth=1 \showboxbreadth=50
 
-% This sets up the spaceskip/xspaceskip to the default for this font...
-
-% Now we extend it...  - this SHOULD all be put in a macro...
-\newcommand\expandspaces[1]{%
-%  \showthe\spaceskip
- % \showthe\xspaceskip
-  \spaceskip=\fontdimen2\font plus \fontdimen3\font minus \fontdimen4\font
-  \xspaceskip=\fontdimen7\font
-  %\advance\xspaceskip \fontdimen7\font
-  \advance\spaceskip0pt plus#1\gluestretch\spaceskip
-  %\advance\xspaceskip0pt plus#1\gluestretch\xspaceskip
-%  \showthe\spaceskip
- % \showthe\xspaceskip
-}
-\newcommand\expandlines[1]{%
-  \advance\baselineskip 0pt #1\relax
-}
-
-\newcommand\expandspacescurrentfont[1]{%
-  \fontdimen3\font=\dimexpr\fontdimen3\font*\numexpr(1+#1)\relax
-}
-
 \begin{document}
+
+\rightskip=0pt plus 1pc
+\tightensections{5}
 
 %\expandspaces0
 
-%\font\stretchy=\fontname\font
-%\font\regular=\fontname\font
+\input{openings}
+\input{suitresponses}
 
-
-%{\expandspacescurrentfont4}
-%\large
-%\expandspacescurrentfont{4}
-
-%\stretchy
-
-\expandlines{plus 1.5pt minus .5pt}
-
-\begin{sheet}{Openings}
-
-\begin{columns}{3}
-\begin{column}%[flow=2]
-  \lipsum[1-2]
-%\end{column}
-%\begin{column}
-  \lipsum[3]
-\end{column}
-\end{columns}
-
-% NOTE GROUPING WEIRDNESS HERE!!! - NOT GLOBAL!
-\vskip 2pc
-\begin{columns}{3}
-
-\spaceskip=\fontdimen2\font plus \fontdimen3\font minus \fontdimen4\font
-\xspaceskip=\fontdimen7\font plus \fontdimen3\font minus \fontdimen4\font
-
-\begin{column}%[flow=2]
-  \lipsum[1-2]
-%\end{column}
-%\begin{column}
-  \lipsum[3]
-\end{column}
-\end{columns}
-
-\end{sheet}
 \end{document}
