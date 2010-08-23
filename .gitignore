@@ -1,0 +1,13 @@
+*.dvi
+*.aux
+*.log
+*.toc
+*.idx
+*.glo
+*.sty
+*.cls
+*~
+sheets/bridge.pdf
+sheets/bridgesheet.pdf
+sheets/sheets.pdf
+*.ps
