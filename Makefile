@@ -1,6 +1,6 @@
 .PHONY:clean all
 
-all:system.pdf basic.pdf competitive.pdf points.pdf sheets/sheets.pdf
+all:basic.pdf competitive.pdf points.pdf sheets/sheets.pdf
 
 clean:
 	rm -f *.log *.aux *.dvi *~

@@ -7,7 +7,7 @@ if [ -n "$(git diff --name-only)" ]; then
   exit 1
 fi
 
-FILES="system.pdf basic.pdf competitive.pdf points.pdf sheets.pdf"
+FILES="basic.pdf competitive.pdf points.pdf sheets.pdf"
 make all
 mv sheets/sheets.pdf sheets.pdf
 for FILE in $FILES; do
