@@ -19,10 +19,10 @@
 \row{6 card suit}
   \bid(6-12,lblue){2\d\h\s}
   \bid(13-22,lgreen){1\c\d\h\s}
-  \bid(23,lpurple){\clift{2\c\w{a}}}\\
+  \bid(23,lpurple){\clift{2\c\w{af}}}\\
 \row{7 card suit}
   \bid(0-8,lorange){\ge3\c\d\h\s}
-  \bid*(9-12,lblue){2\d\h\s}
+  %\bid*(9-12,lblue){2\d\h\s}
   \bid*(13-22,lgreen){1\c\d\h\s}
   \bid*(23,lpurple){2\c}\\
 \spanrow{5}{solid minor, 2 outside stoppers}%\footnote{7-card minor (sometimes 6), usually all 3 outside suits stopped, never a singleton or void}}
@@ -89,10 +89,10 @@ and at least two outside stoppers.
 \begin{column}[span=4]
 \setbox0\vbox{\fixcolumnwidth
 \section*{3rd seat: Rule of twenty}
-In third seat, open if (high card points + length of two longest suits) \ge\ 20.
+In third seat, open light if (high card points + length of two longest suits) \ge\ 20.
 
 \section*{4th seat: Rule of fifteen}
-In third seat, open if (high card points + length of spades) \ge\ 15.
+In fourth seat, open light if (high card points + length of spades) \ge\ 15.
 }\dp0=0pt\ht0=0pt\vskip1pc\box0
 \end{column}
 \end{columns}
@@ -133,9 +133,10 @@ between the partners.
 
 \begin{column}%[flow]
 \section*{Scoring}
+100 below = game\\
 \c,\d\ contract: 20/trick\\
 \h,\s\ contract: 30/trick\\
-\nt\ contract: 40/first, 30/after\\
+\nt\ contract: 10 + 30/trick\\
 %\\[-.5pc]
 undertricks: 50 (100 if vulnerable)\\
 \strut\hskip1em dbl'd: 1/2/2/300 (2/300 vuln)\\
@@ -147,7 +148,7 @@ grand slam: 1000 (1500 vuln)\\
 %\\[-.5pc]
 rubber: 700 (in 2), 500 (in 3)\\
 %\\[-.5pc]
-at end: game=300, part=100
+unfinished: game=300, part=100
  % There is some weirdness going on with skips...!
  % (of course... just need to redefine the section/subsection skips...)
  % (and stop overriding the real vskip!)

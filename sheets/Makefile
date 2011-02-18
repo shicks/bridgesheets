@@ -1,4 +1,4 @@
-PAGES=openings.tex notrump.tex suitresponses.tex
+PAGES=openings.tex notrump.tex suitresponses.tex competition.tex
 
 .PHONY:all clean
 
